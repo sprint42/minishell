@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/* ************************************************************************** */	
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   head.h                                             :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:32:42 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/19 14:27:10 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/21 15:59:30 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@
 */
 enum e_split_point
 {
-	STRS,
-	SPCE,
-	SNQT,
-	DBQT,
-	BSLA,
-	DOLR,
-	PIPE,
-	DPIP,
-	SEMC,
-	SNIN,
-	SNOU,
-	DBIN,
-	DBOU
+	STRS = 1 << 0,
+	SPCE = 1 << 1,
+	SNQT = 1 << 2,
+	DBQT = 1 << 3,
+	BSLA = 1 << 4,
+	DOLR = 1 << 5,
+	PIPE = 1 << 6,
+	DPIP = 1 << 7,
+	SEMC = 1 << 8,
+	SNIN = 1 << 9,
+	SNOU = 1 << 10,
+	DBIN = 1 << 11,
+	DBOU = 1 << 12
 };
 
 /*
@@ -48,22 +48,9 @@ enum e_split_point
 */
 enum e_redirection_type
 {
-	IN,
+	IN = 1,
 	OUT
 };
-
-/* 
-**	파이프 유닛
-**	char		**commands	: 명령어 테이블
-**	t_unit_rd	*rd			: redirect 연결 리스트 도입부(시작점) 주소
-**	t_unit_pipe	**pp_next	: 다음 파이프 유닛의 주소
-*/
-typedef struct t_unit_pipe
-{
-	char		**commands;
-	t_unit_rd	*rd;
-	t_unit_pipe	*pp_next;
-}	t_unit_pipe;
 
 /*
 **	리다이렉션 유닛
@@ -73,9 +60,59 @@ typedef struct t_unit_pipe
 */
 typedef struct t_unit_rd
 {
-	int			rd_type;
-	char		*filename;
-	t_unit_rd	*next;
+	int					rd_type;
+	char				*filename;
+	struct t_unit_rd	*next;
 }	t_unit_rd;
+
+/* 
+**	파이프 유닛
+**	char		**commands	: 명령어 테이블
+**	t_unit_rd	*rd			: redirect 연결 리스트 도입부(시작점) 주소
+**	t_unit_pipe	**pp_next	: 다음 파이프 유닛의 주소
+*/
+typedef struct t_unit_pipe
+{
+	char				**commands;
+	struct t_unit_rd	*rd;
+	struct t_unit_pipe	*pp_next;
+}	t_unit_pipe;
+
+/*
+**	2022. 05. 21
+**	author : mcha
+**	Description : 파싱 테스트 부분
+*/
+
+/*
+**	구조체
+*/
+
+typedef struct t_special
+{
+	char	*space;
+}t_special;
+
+typedef struct t_point
+{
+	int			flag;
+	char		*prev;
+	char		*pile;
+	char		*move;
+	t_special	*junction;
+}t_point;
+
+/*
+**	사용자 함수
+*/
+void		test(void);
+t_point		*init_struct(void);
+void		init_special(t_point *ptr);
+t_point		*malloc_point(t_point *ptr);
+t_special	*malloc_junction(t_special *ptr);
+
+/*
+**	End of parsing test session
+*/
 
 #endif
