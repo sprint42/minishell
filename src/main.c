@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yejikim <yejikim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:06:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/21 15:36:45 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/21 17:35:26 by yejikim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 
 int	main(void)
 {
-	/* TEST SESSION */
-	test();
-	/* FIN TEST */
+	char	*buf;
+
+	while(1)
+	{
+		buf = readline("minishell > ");
+		add_history();
+		// parsing
+		free(buf);
+	}
 	return (0);
 }
