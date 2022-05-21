@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+         #
+#    By: yejikim <yejikim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 14:57:06 by mcha              #+#    #+#              #
-#    Updated: 2022/05/21 17:10:48 by mcha             ###   ########.fr        #
+#    Updated: 2022/05/21 17:56:37 by yejikim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRCS_UTIL = src/util
 SRCS_TEST = src/test
 
 # Add subdirectory
-SRCS_ROOT += $(SRCS_UTIL) $(SRCS_TEST)
+# SRCS_ROOT += $(SRCS_UTIL) $(SRCS_TEST)
 
 # Src files
 FILE_TEST = $(notdir $(wildcard $(SRCS_TEST)/*.c))
@@ -38,7 +38,7 @@ vpath %.c $(SRCS_ROOT)
 COMM_OBJ	= main.o
 TEST_OBJ	= $(FILE_TEST:.c=.o)
 
-OBJS := $(COMM_OBJ) $(UTIL_OBJ) $(TEST_OBJ)
+OBJS := $(COMM_OBJ) $(UTIL_OBJ)
 OBJS := $(addprefix $(OBJS_ROOT)/, $(OBJS))
 
 all : $(NAME)

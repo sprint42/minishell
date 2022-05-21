@@ -80,6 +80,12 @@ typedef struct t_unit_pipe
 	struct t_unit_pipe	*pp_next;
 }	t_unit_pipe;
 
+typedef struct t_unit_head
+{
+    int                 cmd_cnt;
+    struct t_unit_pipe  *pp_next;
+} t_unit_head;
+
 /*
 **	2022. 05. 21
 **	author : mcha
