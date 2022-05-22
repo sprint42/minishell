@@ -45,3 +45,37 @@ void	breed_childs(t_unit_head *cmd_lst)
 	}
 	wait_childs(child);
 }
+
+int	check_builtin(t_unit_pipe *cmd)
+{
+	char	*command;
+
+	command = cmd->commands[0];
+	if (ft_strlen(command) == 4 && ft_strncmp(command, "echo", 4) == 0)
+		return (1);
+	if (ft_strlen(command) == 2 && ft_strncmp(command, "cd", 2) == 0)
+		return (1);
+	if (ft_strlen(command) == 3 && ft_strncmp(command, "pwd", 3) == 0)
+		return (1);
+	if (ft_strlen(command) == 6 && ft_strncmp(command, "export", 6) == 0)
+		return (1);
+	if (ft_strlen(command) == 3 && ft_strncmp(command, "env", 3) == 0)
+		return (1);
+	if (ft_strlen(command) == 4 && ft_strncmp(command, "exit", 4) == 0)
+		return (1);
+	return (0);
+}
+
+void execute_cmds(t_unit_head *cmd_list)
+{
+	// command가 하나밖에 없고 그 command가 built-in인 경우
+	if (cmd_list->cmd_cnt == 1 && check_builtin(cmd_list->pp_next))
+	{
+		// built-in 수행 함수 call (int return하는게 좋을 듯)
+		// return 값에 맞게 exit_status set 후 종료
+		// return ;
+	}
+	// command가 2개 이상이거나
+	// 1개라도 built-in이 아니면 fork해서 command를 처리해야 함
+	breed_childs(cmd_list);
+}
