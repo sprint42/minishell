@@ -7,16 +7,17 @@ void	wait_childs(t_child_info child)
 	int ret;
 
 	i = 0;
-	while (i < cmd_lst->cmd_cnt)
+	while (i < child.num_of_child)
 	{
-		ret = waitpid(pid[i], &(child.status[i], 0));
+		ret = waitpid(child.pid[i], &(child.status[i]), 0);
 		i++;
 	}
 	// memory 전부 해제
-	// exit with 마지막 cmd의 status
+	// STDIN 복구
+	// exit status를 마지막 cmd의 status로 set
 }
 
-void	execute_cmds(t_unit_head *cmd_lst)
+void	breed_childs(t_unit_head *cmd_lst)
 {
 	int				i;
 	int				fd[2];
@@ -24,7 +25,8 @@ void	execute_cmds(t_unit_head *cmd_lst)
 
 	child.num_of_child = cmd_lst->cmd_cnt;
 	child.pid = malloc(sizeof(pid_t) * child.num_of_child);
-	if (child.pid == NULL)
+	child.status = malloc(sizeof(int) * child.num_of_child);
+	if (child.pid == NULL || child.status == NULL)
 		exit_with_error();
 	i = 0;
 	while (i < child.num_of_child)
