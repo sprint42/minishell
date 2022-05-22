@@ -19,7 +19,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-
+# include <readline/readline.h>
+# include <readline/history.h>
+# include <signal.h>
 /*
 **	분기가 일어나는 포인트
 **	문자열, 공백, 작은 따옴표, 큰 따옴표, 백슬래쉬, 달러, 파이프, 더블 파이프, 세미콜론, <, >, <<, >>
@@ -77,6 +79,12 @@ typedef struct t_unit_pipe
 	struct t_unit_rd	*rd;
 	struct t_unit_pipe	*pp_next;
 }	t_unit_pipe;
+
+typedef struct t_unit_head
+{
+    int                 cmd_cnt;
+    struct t_unit_pipe  *pp_next;
+} t_unit_head;
 
 /*
 **	2022. 05. 21
