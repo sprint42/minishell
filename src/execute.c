@@ -29,6 +29,7 @@ void	breed_childs(t_unit_head *cmd_lst)
 	if (child.pid == NULL || child.status == NULL)
 		exit_with_error();
 	i = 0;
+	// cmd_lst도 같이 순회하면서 해당 cmd에 대해서만 child_process에 넘겨주는 것이 좋을 듯
 	while (i < child.num_of_child)
 	{
 		if (pipe(fd) < 0)
@@ -71,9 +72,8 @@ void execute_cmds(t_unit_head *cmd_list)
 	// command가 하나밖에 없고 그 command가 built-in인 경우
 	if (cmd_list->cmd_cnt == 1 && check_builtin(cmd_list->pp_next))
 	{
-		// built-in 수행 함수 call (int return하는게 좋을 듯)
-		// return 값에 맞게 exit_status set 후 종료
-		// return ;
+		g_exit_status = execute_builtin(cmd_list, cmd_list->pp_next);
+		return ;
 	}
 	// command가 2개 이상이거나
 	// 1개라도 built-in이 아니면 fork해서 command를 처리해야 함

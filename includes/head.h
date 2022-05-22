@@ -22,10 +22,14 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 # include <signal.h>
+
+int	g_exit_status;
+
 /*
 **	분기가 일어나는 포인트
 **	문자열, 공백, 작은 따옴표, 큰 따옴표, 백슬래쉬, 달러, 파이프, 더블 파이프, 세미콜론, <, >, <<, >>
 */
+
 enum e_split_point
 {
 	STRS = 1 << 0,
@@ -80,9 +84,11 @@ typedef struct t_unit_pipe
 	struct t_unit_pipe	*pp_next;
 }	t_unit_pipe;
 
+// envp랑, 분할한 path 정보도 있으면 좋을 듯
 typedef struct t_unit_head
 {
     int                 cmd_cnt;
+	char				**path;
     struct t_unit_pipe  *pp_next;
 } t_unit_head;
 
