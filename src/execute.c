@@ -59,16 +59,19 @@ void	breed_childs(t_unit_head *cmd_lst)
 	i = 0;
 	// cmd_lst도 같이 순회하면서 해당 cmd에 대해서만 child_process에 넘겨주는 것이 좋을 듯
 	curr_cmd = cmd_lst->pp_next;
-	while (i < child.num_of_child)
+	while (i < child.num_of_child - 1)
 	{
-		if (pipe(pipe_fd[i]) < 0)
-			exit_with_error();
+		if (i != child.num_of_child)
+		{
+			if (pipe(pipe_fd[i]) < 0)
+				exit_with_error();
+		}
 		child.pid[i] = fork();
 		if (child.pid[i] < 0)
 			exit_with_error();
 		if (child.pid[i] == 0)
 		{
-			child_process();
+			child_process(curr_cmd);
 			return ;
 		}
 		curr_cmd = curr_cmd->pp_next;
