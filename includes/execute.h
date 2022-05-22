@@ -2,6 +2,7 @@
 # define EXECUTE_H
 
 # include <sys/wait.h>
+# include <fcntl.h>
 
 typedef struct t_child_info
 {
@@ -16,5 +17,7 @@ void	breed_childs(t_unit_head *cmd_lst);
 void	wait_childs(t_child_info child);
 
 int		execute_builtin(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
+
+void	redirect(t_unit_rd *rd);
 
 #endif
