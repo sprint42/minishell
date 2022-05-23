@@ -50,7 +50,7 @@ int	execute_cd_home(void)
 	if (chdir(path) < 0)
 		exit_with_error();
 	free(path);
-	return (0);
+	return (0); 
 }
 
 int	execute_cd(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
@@ -77,9 +77,21 @@ int	execute_cd(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	}
 	else
 		path = curr_cmd[1];
-	if (chdir(path) < 0)
+	if (chdir(path) < 0) // file이 없는 경우 에러가 아니라 return (1)?
 		exit_with_error();
 	free(path);
+	return (0);
+}
+
+int	execute_pwd(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
+{
+	char	*pwd;
+
+	pwd = getcwd(NULL, 0);
+	if (pwd == NULL)
+		exit_with_error();
+	ft_putstr_fd(pwd, STDOUT_FILENO);
+	free(pwd);
 	return (0);
 }
 
