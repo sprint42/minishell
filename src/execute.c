@@ -1,15 +1,15 @@
 #include "head.h"
 #include "execute.h"
 
-void	wait_childs(t_child_info child, t_unit_head *cmd_lst, int **pipe)
+void	wait_childs(t_unit_head *cmd_lst, int **pipe)
 {
 	int	i;
 	int ret;
 
 	i = 0;
-	while (i < child.num_of_child)
+	while (i < cmd_lst->cmd_cnt)
 	{
-		ret = waitpid(child.pid[i], &(child.status[i]), 0);
+		ret = waitpid(cmd_lst->child.pid[i], &(cmd_lst->child.status[i]), 0);
 		i++;
 	}
 	// memory 전부 해제 (child, cmd_lst 전부) + pipe도..
@@ -43,14 +43,14 @@ int	**generate_pipe(int cmd_cnt)
 	return (pipe_fd);
 }
 
-void	execute_last_cmd(t_unit_pipe *curr_cmd, int **pipe_fd, t_child_info child, int i)
+void	execute_last_cmd(t_unit_pipe *curr_cmd, t_unit_head *cmd_lst, int **pipe_fd, int i)
 {
 	extern char	**environ;
-	
-	child.pid[i] = fork();
-	if (child.pid[i] < 0)
+
+	cmd_lst->child.pid[i] = fork();
+	if (cmd_lst->child.pid[i] < 0)
 		exit_with_error();
-	if (child.pid[i] == 0)
+	if (cmd_lst->child.pid[i] == 0)
 	{
 		if (dup2(pipe_fd[i - 1][READ_END], STDIN_FILENO) < 0)
 			exit_with_error();
@@ -67,24 +67,18 @@ void	breed_childs(t_unit_head *cmd_lst)
 	int				i;
 	int				**pipe_fd;
 	t_unit_pipe		*curr_cmd;
-	t_child_info	child;
-
-	child.num_of_child = cmd_lst->cmd_cnt;
-	child.pid = malloc(sizeof(pid_t) * child.num_of_child);
-	child.status = malloc(sizeof(int) * child.num_of_child);
-	pipe_fd = generate_pipe(cmd_lst->cmd_cnt);
-	if (child.pid == NULL || child.status == NULL || pipe_fd == NULL)
-		exit_with_error();
+	
 	i = 0;
 	curr_cmd = cmd_lst->pp_next;
-	while (i < child.num_of_child - 1)
+	pipe_fd = generate_pipe(cmd_lst->cmd_cnt);
+	while (i < cmd_lst->cmd_cnt - 1)
 	{
 		if (pipe(pipe_fd[i]) < 0)
 			exit_with_error();
-		child.pid[i] = fork();
-		if (child.pid[i] < 0)
+		cmd_lst->child.pid[i] = fork();
+		if (cmd_lst->child.pid[i] < 0)
 			exit_with_error();
-		if (child.pid[i] == 0)
+		if (cmd_lst->child.pid[i] == 0)
 		{
 			execute_execve(curr_cmd, pipe_fd, i);
 			return ;
@@ -92,8 +86,8 @@ void	breed_childs(t_unit_head *cmd_lst)
 		curr_cmd = curr_cmd->pp_next;
 		i++;
 	}
-	execute_last_cmd(curr_cmd, pipe_fd, child, i);
-	wait_childs(child, cmd_lst, pipe);
+	execute_last_cmd(curr_cmd, cmd_lst, pipe_fd, i);
+	wait_childs(cmd_lst, pipe);
 }
 
 int	check_builtin(t_unit_pipe *cmd)
@@ -116,16 +110,20 @@ int	check_builtin(t_unit_pipe *cmd)
 	return (0);
 }
 
-void execute_cmds(t_unit_head *cmd_list)
+void execute_cmds(t_unit_head *cmd_lst)
 {
 	// command가 하나밖에 없고 그 command가 built-in인 경우
-	if (cmd_list->cmd_cnt == 1 && check_builtin(cmd_list->pp_next))
+	if (cmd_lst->cmd_cnt == 1 && check_builtin(cmd_lst->pp_next))
 	{
-		g_exit_status = execute_builtin(cmd_list, cmd_list->pp_next);
+		g_exit_status = execute_builtin(cmd_lst, cmd_lst->pp_next);
 		// 메모리 해제
 		return ;
 	}
 	// command가 2개 이상이거나
 	// 1개라도 built-in이 아니면 fork해서 command를 처리해야 함
-	breed_childs(cmd_list);
+	cmd_lst->child.pid = malloc(sizeof(pid_t) * cmd_lst->cmd_cnt);
+	cmd_lst->child.status = malloc(sizeof(int) * cmd_lst->cmd_cnt);
+	if (cmd_lst->child.pid == NULL || cmd_lst->child.status == NULL)
+		exit_with_error();
+	breed_childs(cmd_lst);
 }

@@ -84,12 +84,24 @@ typedef struct t_unit_pipe
 	struct t_unit_pipe	*pp_next;
 }	t_unit_pipe;
 
+/*
+** child info를 저장할 수 있는 구조체
+** pid_t	*pid	: 각 child별 pid 저장
+** int		*status	: 각 child별 종료 status 저장
+*/
+typedef struct t_child_info
+{
+	pid_t	*pid;
+	int		*status;
+} t_child_info;
+
 // envp랑, 분할한 path 정보도 있으면 좋을 듯
 typedef struct t_unit_head
 {
     int                 cmd_cnt;
 	char				**path;
     struct t_unit_pipe  *pp_next;
+	t_child_info		child;
 } t_unit_head;
 
 /*
