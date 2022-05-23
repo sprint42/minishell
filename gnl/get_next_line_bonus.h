@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 13:44:56 by mcha              #+#    #+#             */
-/*   Updated: 2021/11/25 10:29:53 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/23 14:22:30 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,7 @@
 
 # define TRUE 1
 
-char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
-char	*ft_strdup(char *s1);
-void	*ft_memchr(const void *s, int c, size_t n);
 void	ft_free_ptr(void **ptr);
-size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 #endif
