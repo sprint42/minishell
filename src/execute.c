@@ -43,6 +43,25 @@ int	**generate_pipe(int cmd_cnt)
 	return (pipe_fd);
 }
 
+void	execute_last_cmd(t_unit_pipe *curr_cmd, int **pipe_fd, t_child_info child, int i)
+{
+	extern char	**environ;
+	
+	child.pid[i] = fork();
+	if (child.pid[i] < 0)
+		exit_with_error();
+	if (child.pid[i] == 0)
+	{
+		if (dup2(pipe_fd[i - 1][READ_END], STDIN_FILENO) < 0)
+			exit_with_error();
+		close(pipe_fd[i - 1][READ_END]);
+		redirect(curr_cmd->rd);
+		// execve(curr_cmd->commands[0], curr_cmd->command, envp)
+		// exit status 처리
+		return ;
+	}
+}
+
 void	breed_childs(t_unit_head *cmd_lst)
 {
 	int				i;
@@ -57,26 +76,23 @@ void	breed_childs(t_unit_head *cmd_lst)
 	if (child.pid == NULL || child.status == NULL || pipe_fd == NULL)
 		exit_with_error();
 	i = 0;
-	// cmd_lst도 같이 순회하면서 해당 cmd에 대해서만 child_process에 넘겨주는 것이 좋을 듯
 	curr_cmd = cmd_lst->pp_next;
 	while (i < child.num_of_child - 1)
 	{
-		if (i != child.num_of_child)
-		{
-			if (pipe(pipe_fd[i]) < 0)
-				exit_with_error();
-		}
+		if (pipe(pipe_fd[i]) < 0)
+			exit_with_error();
 		child.pid[i] = fork();
 		if (child.pid[i] < 0)
 			exit_with_error();
 		if (child.pid[i] == 0)
 		{
-			child_process(curr_cmd);
+			execute_execve(curr_cmd, pipe_fd, i);
 			return ;
 		}
 		curr_cmd = curr_cmd->pp_next;
 		i++;
 	}
+	execute_last_cmd(curr_cmd, pipe_fd, child, i);
 	wait_childs(child, cmd_lst, pipe);
 }
 
