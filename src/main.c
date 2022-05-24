@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:06:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/22 13:40:25 by yejin            ###   ########.fr       */
+/*   Updated: 2022/05/24 14:02:21 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ int	main(void)
 	char		*buf;
 	t_unit_head	*cmd_lst;
 
+	(void)cmd_lst;
 	g_exit_status = 0;
 	while(1)
 	{
 		buf = readline("minishell > ");
 		add_history(buf);
+		test();
 		// parsing
 		free(buf);
 	}
