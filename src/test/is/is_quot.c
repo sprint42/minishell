@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   is_quot.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 15:06:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/24 14:13:25 by mcha             ###   ########.fr       */
+/*   Created: 2022/05/24 17:33:24 by mcha              #+#    #+#             */
+/*   Updated: 2022/05/24 17:35:51 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int	main(void)
+static int	is_real_squot(t_point *pck)
 {
-	char		*buf;
-	t_unit_head	*cmd_lst;
+	if (!(pck->flag & DBQT))
+		return (1);
+	return (0);
+}
 
-	(void)cmd_lst;
-	g_exit_status = 0;
-	while(1)
-	{
-		buf = readline("minishell > ");
-		add_history(buf);
-		test();
-		// parsing
-		free(buf);
-	}
+static int	is_real_dquot(t_point *pck)
+{
+	if (!(pck->flag & SNQT))
+		return (1);
+	return (0);
+}
+
+int	is_quot(t_point *pck, char c)
+{
+	if (c == '\'' && is_real_squot(pck))
+		return (1);
+	else if (c == '\"' && is_real_dquot(pck))
+		return (1);
 	return (0);
 }

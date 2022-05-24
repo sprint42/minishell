@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:45:28 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/24 11:59:57 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/24 18:09:01 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ char	*init_between_trim(void)
 	return (trm);
 }
 
-char	*init_dollar_trim(void)
+char	*init_special_dolr(void)
 {
 	char	*trm;
 
@@ -126,10 +126,10 @@ char	*init_dollar_trim(void)
 
 void	init_special(t_point *ptr)
 {
-	ptr->junction->space = init_special_space();
+	ptr->junction->space_trim_set = init_special_space();
 	ptr->junction->trm = init_special_trim();
 	ptr->junction->squote_trm = init_squote_trim();
 	ptr->junction->dquote_trm = init_dquote_trim();
 	ptr->junction->between_trm = init_between_trim();
-	ptr->junction->dollar_trm = init_dollar_trim();
+	ptr->junction->dolr_trim_set = init_special_dolr();
 }

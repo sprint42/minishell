@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   proc_redr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 15:06:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/24 14:13:25 by mcha             ###   ########.fr       */
+/*   Created: 2022/05/24 16:41:33 by mcha              #+#    #+#             */
+/*   Updated: 2022/05/24 18:09:28 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int	main(void)
+void	proc_redr(t_point *pck, char **s, char **ret, char redr)
 {
-	char		*buf;
-	t_unit_head	*cmd_lst;
-
-	(void)cmd_lst;
-	g_exit_status = 0;
-	while(1)
-	{
-		buf = readline("minishell > ");
-		add_history(buf);
-		test();
-		// parsing
-		free(buf);
-	}
-	return (0);
+	if (ft_strlen(*ret) > 0)
+		printf("\n	[RETN-REDIR]	: (s)%s(e)\n\n", *ret);
+	pck->pile = *s;
+	while (**s && find_redr(pck, **s, redr))
+		(*s)++;
+	*ret = ft_substr(pck->pile, 0, *s - pck->pile);
+	// printf("[JOIN]	: (s)%s(e)\n", *ret);
+	if (ft_strlen(*ret) > 0)
+		printf("\n	[RETN-REDIR]	: (s)%s(e)\n\n", *ret);
+	*ret = "";
 }

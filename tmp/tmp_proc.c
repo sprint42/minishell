@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 18:07:30 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/24 13:11:52 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/24 15:07:39 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -564,6 +564,7 @@ char	*proc_parse_dollar(t_point *pck, char **s, char *ret)
 		}
 		else
 		{
+			printf("	hmmmmmmmmmms: %s\n", *s);
 			// printf("here\n");
 			pck->pile = *s;
 			// printf("	pile: %s\n", pck->pile);
@@ -574,13 +575,17 @@ char	*proc_parse_dollar(t_point *pck, char **s, char *ret)
 			}
 			// printf("as: %s\n", *s);
 			ret = ft_strjoin(ret, ft_substr(pck->pile, 0, *s - pck->pile));
-			// printf("ret: %s\n", ret);
+			printf("ret: %s\n", ret);
+			if (outer == 32 && ((**s) == '\'' || (**s) == '\"'))
+				(*s)++;
+			// if (**s == '\'' || **s == '\"')
+			// 	(*s)--;
 			// (*s)--;
 		}
 		// printf("outer: %d\n", outer);
 		// printf("s: %s\n", *s);
-		if (outer == 32 && ((**s) == '\'' || (**s) == '\"'))
-			(*s)++;
+		// if (outer == 32 && ((**s) == '\'' || (**s) == '\"'))
+		// 	(*s)++;
 		// printf("	ret: (s)%s(e)\n", ret);
 	}
 	// printf("tot: (s)%s(e)\n", ret);
@@ -608,6 +613,8 @@ void	proc_dollar(t_point *pck, char **s)
 		{
 			// 달러 파싱
 			cut = ft_strjoin(cut, "DOLLAR");
+			printf("now cut : (s)%s(e)\n", cut);
+			printf("now s	: (s)%s(e)\n", *s);
 			cut = proc_parse_dollar(pck,  s, cut);
 			// cut = ft_strjoin(cut, );
 			// printf("now cut : (s)%s(e)\n", cut);
@@ -619,7 +626,7 @@ void	proc_dollar(t_point *pck, char **s)
 		// if (!is_quote(pck, s))
 		// 	(*s)++;
 	}
-	// printf("after s	: (s)%s(e)\n", *s);
+	printf("after s	: (s)%s(e)\n", *s);
 	// ft_substr(pck->pile, 0, *s - pck->pile);
 	if (ft_strlen(cut) > 0)
 		link_new_node(pck->parsed_lst, new_node("STR", cut));

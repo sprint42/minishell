@@ -120,12 +120,12 @@ typedef struct t_unit_head
 
 typedef struct t_special
 {
-	char	*space;
+	char	*space_trim_set;
 	char	*trm;
 	char	*squote_trm;
 	char	*dquote_trm;
 	char	*between_trm;
-	char	*dollar_trm;
+	char	*dolr_trim_set;
 }t_special;
 
 typedef struct t_parsed
@@ -143,7 +143,7 @@ typedef struct t_point
 	char		*pile;
 	char		*move;
 	t_special	*junction;
-	t_parsed	*parsed_lst;
+	t_parsed	*parsed;
 }t_point;
 
 
@@ -157,32 +157,66 @@ t_point		*malloc_point(t_point *ptr);
 t_special	*malloc_junction(t_special *ptr);
 t_parsed	*malloc_parsed(t_parsed *ptr);
 
-// judge
-void	is_space(t_point *pck, char **s);
-void	is_null(t_point *pck, char **s);
-void	proc_space(t_point *pck, char **s);
-void	proc_null(t_point *pck, char **s);
+/*
+**	judge special
+*/
+void		judge_special(t_point *pck, char **s, char **ret);
 
-int		is_quote(t_point *pck, char **s);
-void	proc_quote(t_point *pck, char **s);
-// void	proc_squote(t_point *pck, char **s);
-// void	proc_dquote(t_point *pck, char **s);
+/*
+**	is special word?
+*/
+int			is_space(t_point *pck, char c);
+int			is_null(char c);
+int			is_pipe(t_point *pck, char c);
+int			is_redr(t_point *pck, char c);
+int			is_dolr(t_point *pck, char c);
+int			is_quot(t_point *pck, char c);
 
-void	is_pipe(t_point *pck, char **s);
-void	proc_pipe(t_point *pck, char **s);
+/*
+**	find
+*/
+int			find_wspace(t_point *pck, char c);
+int			find_pipe(t_point *pck, char c);
+int			find_redr(t_point *pck, char c, char redr);
+int			find_dolr_trim(t_point *pck, char c);
 
-void	is_redir(t_point *pck, char **s);
-void	proc_oured(t_point *pck, char **s);
-void	proc_inred(t_point *pck, char **s);
 
-t_parsed	*new_node(char *type, char *str);
-void	link_new_node(t_parsed *og, t_parsed *new);
+/*
+**	process
+*/
+void		proc_space(t_point *pck, char **s, char **ret);
+void		proc_null(t_point *pck, char **ret);
+void		proc_pipe(t_point *pck, char **s, char **ret);
+void		proc_redr(t_point *pck, char **s, char **ret, char redr);
+void		proc_dolr(t_point *pck, char **s, char **ret);
+void		proc_quot(t_point *pck, char **s, char **ret, char quot);
 
-void	manufact(t_point *ptr);
-void	manufact_type(t_parsed **tmp, t_point *ptr);
+// // judge
+// void	is_space(t_point *pck, char **s);
+// void	is_null(t_point *pck, char **s);
+// void	proc_space(t_point *pck, char **s);
+// void	proc_null(t_point *pck, char **s);
 
-void	is_dollar(t_point *pck, char **s);
-void	proc_dollar(t_point *pck, char **s);
+// int		is_quote(t_point *pck, char **s);
+// void	proc_quote(t_point *pck, char **s);
+// // void	proc_squote(t_point *pck, char **s);
+// // void	proc_dquote(t_point *pck, char **s);
+
+// void	is_pipe(t_point *pck, char **s);
+// void	proc_pipe(t_point *pck, char **s);
+
+// void	is_redir(t_point *pck, char **s);
+// void	proc_oured(t_point *pck, char **s);
+// void	proc_inred(t_point *pck, char **s);
+
+// t_parsed	*new_node(char *type, char *str);
+// void	link_new_node(t_parsed *og, t_parsed *new);
+
+// void	manufact(t_point *ptr);
+// void	manufact_type(t_parsed **tmp, t_point *ptr);
+
+// void	is_dollar(t_point *pck, char **s);
+// void	proc_dollar(t_point *pck, char **s);
 // void	str_handler(t_parsed *tmp, t_point *ptr);
 
 /*

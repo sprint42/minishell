@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   is_redr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 15:06:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/24 14:13:25 by mcha             ###   ########.fr       */
+/*   Created: 2022/05/24 16:40:02 by mcha              #+#    #+#             */
+/*   Updated: 2022/05/24 16:41:22 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int	main(void)
+static int is_real_redr(t_point *pck)
 {
-	char		*buf;
-	t_unit_head	*cmd_lst;
+	if (!(pck->flag & SNQT) && !(pck->flag & DBQT))
+		return (1);
+	return (0);
+}
 
-	(void)cmd_lst;
-	g_exit_status = 0;
-	while(1)
-	{
-		buf = readline("minishell > ");
-		add_history(buf);
-		test();
-		// parsing
-		free(buf);
-	}
+int	is_redr(t_point *pck, char c)
+{
+	(void)pck;
+	if ((c == '<' || c == '>') && is_real_redr(pck))
+		return (1);
 	return (0);
 }

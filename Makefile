@@ -6,7 +6,7 @@
 #    By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 14:57:06 by mcha              #+#    #+#              #
-#    Updated: 2022/05/24 14:04:00 by mcha             ###   ########.fr        #
+#    Updated: 2022/05/24 18:37:26 by mcha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,28 +23,35 @@ OBJS_ROOT	= obj
 SRCS_ROOT	= src
 
 # Src subdirectory
-SRCS_UTIL = src/util
-SRCS_TEST = src/test
-# 삭제 해야됨
+SRCS_UTIL 	= src/util
+SRCS_TEST 	= src/test
+SRCS_IS		= $(SRCS_TEST)/is
+SRCS_PROC	= $(SRCS_TEST)/proc
+SRCS_STRUCT	= $(SRCS_TEST)/struct
 SRCS_LIBF = libft
 
 # Add subdirectory
-SRCS_ROOT += $(SRCS_UTIL) $(SRCS_TEST) $(SRCS_LIBF)
+SRCS_ROOT += $(SRCS_UTIL) $(SRCS_TEST) $(SRCS_IS) $(SRCS_PROC) $(SRCS_STRUCT) $(SRCS_LIBF)
 
 # Src files
-FILE_TEST = $(notdir $(wildcard $(SRCS_TEST)/*.c))
-FILE_UTIL = $(notdir $(wildcard $(SRCS_UTIL)/*.c))
-
-FILE_LIBF = $(notdir $(wildcard $(SRCS_LIBF)/*.c))
+FILE_TEST 	= $(notdir $(wildcard $(SRCS_TEST)/*.c))
+FILE_UTIL 	= $(notdir $(wildcard $(SRCS_UTIL)/*.c))
+FILE_IS		= $(notdir $(wildcard $(SRCS_IS)/*.c))
+FILE_PROC	= $(notdir $(wildcard $(SRCS_PROC)/*.c))
+FILE_STRUCT	= $(notdir $(wildcard $(SRCS_STRUCT)/*.c))
+FILE_LIBF 	= $(notdir $(wildcard $(SRCS_LIBF)/*.c))
 
 vpath %.c $(SRCS_ROOT)
 
 # Common file objects
 COMM_OBJ	= main.o
 TEST_OBJ	= $(FILE_TEST:.c=.o)
+IS_OBJ		= $(FILE_IS:.c=.o)
+PROC_OBJ	= $(FILE_PROC:.c=.o)
+STRUCT_OBJ	= $(FILE_STRUCT:.c=.o)
 LIBF_OBJ	= $(FILE_LIBF:.c=.o)
 
-OBJS := $(COMM_OBJ) $(UTIL_OBJ) $(TEST_OBJ) $(LIBF_OBJ)
+OBJS := $(COMM_OBJ) $(TEST_OBJ) $(IS_OBJ) $(PROC_OBJ) $(STRUCT_OBJ) $(LIBF_OBJ)
 OBJS := $(addprefix $(OBJS_ROOT)/, $(OBJS))
 
 all : $(NAME)

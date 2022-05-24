@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   proc_null.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 15:06:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/24 14:13:25 by mcha             ###   ########.fr       */
+/*   Created: 2022/05/24 16:09:58 by mcha              #+#    #+#             */
+/*   Updated: 2022/05/24 16:33:37 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int	main(void)
+void	proc_null(t_point *pck, char **ret)
 {
-	char		*buf;
-	t_unit_head	*cmd_lst;
-
-	(void)cmd_lst;
-	g_exit_status = 0;
-	while(1)
-	{
-		buf = readline("minishell > ");
-		add_history(buf);
-		test();
-		// parsing
-		free(buf);
-	}
-	return (0);
+	// 링크드 리스트에 ret 연결시킨 뒤 초기화
+	if (ft_strlen(*ret) > 0)
+		printf("\n	[RETN-NULLL]	: (s)%s(e)\n\n", *ret);
+	*ret = "";
+	// null을 만난 순간 flag도 0으로 초기화 해준다.
+	pck->flag = 0;
 }
