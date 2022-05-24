@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   is_null.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 15:06:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/24 19:31:34 by mcha             ###   ########.fr       */
+/*   Created: 2022/05/24 16:08:14 by mcha              #+#    #+#             */
+/*   Updated: 2022/05/24 16:16:43 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int	main(void)
+int	is_null(char c)
 {
-	char		*buf;
-	t_unit_head	*cmd_lst;
-
-	(void)cmd_lst;
-	g_exit_status = 0;
-	while(1)
-	{
-		buf = readline("minishell > ");
-		add_history(buf);
-		test();
-		// parsing
-		free(buf);
-	}
+	if (c == 0)
+		return (1);
 	return (0);
 }
