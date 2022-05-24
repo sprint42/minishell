@@ -1,7 +1,7 @@
 #include "head.h"
 #include "execute.h"
 
-int check_n_flag(char *option_str)
+int echo_check_newline(char *option_str)
 {
 	int	i;
 
@@ -37,7 +37,7 @@ int execute_echo(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	return (0);
 }
 
-int	execute_cd_home(void)
+int	cd_home(void)
 {
 	char	*path;
 
@@ -94,6 +94,8 @@ int	execute_pwd(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	free(pwd);
 	return (0);
 }
+
+
 
 int	execute_builtin(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 {
