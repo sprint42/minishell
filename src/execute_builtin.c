@@ -59,9 +59,9 @@ int	execute_cd(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	char	*temp;
 	char	*path;
 	
-	if (curr_cmd[1] == NULL)
+	if (curr_cmd->commands[1] == NULL)
 		return (execute_cd_home());
-	if (curr_cmd[1][0] != '/')
+	if (curr_cmd->commands[1][0] != '/')
 	{
 		pwd = getcwd(NULL, 0);
 		if (pwd == NULL)
@@ -70,13 +70,13 @@ int	execute_cd(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 		free(pwd);
 		if (temp == NULL)
 			exit_with_error();
-		path = ft_strjoin(temp, curr_cmd[1]);
+		path = ft_strjoin(temp, curr_cmd->commands[1]);
 		free(temp);
 		if (path == NULL)
 			exit_with_error();
 	}
 	else
-		path = curr_cmd[1];
+		path = curr_cmd->commands[1];
 	if (chdir(path) < 0) // file이 없는 경우 에러가 아니라 return (1)?
 		exit_with_error();
 	free(path);
@@ -94,8 +94,6 @@ int	execute_pwd(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	free(pwd);
 	return (0);
 }
-
-
 
 int	execute_builtin(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 {
