@@ -23,6 +23,8 @@
 # include <readline/history.h>
 # include <signal.h>
 
+# include "../libft/libft.h"
+
 int	g_exit_status;
 
 /*
@@ -44,7 +46,8 @@ enum e_split_point
 	SNIN = 1 << 9,
 	SNOU = 1 << 10,
 	DBIN = 1 << 11,
-	DBOU = 1 << 12
+	DBOU = 1 << 12,
+	COMM = 1 << 13
 };
 
 /*
@@ -118,7 +121,20 @@ typedef struct t_unit_head
 typedef struct t_special
 {
 	char	*space;
+	char	*trm;
+	char	*squote_trm;
+	char	*dquote_trm;
+	char	*between_trm;
+	char	*dollar_trm;
 }t_special;
+
+typedef struct t_parsed
+{
+	char	*type;
+	char	*str;
+	struct t_parsed	*prev;
+	struct t_parsed	*next;
+}t_parsed;
 
 typedef struct t_point
 {
@@ -127,7 +143,9 @@ typedef struct t_point
 	char		*pile;
 	char		*move;
 	t_special	*junction;
+	t_parsed	*parsed_lst;
 }t_point;
+
 
 /*
 **	사용자 함수
@@ -137,6 +155,35 @@ t_point		*init_struct(void);
 void		init_special(t_point *ptr);
 t_point		*malloc_point(t_point *ptr);
 t_special	*malloc_junction(t_special *ptr);
+t_parsed	*malloc_parsed(t_parsed *ptr);
+
+// judge
+void	is_space(t_point *pck, char **s);
+void	is_null(t_point *pck, char **s);
+void	proc_space(t_point *pck, char **s);
+void	proc_null(t_point *pck, char **s);
+
+int		is_quote(t_point *pck, char **s);
+void	proc_quote(t_point *pck, char **s);
+// void	proc_squote(t_point *pck, char **s);
+// void	proc_dquote(t_point *pck, char **s);
+
+void	is_pipe(t_point *pck, char **s);
+void	proc_pipe(t_point *pck, char **s);
+
+void	is_redir(t_point *pck, char **s);
+void	proc_oured(t_point *pck, char **s);
+void	proc_inred(t_point *pck, char **s);
+
+t_parsed	*new_node(char *type, char *str);
+void	link_new_node(t_parsed *og, t_parsed *new);
+
+void	manufact(t_point *ptr);
+void	manufact_type(t_parsed **tmp, t_point *ptr);
+
+void	is_dollar(t_point *pck, char **s);
+void	proc_dollar(t_point *pck, char **s);
+// void	str_handler(t_parsed *tmp, t_point *ptr);
 
 /*
 **	End of parsing test session

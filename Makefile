@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yejikim <yejikim@student.42.fr>            +#+  +:+       +#+         #
+#    By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 14:57:06 by mcha              #+#    #+#              #
-#    Updated: 2022/05/21 17:56:37 by yejikim          ###   ########.fr        #
+#    Updated: 2022/05/24 14:04:00 by mcha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,20 +25,26 @@ SRCS_ROOT	= src
 # Src subdirectory
 SRCS_UTIL = src/util
 SRCS_TEST = src/test
+# 삭제 해야됨
+SRCS_LIBF = libft
 
 # Add subdirectory
-# SRCS_ROOT += $(SRCS_UTIL) $(SRCS_TEST)
+SRCS_ROOT += $(SRCS_UTIL) $(SRCS_TEST) $(SRCS_LIBF)
 
 # Src files
 FILE_TEST = $(notdir $(wildcard $(SRCS_TEST)/*.c))
+FILE_UTIL = $(notdir $(wildcard $(SRCS_UTIL)/*.c))
+
+FILE_LIBF = $(notdir $(wildcard $(SRCS_LIBF)/*.c))
 
 vpath %.c $(SRCS_ROOT)
 
 # Common file objects
 COMM_OBJ	= main.o
 TEST_OBJ	= $(FILE_TEST:.c=.o)
+LIBF_OBJ	= $(FILE_LIBF:.c=.o)
 
-OBJS := $(COMM_OBJ) $(UTIL_OBJ)
+OBJS := $(COMM_OBJ) $(UTIL_OBJ) $(TEST_OBJ) $(LIBF_OBJ)
 OBJS := $(addprefix $(OBJS_ROOT)/, $(OBJS))
 
 all : $(NAME)

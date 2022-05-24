@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   node.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 15:06:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/24 14:02:21 by mcha             ###   ########.fr       */
+/*   Created: 2022/05/22 22:19:19 by mcha              #+#    #+#             */
+/*   Updated: 2022/05/23 23:11:17 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int	main(void)
+t_parsed	*new_node(char *type, char *str)
 {
-	char		*buf;
-	t_unit_head	*cmd_lst;
+	t_parsed	*node;
 
-	(void)cmd_lst;
-	g_exit_status = 0;
-	while(1)
-	{
-		buf = readline("minishell > ");
-		add_history(buf);
-		test();
-		// parsing
-		free(buf);
-	}
-	return (0);
+	node = (t_parsed *)malloc(sizeof(t_parsed));
+	if (!node)
+		exit(EXIT_FAILURE);
+	node->type = type;
+	node->str = str;
+	node->prev = NULL;
+	node->next = NULL;
+	return (node);
+}
+
+void	link_new_node(t_parsed *og, t_parsed *new)
+{
+	t_parsed	*ptr;
+
+	ptr = og;
+	while (ptr->next)
+		ptr = ptr->next;
+	ptr->next = new;
+	new->prev = ptr;
 }
