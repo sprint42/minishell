@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 14:39:35 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/23 22:58:39 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/24 19:18:46 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	manufact(t_point *ptr)
 {
 	t_parsed	*tmp;
 
-	tmp = ptr->parsed_lst->next;
+	tmp = ptr->parsed->next;
 	ptr->flag &= 0;
 	// print_inner_node_lst(tmp);
 	while (tmp)
