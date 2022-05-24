@@ -101,6 +101,7 @@ typedef struct t_unit_head
     int                 cmd_cnt;
 	char				**path;
     struct t_unit_pipe  *pp_next;
+	char				**envp;
 	t_child_info		child;
 } t_unit_head;
 
