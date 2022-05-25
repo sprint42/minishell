@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:21:15 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/24 18:37:43 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/25 16:58:03 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ void	judge_special(t_point *pck, char **s, char **ret)
 	}
 	else
 	{
-		*ret = ft_strjoin(*ret, ft_substr(*s, 0, *s + 1 - *s));
-		// printf("[JOIN]	: (s)%s(e)\n", *ret);
+		// *ret = ft_strjoin(*ret, ft_substr(*s, 0, *s + 1 - *s));
+		*ret = ft_strjoin_leak(*ret, ft_substr(*s, 0, *s + 1 - *s));
+		printf("[JOIN]	: (s)%s(e)\n", *ret);
 		(*s)++;
 	}
 	if (is_null(**s))

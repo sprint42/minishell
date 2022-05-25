@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   malloc_struct.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:56:33 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/22 22:42:15 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/25 15:16:16 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,16 @@ t_parsed	*malloc_parsed(t_parsed *ptr)
 	ptr->type = NULL;
 	ptr->next = NULL;
 	ptr->prev = NULL;
+	return (ptr);
+}
+
+t_unit_env	*malloc_env(t_unit_env *ptr)
+{
+	ptr = (t_unit_env *)malloc(sizeof(t_unit_env));
+	if (!ptr)
+		exit(EXIT_FAILURE);
+	ptr->env_next = NULL;
+	ptr->key = NULL;
+	ptr->value = NULL;
 	return (ptr);
 }

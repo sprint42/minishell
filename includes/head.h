@@ -149,6 +149,7 @@ typedef struct t_point
 	char		*move;
 	t_special	*junction;
 	t_parsed	*parsed;
+	t_unit_env	*env;
 }t_point;
 
 
@@ -158,7 +159,9 @@ typedef struct t_point
 void		test(void);
 t_point		*init_struct(void);
 void		init_special(t_point *ptr);
+void		init_environ(t_point *pck);
 t_point		*malloc_point(t_point *ptr);
+t_unit_env	*malloc_env(t_unit_env *ptr);
 t_parsed	*malloc_parsed(t_parsed *ptr);
 t_special	*malloc_junction(t_special *ptr);
 
@@ -201,8 +204,17 @@ void		proc_quot(t_point *pck, char **s, char **ret, char quot);
 */
 void		manufact(t_point *ptr);
 t_parsed	*new_node(char *type, char *str);
+t_unit_env	*new_env_node(char *key, char *value);
+char		*ret_env_value(t_point *pck, char *key);
 void		link_new_node(t_parsed *og, t_parsed *new);
 void		manufact_type(t_parsed **tmp, t_point *ptr);
+void		link_new_env_node(t_unit_env *og, t_unit_env *new);
+
+/*
+**	Free
+*/
+void		free_package(t_point *pck);
+void		free_env_storage(char	**storage);
 
 /*
 **	End of parsing test session
