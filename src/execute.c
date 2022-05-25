@@ -56,6 +56,7 @@ void	execute_last_cmd(t_unit_pipe *curr_cmd, t_unit_head *cmd_lst, int **pipe_fd
 			exit_with_error();
 		close(pipe_fd[i - 1][READ_END]);
 		redirect(curr_cmd->rd);
+		// builtin인지 check
 		// execve(curr_cmd->commands[0], curr_cmd->command, envp)
 		// exit status 처리
 		return ;
@@ -73,7 +74,7 @@ void	breed_childs(t_unit_head *cmd_lst)
 	pipe_fd = generate_pipe(cmd_lst->cmd_cnt);
 	while (i < cmd_lst->cmd_cnt - 1)
 	{
-		if (pipe(pipe_fd[i]) < 0)
+		if (pipe(pipe_fd[i]) < 0) // exit
 			exit_with_error();
 		cmd_lst->child.pid[i] = fork();
 		if (cmd_lst->child.pid[i] < 0)
@@ -110,20 +111,26 @@ int	check_builtin(t_unit_pipe *cmd)
 	return (0);
 }
 
-void execute_cmds(t_unit_head *cmd_lst)
+int execute_cmds(t_unit_head *cmd_lst)
 {
-	// command가 하나밖에 없고 그 command가 built-in인 경우
+	int	fd_stdin;
+	int	fd_stdout;
+
 	if (cmd_lst->cmd_cnt == 1 && check_builtin(cmd_lst->pp_next))
 	{
+		if (dup2(STDIN_FILENO, fd_stdin) < 0 || dup2(STDOUT_FILENO, fd_stdout) < 0)
+			return (handle_main_process_error("fail in dup2\n"));
 		g_exit_status = execute_builtin(cmd_lst, cmd_lst->pp_next);
-		// 메모리 해제
-		return ;
+		if (dup2(fd_stdin, STDIN_FILENO) < 0 || dup2(fd_stdout, STDOUT_FILENO) < 0)
+			return (handle_main_process_error("fail in dup2\n"));
+		close(fd_stdin);
+		close(fd_stdout);
+		free_cmd_lst(cmd_lst);
+		return (0);
 	}
-	// command가 2개 이상이거나
-	// 1개라도 built-in이 아니면 fork해서 command를 처리해야 함
 	cmd_lst->child.pid = malloc(sizeof(pid_t) * cmd_lst->cmd_cnt);
 	cmd_lst->child.status = malloc(sizeof(int) * cmd_lst->cmd_cnt);
 	if (cmd_lst->child.pid == NULL || cmd_lst->child.status == NULL)
-		exit_with_error();
+		return (handle_main_process_error("fail in malloc\n"));
 	breed_childs(cmd_lst);
 }
