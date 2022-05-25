@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:50:03 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/25 17:03:24 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/25 22:38:45 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,21 @@ t_unit_env	*new_env_node(char *key, char *value)
 char	*ret_env_value(t_point *pck, char *key)
 {
 	t_unit_env	*tmp;
+	char		*ret;
 
+	ret = NULL;
 	tmp = pck->env->env_next;
 	while (tmp)
 	{
 		if (!ft_strncmp(tmp->key, key, ft_strlen(tmp->key)))
 		{
-			printf("tmpvalue : %s\n", tmp->value);
-			return (tmp->value);
+			ret = ft_calloc(ft_strlen(tmp->value) + 1, sizeof(char));
+			ft_strlcpy(ret, (const char *)tmp->value, ft_strlen(tmp->value) + 1);
+			return (ret);
 		}
 		tmp = tmp->env_next;
 	}
-	return ("");
+	return (ft_strdup(""));
 }
 
 void	link_new_env_node(t_unit_env *og, t_unit_env *new)

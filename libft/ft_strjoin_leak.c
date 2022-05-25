@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 15:55:35 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/25 16:53:27 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/25 21:39:45 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ char	*ft_strjoin_leak(char const *s1, char const *s2)
 		free((void *)s1);
 	if (s2)
 		free((void *)s2);
-	printf("buf : %s\n", buf);
 	return (buf);
 }
