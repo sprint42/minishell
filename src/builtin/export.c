@@ -1,7 +1,7 @@
 #include "head.h"
 #include "execute.h"
 
-int	check_validity(char *str)
+static int	check_validity(char *str)
 {
 	int	validity;
 	int	i;
