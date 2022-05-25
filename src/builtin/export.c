@@ -1,118 +1,127 @@
 #include "head.h"
 #include "execute.h"
 
-static	void	sort_env(char **envp)
+static int	check_validity(char *str)
 {
-	int		i;
-	int		j;
-	char	*temp;
-
-	i = 0;
-	while (envp[i])
-	{
-		j = i + 1;
-		while (envp[j])
-		{
-			if (strncmp(envp[i], envp[j]) > 0)
-			{
-				temp = envp[i];
-				envp[i] = envp[j];
-				envp[j] = temp;
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-// 나중에 2차원 배열을 통일적으로 free 시키는 함수를 만드는 것이 더 좋을 듯
-static void	**free_copy_env(char **envp)
-{
+	int	validity;
 	int	i;
 
-	if (envp == NULL)
-		return ;
+	validity = 1;
+	if (!(ft_isalpha(str[0]) || str[0] == '_'))
+		validity = 0;
 	i = 0;
-	while (envp[i])
-		free(envp[i++]);
-	free(envp);
+	while (str[i])
+	{
+		if (!(ft_isalnum(str[i]) || str[i] == '=' || str[i] == '_'))
+			validity = 0;
+		i++;
+	}
+	if (!validity)
+	{
+		ft_putstr_fd("not a valid identifier\n", STDOUT_FILENO);
+		return (0);
+	}
+	return (1);
 }
 
-static char	**copy_env(t_unit_head *cmd_lst)
+t_unit_env	*create_env(char *str)
 {
-	int		i;
-	char	**envp;
+	t_unit_env	*pnew;
+	int			i;
 
-	if (cmd_lst->envp == NULL)
+	pnew = malloc(sizeof(t_unit_env));
+	if (pnew == NULL)
 		return (NULL);
 	i = 0;
-	while(cmd_lst->envp[i])
+	while (str[i] != '=')
 		i++;
-	envp = malloc(sizeof(char *) * (i + 1));
-	if (envp == NULL)
-		exit_with_error();
-	i = 0;
-	while (cmd_lst->envp[i])
+	pnew->key = ft_substr(str, 0, i);
+	if (pnew->key == NULL)
 	{
-		envp[i] = malloc(sizeof(char) * (ft_strlen(cmd_lst->envp) + 1);
-		if (envp[i] == NULL)
-		{
-			free_copy_env(envp);
-			exit_with_error();
-		}
-		ft_strlcpy(envp[i], cmd_lst->envp[i], ft_strlen(cmd_lst->envp) + 1);
-		i++;
+		free(pnew);
+		return (NULL);
 	}
-	return (envp);
+	pnew->value = ft_substr(str, i + 2, ft_strlen(str));
+	if (pnew->value == NULL)
+	{
+		free(pnew->key);
+		free(pnew);
+		return (NULL);
+	}
+	pnew->env_next = NULL;
+	return (pnew);
 }
 
-static int	print_env(t_unit_head *cmd_lst)
+int	find_and_change_env(t_unit_head *cmd_lst, char *key)
 {
-	int		i;
-	char	**envp;
-	
-	envp = copy_env(cmd_lst);
-	if (envp == NULL)
-		exit_with_error();
-	sort_env(envp);
-	i = 0;
-	while (envp[i])
+	t_unit_env	*curr;
+	char		*temp;
+
+	curr = cmd_lst->env_next;
+	while (curr)
 	{
-		ft_putstr_fd(envp[i], STDOUT_FILENO);
-		i++;
+		if (strncmp(curr->key, key, ft_strlen(key) + 1) == 0)
+		{
+			free(curr->key);
+			curr->key = key;
+			return (1);
+		}
+		if (curr->env_next == NULL)
+			break ;
+		curr = curr->env_next;
 	}
-	free_copy_env(envp);
 	return (0);
 }
 
-static int	add_env(t_unit_head *cmd_lst, char *new_env)
+int	add_env(t_unit_head *cmd_lst, char *str)
 {
-	
+	t_unit_env	*pnew;
+	int			i;
+	char		*key;
+
+	i = 0;
+	while (str[i] != '=')
+		i++;
+	if (key == NULL)
+		return (1);
+	if (find_and_change_env(cmd_lst, key))
+		return (0);
+	free(key);
+	pnew = create_env(str);
+	if (pnew == NULL)
+		return (1);
+	if (cmd_lst->env_next == NULL)
+		cmd_lst->env_next = pnew;
+	else
+	{
+		pnew->env_next = cmd_lst->env_next;
+		cmd_lst->env_next = pnew;
+	}
+	return (0);
 }
 
 int	execute_export(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 {
-	int	i;
-	int	exit_code;
+	int			i;
+	int			exit_code;
+	t_unit_env	*pnew;
+	char		*key;
 
 	if (curr_cmd->commands[1] == NULL)
 		return (print_env(cmd_lst));
-	i = 0;
+	i = 1;
 	exit_code = 0;
 	while (curr_cmd->commands[i])
 	{
-		if (ft_strchr(curr_cmd->commands[i], '=') != NULL)
+		if (ft_strchr(curr_cmd->commands[i], '=') == NULL)
+			continue;
+		if (check_validity(curr_cmd->commands[i]) == 0)
+			exit_code = 1;
+		else if (add_env(cmd_lst, curr_cmd->commands[i]) != 0)
 		{
-			if (!ft_isalpha(curr_cmd->commands[i][0]))
-			{
-				ft_putstr_fd("not a valid identifier\n", STDOUT_FILENO);
-				exit_code = 1;
-			}
-			else
-			{
-				if (add_env(cmd_lst, curr_cmd->commands[i]) < 0)
-					return (1);
-			}
+			ft_putstr_fd("failure in adding env : ", STDOUT_FILENO);
+			ft_putstr_fd(curr_cmd->commands[i], STDOUT_FILENO);
+			exit_code = 1;
 		}
 		i++;
 	}
