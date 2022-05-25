@@ -98,13 +98,22 @@ typedef struct t_child_info
 	int		*status;
 } t_child_info;
 
-// envp랑, 분할한 path 정보도 있으면 좋을 듯
+/*
+** 환경변수를 저장할 수 있는 구조체
+*/
+typedef struct t_unit_env
+{
+	char				*key;
+	char				*value;
+	struct t_unit_env	*env_next;
+} t_unit_env;
+
 typedef struct t_unit_head
 {
     int                 cmd_cnt;
 	char				**path;
     struct t_unit_pipe  *pp_next;
-	char				**envp;
+	struct t_unit_env	*env_next;
 	t_child_info		child;
 } t_unit_head;
 
