@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 15:00:06 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/24 19:19:57 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/25 20:56:06 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,26 @@ void	str_handler(t_parsed **tmp, t_point *ptr)
 {
 	if (!(*tmp)->prev->type)
 	{
-		(*tmp)->type = "COMM";
+		free((*tmp)->type);
+		(*tmp)->type = ft_strdup("COMM");
 		ptr->flag |= COMM;
 	}
 	else if (!ft_strncmp((*tmp)->prev->type, "REDR", 4))
-		(*tmp)->type = "FILE";
+	{
+		free((*tmp)->type);
+		(*tmp)->type = ft_strdup("FILE");
+	}
 	else if (!(ptr->flag & COMM))
 	{
-		(*tmp)->type = "COMM";
+		free((*tmp)->type);
+		(*tmp)->type = ft_strdup("COMM");
 		ptr->flag |= COMM;
 	}
 	else if (ptr->flag & COMM)
-		(*tmp)->type = "ARGS";
+	{
+		free((*tmp)->type);
+		(*tmp)->type = ft_strdup("ARGS");
+	}
 }
 
 void	pipe_handler(t_parsed **tmp, t_point *ptr)
@@ -38,6 +46,13 @@ void	pipe_handler(t_parsed **tmp, t_point *ptr)
 
 void	manufact_type(t_parsed **tmp, t_point *ptr)
 {
+	t_unit_env	*pck;
+
+		pck = ptr->env;
+		while (pck->env_next)
+		{
+			pck = pck->env_next;
+		}
 	if (!ft_strncmp((*tmp)->type, "STR", 3))
 		str_handler(tmp, ptr);
 	else if (!ft_strncmp((*tmp)->type, "PIPE", 4))

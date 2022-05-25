@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:09:03 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/25 16:22:10 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/25 22:24:23 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,31 +29,42 @@ static void	free_junction(t_point *pck)
 static void	free_environ(t_point *pck)
 {
 	t_unit_env	*tmp;
+	t_unit_env	*ptr;
 
-	while (pck->env)
+	tmp = pck->env->env_next;
+	free(pck->env);
+	ptr = tmp;
+	while (ptr)
 	{
-		tmp = pck->env->env_next;
-		free(pck->env->key);
-		free(pck->env->value);
-		pck->env->env_next = 0;
-		free(pck->env);
-		pck->env = tmp;
+		free(ptr->key);
+		free(ptr->value);
+		tmp = tmp->env_next;
+		ptr->env_next = 0;
+		free(ptr);
+		ptr = tmp;
 	}
 }
 
 static void	free_parsed(t_point *pck)
 {
 	t_parsed	*tmp;
+	t_parsed	*ptr;
 
-	while (pck->parsed)
+	ptr = pck->parsed;
+	tmp = ptr->next;
+	free(ptr);
+	ptr = tmp;
+	while (ptr)
 	{
-		tmp = pck->parsed->next;
-		pck->parsed->next = 0;
-		pck->parsed->prev = 0;
-		free(pck->parsed->type);
-		free(pck->parsed->str);
-		free(pck->parsed);
-		pck->parsed = tmp;
+		if (ptr->type)
+			free(ptr->type);
+		if (ptr->str)
+			free(ptr->str);
+		tmp = ptr->next;
+		// pck->parsed->next = 0;
+		// pck->parsed->prev = 0;
+		free(ptr);
+		ptr = tmp;
 	}
 }
 

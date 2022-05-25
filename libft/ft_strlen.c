@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 17:27:34 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/25 16:40:07 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/25 20:21:16 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int	cnt;
+	const char	*cp;
 
-	cnt = 0;
 	if (!s)
 		return (0);
-	while (*s)
-	{
-		cnt++;
-		s++;
-	}
-	return (cnt);
+	cp = s;
+	while (*cp)
+		cp++;
+	return (cp - s);
 }

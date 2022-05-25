@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:09:58 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/25 15:50:43 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/25 17:11:17 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	proc_null(t_point *pck, char **ret)
 	if (ft_strlen(*ret) > 0)
 		link_new_node(pck->parsed, new_node("STR", *ret));
 		// printf("\n	[RETN-NULLL]	: (s)%s(e)\n\n", *ret);
-	*ret = "";
+	free(*ret);
+	*ret = NULL;
 	// null을 만난 순간 flag도 0으로 초기화 해준다.
 	pck->flag = 0;
 }

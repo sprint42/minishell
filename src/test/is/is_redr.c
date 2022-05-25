@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:40:02 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/24 16:41:22 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/25 20:33:46 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static int is_real_redr(t_point *pck)
 
 int	is_redr(t_point *pck, char c)
 {
-	(void)pck;
 	if ((c == '<' || c == '>') && is_real_redr(pck))
 		return (1);
 	return (0);
