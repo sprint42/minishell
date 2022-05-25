@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+         #
+#    By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/18 00:16:13 by mcha              #+#    #+#              #
-#    Updated: 2021/11/19 11:05:04 by mcha             ###   ########.fr        #
+#    Updated: 2022/05/25 15:56:21 by mcha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRCS	= ft_isalpha.c \
 			ft_strdup.c \
 			ft_substr.c \
 			ft_strjoin.c \
+			ft_strjoin_leak.c \
 			ft_strtrim.c \
 			ft_split.c \
 			ft_itoa.c \
