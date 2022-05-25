@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:30:42 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/24 19:12:24 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/25 15:18:19 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@
 **	move	: 움직이는 포인터
 */
 
-void	bind_pointer_value(t_point *ptr, t_special *jnc, t_parsed *parsed)
+static void	bnd_ptr_val(t_point *ptr, t_special *jnc, \
+						t_parsed *par, t_unit_env *env)
 {
 	ptr->flag = 0;
 	ptr->prev = 0;
 	ptr->pile = 0;
 	ptr->move = 0;
 	ptr->junction = jnc;
-	ptr->parsed = parsed;
+	ptr->parsed = par;
+	ptr->env = env;
 }
 
 /*
@@ -40,13 +42,19 @@ t_point	*init_struct(void)
 	t_point		*ptr;
 	t_special	*junction;
 	t_parsed	*parsed;
+	t_unit_env	*env;
 
 	ptr = NULL;
 	junction = NULL;
 	parsed = NULL;
+	env = NULL;
 	ptr = malloc_point(ptr);
 	junction = malloc_junction(junction);
 	parsed = malloc_parsed(parsed);
-	bind_pointer_value(ptr, junction, parsed);
+	env = malloc_env(env);
+	bnd_ptr_val(ptr, junction, parsed, env);
+	ptr->junction = junction;
+	ptr->parsed = parsed;
+	ptr->env = env;
 	return (ptr);
 }
