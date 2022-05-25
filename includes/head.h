@@ -25,7 +25,7 @@
 
 # include "../libft/libft.h"
 
-int	g_exit_status;
+unsigned char	g_exit_status;
 
 /*
 **	분기가 일어나는 포인트
