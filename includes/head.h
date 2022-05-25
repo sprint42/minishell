@@ -111,7 +111,6 @@ typedef struct t_unit_env
 typedef struct t_unit_head
 {
     int                 cmd_cnt;
-	char				**path;
     struct t_unit_pipe  *pp_next;
 	struct t_unit_env	*env_next;
 	t_child_info		child;
