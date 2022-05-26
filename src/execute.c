@@ -1,20 +1,22 @@
 #include "head.h"
 #include "execute.h"
 
-void	wait_childs(t_unit_head *cmd_lst, int **pipe)
+int	wait_childs(t_unit_head *cmd_lst, int **pipe_fd)
 {
 	int	i;
 	int ret;
 
 	i = 0;
 	while (i < cmd_lst->cmd_cnt)
-	{
-		ret = waitpid(cmd_lst->child.pid[i], &(cmd_lst->child.status[i]), 0);
+	{	
+		if (cmd_lst->child.pid[i] > 0)
+			ret = waitpid(cmd_lst->child.pid[i], &(cmd_lst->child.status[i]), 0);
 		i++;
 	}
-	// memory 전부 해제 (child, cmd_lst 전부) + pipe도..
-	// STDIN 복구
-	// exit status를 마지막 cmd의 status로 set
+	g_exit_status = (cmd_lst->child.status[--i] & 0x0f) >> 8;
+	free_cmd_lst(cmd_lst);
+	free_pipe(pipe_fd);
+	return (0);
 }
 
 int	**generate_pipe(int cmd_cnt)
@@ -43,27 +45,27 @@ int	**generate_pipe(int cmd_cnt)
 	return (pipe_fd);
 }
 
-void	execute_last_cmd(t_unit_pipe *curr_cmd, t_unit_head *cmd_lst, int **pipe_fd, int i)
+int	execute_last_cmd(t_unit_pipe *curr_cmd, t_unit_head *cmd_lst, int **pipe_fd, int i)
 {
 	extern char	**environ;
 
 	cmd_lst->child.pid[i] = fork();
 	if (cmd_lst->child.pid[i] < 0)
-		exit_with_error();
+		return (handle_main_process_error("fail in fork\n", cmd_lst));
 	if (cmd_lst->child.pid[i] == 0)
 	{
 		if (dup2(pipe_fd[i - 1][READ_END], STDIN_FILENO) < 0)
-			exit_with_error();
+			return (handle_child_process_error(1, errno, curr_cmd->commands[0]));
 		close(pipe_fd[i - 1][READ_END]);
 		redirect(curr_cmd->rd);
-		// builtin인지 check
-		// execve(curr_cmd->commands[0], curr_cmd->command, envp)
-		// exit status 처리
-		return ;
+		if (check_builtin(curr_cmd))
+			exit(execute_builtin(cmd_lst, cmd_lst->pp_next));
+		execute_execve(curr_cmd, pipe_fd, i);
 	}
+	return (0);
 }
 
-void	breed_childs(t_unit_head *cmd_lst)
+int	breed_childs(t_unit_head *cmd_lst)
 {
 	int				i;
 	int				**pipe_fd;
@@ -72,23 +74,22 @@ void	breed_childs(t_unit_head *cmd_lst)
 	i = 0;
 	curr_cmd = cmd_lst->pp_next;
 	pipe_fd = generate_pipe(cmd_lst->cmd_cnt);
+	if (pipe_fd == NULL)
+		return (handle_main_process_error("fail in allocating pipe\n", cmd_lst));
 	while (i < cmd_lst->cmd_cnt - 1)
 	{
-		if (pipe(pipe_fd[i]) < 0) // exit
-			exit_with_error();
+		if (pipe(pipe_fd[i]) < 0)
+			return (handle_main_process_error("fail in pipe\n", cmd_lst));
 		cmd_lst->child.pid[i] = fork();
 		if (cmd_lst->child.pid[i] < 0)
-			exit_with_error();
-		if (cmd_lst->child.pid[i] == 0)
-		{
-			execute_execve(curr_cmd, pipe_fd, i);
-			return ;
-		}
+			return (handle_main_process_error("fail in fork\n", cmd_lst));
+		if (cmd_lst->child.pid[i] == 0)	
+			return (execute_execve(curr_cmd, pipe_fd, i));
 		curr_cmd = curr_cmd->pp_next;
 		i++;
 	}
 	execute_last_cmd(curr_cmd, cmd_lst, pipe_fd, i);
-	wait_childs(cmd_lst, pipe);
+	return (wait_childs(cmd_lst, pipe));
 }
 
 int	check_builtin(t_unit_pipe *cmd)
@@ -132,5 +133,5 @@ int execute_cmds(t_unit_head *cmd_lst)
 	cmd_lst->child.status = malloc(sizeof(int) * cmd_lst->cmd_cnt);
 	if (cmd_lst->child.pid == NULL || cmd_lst->child.status == NULL)
 		return (handle_main_process_error("fail in malloc\n"));
-	breed_childs(cmd_lst);
+	return (breed_childs(cmd_lst));
 }
