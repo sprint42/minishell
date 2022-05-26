@@ -49,6 +49,7 @@ void	add_path(t_unit_pipe *curr_cmd, char **path)
 		}
 		i++;
 	}
+	handle_child_process_error(EXIT_CNF, EACCESS, curr_cmd->commands[0]);
 }
 
 void	execute_execve(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd, int **pipe_fd, int i)
