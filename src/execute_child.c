@@ -12,19 +12,35 @@ int	execute_execve(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd, int **pipe_fd, i
 	// execve(curr_cmd->commands[0], curr_cmd->command, envp)
 }
 
-int	execute_childprocess(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd, int **pipe_fd, int i)
+t_unit_pipe	*find_curr_cmd(t_unit_head *cmd_lst, int i)
 {
-	if (i != 0)
+	t_unit_pipe	*curr_cmd;
+	int			j;
+
+	j = 0;
+	curr_cmd = cmd_lst->pp_next;
+	while (j < i)
 	{
-		if (dup2(pipe_fd[i - 1][READ_END], STDIN_FILENO) < 0)
-			return (handle_child_process_error(1, errno, curr_cmd->commands[0]));
-		close(pipe_fd[i - 1][READ_END]);
+		curr_cmd = curr_cmd->pp_next;
+		j++;
 	}
+	return (curr_cmd);
+}
+
+int	execute_childprocess(t_unit_head *cmd_lst, int pipe_fd[2], int curr_in, int i)
+{
+	t_unit_pipe	*curr_cmd;
+
+	curr_cmd = find_curr_cmd(cmd_lst, i);
+	close(pipe_fd[0]);
+	if (dup2(curr_in, STDIN_FILENO) < 0)
+		return (handle_child_process_error(1, errno, curr_cmd->commands[0]));
+	close(curr_in);
 	if (i != cmd_lst->cmd_cnt - 1)
 	{
-		if (dup2(pipe_fd[i - 1][WRITE_END], STDOUT_FILENO) < 0)
+		if (dup2(pipe_fd[1], STDOUT_FILENO) < 0)
 			return (handle_child_process_error(1, errno, curr_cmd->commands[0]));
-		close(pipe_fd[i - 1][WRITE_END]);
+		close(pipe_fd[1]);
 	}
 	redirect(curr_cmd->rd);
 	if (check_builtin(curr_cmd))

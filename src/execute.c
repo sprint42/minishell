@@ -19,68 +19,27 @@ int	wait_childs(t_unit_head *cmd_lst, int **pipe_fd)
 	return (0);
 }
 
-int	**generate_pipe(int cmd_cnt)
-{
-	int	**pipe_fd;
-	int	i;
-	int	j;
-
-	pipe_fd = malloc(sizeof(int *) * (cmd_cnt - 1));
-	if (pipe_fd == NULL)
-		return (0);
-	i = 0;
-	while (i < cmd_cnt - 1)
-	{
-		pipe_fd[i] = malloc(sizeof(int) * 2);
-		if (pipe_fd[i] == NULL)
-		{
-			j = 0;
-			while (j < i)
-				free(pipe_fd[j++]);
-			free(pipe_fd);
-			return (0);
-		}
-		i++;
-	}
-	return (pipe_fd);
-}
-
-int	execute_last_cmd(t_unit_pipe *curr_cmd, t_unit_head *cmd_lst, int **pipe_fd, int i)
-{
-	extern char	**environ;
-
-	cmd_lst->child.pid[i] = fork();
-	if (cmd_lst->child.pid[i] < 0)
-		return (handle_main_process_error("fail in fork\n", cmd_lst));
-	if (cmd_lst->child.pid[i] == 0)
-		return (execute_childprocess(cmd_lst, curr_cmd, pipe_fd, i));
-	return (0);
-}
-
 int	breed_childs(t_unit_head *cmd_lst)
 {
 	int				i;
-	int				**pipe_fd;
-	t_unit_pipe		*curr_cmd;
+	int				curr_in;
+	int				pipe_fd[2];
 	
 	i = 0;
-	curr_cmd = cmd_lst->pp_next;
-	pipe_fd = generate_pipe(cmd_lst->cmd_cnt);
-	if (pipe_fd == NULL)
-		return (handle_main_process_error("fail in allocating pipe\n", cmd_lst));
-	while (i < cmd_lst->cmd_cnt - 1)
+	curr_in = STDIN_FILENO;
+	while (i < cmd_lst->cmd_cnt)
 	{
-		if (pipe(pipe_fd[i]) < 0)
-			return (handle_main_process_error("fail in pipe\n", cmd_lst));
+		if (i != cmd_lst->cmd_cnt - 1 && pipe(pipe_fd) < 0)
+			return (handle_while_generating_error("fail in pipe\n", cmd_lst));
 		cmd_lst->child.pid[i] = fork();
 		if (cmd_lst->child.pid[i] < 0)
-			return (handle_main_process_error("fail in fork\n", cmd_lst));
+			return (handle_while_generating_error("fail in fork\n", cmd_lst));
 		if (cmd_lst->child.pid[i] == 0)
-			return (execute_childprocess(cmd_lst, curr_cmd, pipe_fd, i));
-		curr_cmd = curr_cmd->pp_next;
+			return (execute_childprocess(cmd_lst, pipe_fd, curr_in, i));
+		close(pipe_fd[1]);
+		curr_in = pipe_fd[0];
 		i++;
 	}
-	execute_last_cmd(curr_cmd, cmd_lst, pipe_fd, i);
 	return (wait_childs(cmd_lst, pipe));
 }
 
