@@ -53,3 +53,16 @@ void	free_unit_env(t_unit_head *cmd_lst)
 	}
 	cmd_lst->env_next = NULL;
 }
+
+void	free_pipe(int	**pipe_fd)
+{
+	int	i;
+
+	if (pipe_fd)
+	{
+		i = 0;
+		while (pipe_fd[i])
+			free(pipe_fd[i++]);
+		free(pipe_fd);
+	}
+}
