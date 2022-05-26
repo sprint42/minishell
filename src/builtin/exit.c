@@ -43,7 +43,8 @@ int	execute_exit(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	{
 		ft_putstr_fd("exit\n", STDERR_FILENO);
 		ft_putstr_fd("numeric argument required : exit\n", STDERR_FILENO);
-		// memory 전부 해제 후 exit
+		free_cmd_lst(cmd_lst);
+		free_unit_env(cmd_lst);
 		exit(255);
 	}
 	if (!(curr_cmd->commands[1] == NULL || curr_cmd->commands[2] == NULL))
@@ -52,6 +53,7 @@ int	execute_exit(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 		ft_putstr_fd("too many arguments : exit\n", STDERR_FILENO);
 		return (1);
 	}
-	// memory 전부 해제
+	free_cmd_lst(cmd_lst);
+	free_unit_env(cmd_lst);
 	exit((unsigned char)exit_num);
 }

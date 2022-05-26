@@ -7,7 +7,7 @@
 # define READ_END 0
 # define WRITE_END 1
 
-void	execute_cmds(t_unit_head *cmd_list);
+int		execute_cmds(t_unit_head *cmd_list);
 int		check_builtin(t_unit_pipe *cmd);
 void	breed_childs(t_unit_head *cmd_lst);
 void	wait_childs(t_unit_head *cmd_lst, int **pipe);
