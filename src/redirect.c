@@ -1,45 +1,50 @@
 #include "head.h"
 #include "execute.h"
 
-void	redirect_snin(t_unit_rd *rd)
+int	redirect_snin(t_unit_rd *rd)
 {
 	int	fd;
 	
 	fd = open(rd->filename, O_RDONLY);
 	if (fd < 0)
-		exit_with_error();
+		return (handle_default_error(strerror(errno)));
 	if (dup2(fd, STDIN_FILENO) < 0)
-		exit_with_error();
+		return (handle_default_error(strerror(errno)));
 	close(fd);
+	return (0);
 }
 
-void	redirect_snout(t_unit_rd *rd)
+int	redirect_snout(t_unit_rd *rd)
 {
 	int	fd;
 
 	fd = open(rd->filename, O_WRONLY | O_TRUNC | O_CREAT, 0644);
 	if (fd < 0)
-		exit_with_error();
+		return (handle_default_error(strerror(errno)));
 	if (dup2(fd, STDOUT_FILENO) < 0)
-		exit_with_error();
+		return (handle_default_error(strerror(errno)));
 	close(fd);
+	return (0);
 }
 
-void	redirect(t_unit_rd *rd)
+int	redirect(t_unit_rd *rd)
 {
 	t_unit_rd	*curr;
+	int			ret;
 
 	curr = rd;
+	ret = 0;
 	while (curr)
 	{
 		if (curr->rd_type == SNIN)
-			redirect_snin(curr);
+			ret |= redirect_snin(curr);
 		else if (curr->rd_type == SNOU)
-			redirect_snout(curr);
+			ret |= redirect_snout(curr);
 		else if (curr->rd_type == DBIN)
-			redirect_dbin(curr);
+			ret |= redirect_dbin(curr);
 		else if (curr->rd_type == DBOU)
-			redirect_dbout(curr);
+			ret |= redirect_dbout(curr);
 		curr = curr->next;
 	}
+	return (ret);
 }

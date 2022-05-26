@@ -1,6 +1,13 @@
 #include "head.h"
 #include "execute.h"
 
+int	handle_default_error(char *message)
+{
+	ft_putstr_fd(message, 2);
+	ft_putchar_fd('\n', 2);
+	return (1);
+}
+
 int	handle_main_process_error(char *message, t_unit_head *cmd_lst)
 {
 	ft_putstr_fd(message, STDERR_FILENO);
@@ -11,7 +18,7 @@ int	handle_main_process_error(char *message, t_unit_head *cmd_lst)
 
 int handle_child_process_error(int exit_num, int errnum, char *str)
 {
-	ft_putstr_fd(strerr(errnum), STDERR_FILENO);
+	ft_putstr_fd(strerror(errnum), STDERR_FILENO);
 	ft_putstr_fd(": ", STDERR_FILENO);
 	ft_putstr_fd(str, STDERR_FILENO);
 	exit(exit_num);

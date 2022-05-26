@@ -100,7 +100,8 @@ int	execute_builtin(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	char	*command;
 
 	command = curr_cmd->commands[0];
-	redirect(curr_cmd->rd);
+	if (redirect(curr_cmd->rd) != 0)
+		return (1);
 	if (ft_strlen(command) == 4 && ft_strncmp(command, "echo", 4) == 0)
 		return (execute_echo(cmd_lst, curr_cmd));
 	if (ft_strlen(command) == 2 && ft_strncmp(command, "cd", 2) == 0)
