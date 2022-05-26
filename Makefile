@@ -6,13 +6,13 @@
 #    By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/19 14:57:06 by mcha              #+#    #+#              #
-#    Updated: 2022/05/25 14:12:47 by mcha             ###   ########.fr        #
+#    Updated: 2022/05/25 23:07:49 by mcha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= gcc
 RM		= rm -rf
-CFLAGS	= -I $(HEAD_ROOT) -Wall -Werror -Wextra -g
+CFLAGS	= -I $(HEAD_ROOT) -Wall -Werror -Wextra -g#3 -fsanitize=address
 RLLINK	= -l readline -L$(HOME)/.brew/opt/readline/lib
 RLINC	=  -I$(HOME)/.brew/opt/readline/include
 

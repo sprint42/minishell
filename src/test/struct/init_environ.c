@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:47:48 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/25 16:24:24 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/25 22:47:58 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,17 @@ void	print_env_node(t_unit_env *og)
 
 void	init_environ(t_point *pck)
 {
-	(void)pck;
 	char	**storage;
-	(void)storage;
-	while (*environ)
+	char	**ptr;
+	
+	ptr = environ;
+	while (*ptr)
 	{
-		// storage = ft_split(*environ, '=');
-		// link_new_env_node(pck->env, new_env_node(storage[0], storage[1]));
-		// free_env_storage(storage);
-		environ++;
+		storage = ft_split(*ptr, '=');
+		link_new_env_node(pck->env, new_env_node(storage[0], storage[1]));
+		// printf("new node : %s, %s\n\n", pck->env->env_next->key, pck->env->env_next->value);
+		free_env_storage(storage);
+		ptr++;
 	}
 	// print_env_node(pck->env);
 }
