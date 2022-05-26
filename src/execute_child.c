@@ -67,7 +67,10 @@ int	execute_execve(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd, int **pipe_fd, i
 		free_path(path);
 	} 
 	execve(curr_cmd->commands[0], curr_cmd->commands, envp);
-	// exit_status
+	if (errno == EACCESS)
+		handle_child_process_error(EXIT_CNF, errno, curr_cmd->commands[0]);
+	else
+		handle_child_process_error(EXIT_FAILURE, errno, curr_cmd->commands[0]);
 }
 
 t_unit_pipe	*find_curr_cmd(t_unit_head *cmd_lst, int i)

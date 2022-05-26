@@ -6,11 +6,14 @@
 
 # define READ_END 0
 # define WRITE_END 1
+# define EACCESS 2
+# define EXIT_FOPEN 1
+# define EXIT_CNF 127
 
 int		execute_cmds(t_unit_head *cmd_list);
 int		check_builtin(t_unit_pipe *cmd);
-void	breed_childs(t_unit_head *cmd_lst);
-void	wait_childs(t_unit_head *cmd_lst, int **pipe);
+int		breed_childs(t_unit_head *cmd_lst);
+int		wait_childs(t_unit_head *cmd_lst, int **pipe);
 
 int		execute_builtin(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
 
