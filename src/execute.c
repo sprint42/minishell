@@ -53,15 +53,7 @@ int	execute_last_cmd(t_unit_pipe *curr_cmd, t_unit_head *cmd_lst, int **pipe_fd,
 	if (cmd_lst->child.pid[i] < 0)
 		return (handle_main_process_error("fail in fork\n", cmd_lst));
 	if (cmd_lst->child.pid[i] == 0)
-	{
-		if (dup2(pipe_fd[i - 1][READ_END], STDIN_FILENO) < 0)
-			return (handle_child_process_error(1, errno, curr_cmd->commands[0]));
-		close(pipe_fd[i - 1][READ_END]);
-		redirect(curr_cmd->rd);
-		if (check_builtin(curr_cmd))
-			exit(execute_builtin(cmd_lst, cmd_lst->pp_next));
-		execute_execve(curr_cmd, pipe_fd, i);
-	}
+		return (execute_childprocess(cmd_lst, curr_cmd, pipe_fd, i));
 	return (0);
 }
 
@@ -83,8 +75,8 @@ int	breed_childs(t_unit_head *cmd_lst)
 		cmd_lst->child.pid[i] = fork();
 		if (cmd_lst->child.pid[i] < 0)
 			return (handle_main_process_error("fail in fork\n", cmd_lst));
-		if (cmd_lst->child.pid[i] == 0)	
-			return (execute_execve(curr_cmd, pipe_fd, i));
+		if (cmd_lst->child.pid[i] == 0)
+			return (execute_childprocess(cmd_lst, curr_cmd, pipe_fd, i));
 		curr_cmd = curr_cmd->pp_next;
 		i++;
 	}
