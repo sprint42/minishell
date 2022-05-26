@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   proc_quot.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:36:53 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/25 23:04:41 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/26 13:54:20 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	proc_quot(t_point *pck, char **s, char **ret, char quot)
 		;
 	else if (quot == '\'' && (pck->flag & SNQT))
 	{
-		// *ret = ft_strjoin(*ret, proc_squot(pck, s));
 		*ret = ft_strjoin_leak(*ret, proc_squot(pck, s));
 	}
 }
