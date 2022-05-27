@@ -1,4 +1,3 @@
-#include "head.h"
 #include "execute.h"
 
 char	**extract_path(char **envp, t_unit_pipe *curr_cmd)

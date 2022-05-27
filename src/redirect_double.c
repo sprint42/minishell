@@ -1,5 +1,4 @@
-#include <head.h>
-#include <execute.h>
+#include "execute.h"
 
 int	get_infile(char	*limiter, int curr_out)
 {

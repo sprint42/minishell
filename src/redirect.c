@@ -1,4 +1,3 @@
-#include "head.h"
 #include "execute.h"
 
 int	redirect_snin(t_unit_rd *rd)

@@ -1,4 +1,3 @@
-#include "head.h"
 #include "execute.h"
 
 int	wait_childs(t_unit_head *cmd_lst, int **pipe_fd)
@@ -41,26 +40,6 @@ int	breed_childs(t_unit_head *cmd_lst)
 		i++;
 	}
 	return (wait_childs(cmd_lst, pipe));
-}
-
-int	check_builtin(t_unit_pipe *cmd)
-{
-	char	*command;
-
-	command = cmd->commands[0];
-	if (ft_strlen(command) == 4 && ft_strncmp(command, "echo", 4) == 0)
-		return (1);
-	if (ft_strlen(command) == 2 && ft_strncmp(command, "cd", 2) == 0)
-		return (1);
-	if (ft_strlen(command) == 3 && ft_strncmp(command, "pwd", 3) == 0)
-		return (1);
-	if (ft_strlen(command) == 6 && ft_strncmp(command, "export", 6) == 0)
-		return (1);
-	if (ft_strlen(command) == 3 && ft_strncmp(command, "env", 3) == 0)
-		return (1);
-	if (ft_strlen(command) == 4 && ft_strncmp(command, "exit", 4) == 0)
-		return (1);
-	return (0);
 }
 
 int execute_cmds(t_unit_head *cmd_lst)
