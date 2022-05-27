@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   pipe_node.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 00:15:41 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 19:55:45 by mcha             ###   ########.fr       */
+/*   Created: 2022/05/27 19:08:27 by mcha              #+#    #+#             */
+/*   Updated: 2022/05/27 19:10:07 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "head.h"
 
-char	*ft_strdup(const char *s1)
+void	link_new_pipe_node(t_unit_head *head, t_unit_pipe *new)
 {
-	char	*buf;
-	int		idx;
+	t_unit_pipe	*ptr;
 
-	idx = 0;
-	buf = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
-	if (!buf)
-		return (NULL);
-	while (s1[idx])
+	if (!head->pp_next)
 	{
-		buf[idx] = s1[idx];
-		idx++;
+		head->pp_next = new;
 	}
-	buf[idx] = '\0';
-	return (buf);
+	else
+	{
+		ptr = head->pp_next;
+		while (ptr->pp_next)
+			ptr = ptr->pp_next;
+		ptr->pp_next = new;
+	}
 }

@@ -156,66 +156,78 @@ typedef struct t_point
 /*
 **	사용자 함수
 */
-t_unit_env	*malloc_env(void);
-t_point		*init_struct(void);
-t_point		*malloc_point(void);
-t_parsed	*malloc_parsed(void);
-t_special	*malloc_junction(void);
-void		test(t_unit_head *head);
-t_unit_head	*malloc_head(t_point *pck);
-void		init_special(t_point *ptr);
-void		init_environ(t_point *pck);
+t_unit_env		*malloc_env(void);
+t_point			*init_struct(void);
+t_point			*malloc_point(void);
+t_parsed		*malloc_parsed(void);
+t_special		*malloc_junction(void);
+void			test(t_unit_head *head);
+t_unit_head		*malloc_head(t_point *pck);
+void			init_special(t_point *ptr);
+void			init_environ(t_point *pck);
 
 /*
 **	judge special
 */
-void		judge_special(t_point *pck, char **s, char **ret);
+void			judge_special(t_point *pck, char **s, char **ret);
 
 /*
 **	is special word?
 */
-int			is_null(char c);
-int			is_pipe(t_point *pck, char c);
-int			is_redr(t_point *pck, char c);
-int			is_dolr(t_point *pck, char c);
-int			is_quot(t_point *pck, char c);
-int			is_space(t_point *pck, char c);
+int				is_null(char c);
+int				is_pipe(t_point *pck, char c);
+int				is_redr(t_point *pck, char c);
+int				is_dolr(t_point *pck, char c);
+int				is_quot(t_point *pck, char c);
+int				is_space(t_point *pck, char c);
 
 /*
 **	find
 */
-int			find_pipe(t_point *pck, char c);
-int			find_wspace(t_point *pck, char c);
-int			find_dolr_trim(t_point *pck, char c);
-int			find_redr(t_point *pck, char c, char redr);
+int				find_pipe(t_point *pck, char c);
+int				find_wspace(t_point *pck, char c);
+int				find_dolr_trim(t_point *pck, char c);
+int				find_redr(t_point *pck, char c, char redr);
 
 /*
 **	process
 */
-void		proc_null(t_point *pck, char **ret);
-void		proc_pipe(t_point *pck, char **s, char **ret);
-void		proc_dolr(t_point *pck, char **s, char **ret);
-void		proc_space(t_point *pck, char **s, char **ret);
-void		proc_redr(t_point *pck, char **s, char **ret, char redr);
-void		proc_quot(t_point *pck, char **s, char **ret, char quot);
+void			proc_null(t_point *pck, char **ret);
+void			proc_pipe(t_point *pck, char **s, char **ret);
+void			proc_dolr(t_point *pck, char **s, char **ret);
+void			proc_space(t_point *pck, char **s, char **ret);
+void			proc_redr(t_point *pck, char **s, char **ret, char redr);
+void			proc_quot(t_point *pck, char **s, char **ret, char quot);
 
 
 /*
 **	Node
 */
-void		manufact(t_point *ptr);
-t_parsed	*new_node(char *type, char *str);
-t_unit_env	*new_env_node(char *key, char *value);
-char		*ret_env_value(t_point *pck, char *key);
-void		link_new_node(t_parsed *og, t_parsed *new);
-void		manufact_type(t_parsed **tmp, t_point *ptr);
-void		link_new_env_node(t_unit_env *og, t_unit_env *new);
+void			manufact(t_point *ptr);
+t_parsed		*new_node(char *type, char *str);
+t_unit_env		*new_env_node(char *key, char *value);
+char			*ret_env_value(t_point *pck, char *key);
+t_unit_rd		*new_rd_node(int rd_type, char *filename);
+void			link_new_node(t_parsed *og, t_parsed *new);
+void			manufact_type(t_parsed **tmp, t_point *ptr);
+void			link_new_env_node(t_unit_env *og, t_unit_env *new);
+void			link_new_rd_node(t_unit_pipe *unit, t_unit_rd *new);
+void			link_new_pipe_node(t_unit_head *head, t_unit_pipe *new);
+
+/*
+**	Link
+*/
+int				check_type(char	*type);
+int				check_pipe(char *type);
+unsigned int	cnt_cmd(t_parsed *parsed);
+void			bind_rd_type(t_parsed *type, int *rd);
+void			link_to_head(t_point *pck, t_unit_head *head);
 
 /*
 **	Free
 */
-void		free_package(t_point *pck);
-void		free_env_storage(char	**storage);
+void			free_package(t_point *pck);
+void			free_env_storage(char **storage);
 
 /*
 **	End of parsing test session
