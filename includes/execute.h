@@ -4,6 +4,7 @@
 # include "head.h"
 # include <sys/wait.h>
 # include <fcntl.h>
+# include "../gnl/get_next_line.h"
 
 # define READ_END 0
 # define WRITE_END 1
@@ -14,22 +15,22 @@
 /* execute.c */
 int	execute_cmds(t_unit_head *cmd_list);
 int	breed_childs(t_unit_head *cmd_lst);
-int	wait_childs(t_unit_head *cmd_lst, int **pipe);
+int	wait_childs(t_unit_head *cmd_lst);
 
 /* execute_builtin.c */
 int	check_builtin(t_unit_pipe *cmd);
 int	execute_builtin(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
 
 /* echo.c */
-int	execute_echo(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
+int	execute_echo(t_unit_pipe *curr_cmd);
 int echo_check_newline(char *option_str);
 
 /* cd.c */
-int	execute_cd(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
+int	execute_cd(t_unit_pipe *curr_cmd);
 int	cd_home(void);
 
 /* pwd.c */
-int	execute_pwd(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
+int	execute_pwd(void);
 
 /* export.c */
 int	execute_export(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
@@ -42,6 +43,7 @@ char	count_env(t_unit_head *cmd_lst);
 void	sort_env(char **envp);
 
 /* export_add.c */
+int			check_export_validity(char *str);
 int			add_env(t_unit_head *cmd_lst, char *str);
 int			find_and_change_env(t_unit_head *cmd_lst, char *key);
 t_unit_env	*create_env(char *str);
@@ -57,7 +59,7 @@ long long	check_first_arg(char *str, int *arg_status);
 /* execute_child.c */
 void		execute_childprocess(t_unit_head *cmd_lst, int pipe_fd[2], int curr_in, int i);
 t_unit_pipe	*find_curr_cmd(t_unit_head *cmd_lst, int i);
-void		execute_execve(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd, int **pipe_fd, int i);
+void		execute_execve(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
 void		add_path(t_unit_pipe *curr_cmd, char **path);
 char		**extract_path(char **envp, t_unit_pipe *curr_cmd);
 
@@ -75,7 +77,7 @@ int	get_infile(char	*limiter, int curr_out);
 void	free_cmd_lst(t_unit_head *cmd_lst);
 void	free_unit_pipe(t_unit_head *cmd_lst);
 void	free_unit_env(t_unit_head *cmd_lst);
-void	free_path(int	**path);
+void	free_path(char	**path);
 
 /* handle_error.c */
 int	handle_default_error(char *message);

@@ -7,7 +7,7 @@ long long	check_first_arg(char *str, int *arg_status)
 	int			neg_flag;
 
 	neg_flag = 0;
-	if (str[i] == '-')
+	if (str[0] == '-')
 		neg_flag = 1;
 	i = neg_flag - 1;
 	while (str[++i])
@@ -18,7 +18,7 @@ long long	check_first_arg(char *str, int *arg_status)
 	if (i - neg_flag > 14)
 		return (*arg_status = 1);
 	else if ((i == 15 && ft_strncmp(&(str[neg_flag]), "9223372036854775808", 14) > 0) || \
-				i == 14 && ft_strncmp(&(str[neg_flag]), "9223372036854775807", 14) > 0)
+				(i == 14 && ft_strncmp(&(str[neg_flag]), "9223372036854775807", 14) > 0))
 		return (*arg_status = 1);
 	result = 0;
 	i = 0;

@@ -1,6 +1,6 @@
 #include "execute.h"
 
-int	execute_pwd(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
+int	execute_pwd(void)
 {
 	char	*pwd;
 

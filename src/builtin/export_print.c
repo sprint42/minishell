@@ -12,7 +12,7 @@ void	sort_env(char **envp)
 		j = i + 1;
 		while (envp[j])
 		{
-			if (strncmp(envp[i], envp[j]) > 0)
+			if (strncmp(envp[i], envp[j], ft_strlen(envp[j]) + 1) > 0)
 			{
 				temp = envp[i];
 				envp[i] = envp[j];
@@ -57,7 +57,6 @@ void	free_env_array(char **envp)
 char	**make_env_array(t_unit_head *cmd_lst)
 {
 	char		**envp;
-	char		*temp;
 	int			i;
 	t_unit_env	*curr;
 

@@ -1,6 +1,6 @@
 #include "execute.h"
 
-static int	check_validity(char *str)
+int	check_export_validity(char *str)
 {
 	int	validity;
 	int	i;
@@ -56,7 +56,6 @@ t_unit_env	*create_env(char *str)
 int	find_and_change_env(t_unit_head *cmd_lst, char *key)
 {
 	t_unit_env	*curr;
-	char		*temp;
 
 	curr = cmd_lst->env_next;
 	while (curr)

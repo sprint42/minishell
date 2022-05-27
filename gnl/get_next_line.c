@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yejikim <yejikim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 13:44:46 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/23 14:22:03 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/27 21:52:09 by yejikim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "../libft/libft.h"
 
-static void	*ft_memset(void *b, int c, size_t len)
+static void	*ft_memset_gnl(void *b, int c, size_t len)
 {
 	unsigned char	*arr;
 	unsigned char	src;
@@ -50,10 +49,10 @@ static char	*ft_do_split(char **ptr, char **buf, int idx)
 	char	*line;
 
 	ft_free_ptr((void **)buf);
-	line = ft_strdup(*ptr);
+	line = ft_strdup_gnl(*ptr);
 	line[idx + 1] = '\0';
 	tmp = *ptr;
-	*ptr = ft_strdup(*ptr + idx + 1);
+	*ptr = ft_strdup_gnl(*ptr + idx + 1);
 	free(tmp);
 	return (line);
 }
@@ -73,9 +72,9 @@ static char	*return_all(char **ptr, char **buf, int sz)
 		if (ft_newline_chk(*ptr) >= 0)
 			return (ft_do_split(ptr, buf, ft_newline_chk(*ptr)));
 		ft_free_ptr((void **)buf);
-		line = ft_strdup(*ptr);
+		line = ft_strdup_gnl(*ptr);
 		tmp = *ptr;
-		*ptr = ft_strdup(*ptr + ft_strlen(*ptr));
+		*ptr = ft_strdup_gnl(*ptr + ft_strlen_gnl(*ptr));
 		free(tmp);
 		return (line);
 	}
@@ -99,11 +98,11 @@ char	*get_next_line(int fd)
 		return (NULL);
 	while (TRUE)
 	{
-		buf = ft_memset(buf, 0, BUFFER_SIZE + 1);
+		buf = ft_memset_gnl(buf, 0, BUFFER_SIZE + 1);
 		r_size = read(fd, buf, BUFFER_SIZE);
 		if (r_size < 1)
 			break ;
-		ptr[fd] = ft_strjoin(ptr[fd], buf);
+		ptr[fd] = ft_strjoin_gnl(ptr[fd], buf);
 		cut_idx = ft_newline_chk(ptr[fd]);
 		if (cut_idx >= 0)
 			return (ft_do_split((&ptr[fd]), &buf, cut_idx));

@@ -4,8 +4,6 @@ int	execute_export(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 {
 	int			i;
 	int			exit_code;
-	t_unit_env	*pnew;
-	char		*key;
 
 	if (curr_cmd->commands[1] == NULL)
 		return (print_env(cmd_lst));
@@ -15,7 +13,7 @@ int	execute_export(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	{
 		if (ft_strchr(curr_cmd->commands[i], '=') == NULL)
 			continue;
-		if (check_validity(curr_cmd->commands[i]) == 0)
+		if (check_export_validity(curr_cmd->commands[i]) == 0)
 			exit_code = 1;
 		else if (add_env(cmd_lst, curr_cmd->commands[i]) != 0)
 		{

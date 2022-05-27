@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 21:00:52 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 22:00:03 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/27 22:09:18 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ int	check_is_semicolon_appear(char *buf)
 		ptr++;
 	}
 	if (bit & SEMC)
-		return (1);
+		print_error(ERROR_SEMC);
 	return (0);
 }

@@ -12,9 +12,10 @@ int	main(void)
 		buf = readline("minishell > ");
 		add_history(buf);
 		if (!is_error(buf))
+		{
 			cmd_lst = test(cmd_lst);
-		// else
-			// execute_cmds(cmd_lst);
+			execute_cmds(cmd_lst);
+		}
 		/* 테스트 출력 */
 		// t_unit_pipe	*tmp;
 
