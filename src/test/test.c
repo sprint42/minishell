@@ -1,6 +1,6 @@
 #include "head.h"
 
-void    test(void)
+void    test(t_unit_head *head)
 {
 	char    *target;
 	char	*ret;
@@ -9,7 +9,12 @@ void    test(void)
 
 	pck = init_struct();
 	init_special(pck);
-	init_environ(pck);
+	head = malloc_head(pck);
+	while (head->env_next)
+	{
+		printf("		SYSTEM : %s, %s\n", head->env_next->key, head->env_next->value);
+		head->env_next = head->env_next->env_next;
+	}
 	target = "             one		two args | three| <<  four>	\"	\" \" \" five>>     	$P\'A\'TH\"$PATH \'abcd\'\"	$PATH\'hello\'world previous quote\'testsquote\' six| asdfasdfasdf\"$PATH$USER it>>is String\' hello trillion world  \'a\"b";
 	// target = "   	\'e\'ch\"o\" 	 a      cc >> hello| <<wtf|   b	USER\'$PATH\'wtf\"$HELLO\" 	";
 	// // target="hello \"world\"ab|c\'after that\'";
