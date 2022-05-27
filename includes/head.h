@@ -237,6 +237,7 @@ int				judge_is_quote_error(int bit);
 int				error_is_quot(int bit, char c);
 int				check_quote_not_closed(char *buf);
 void			control_quote(int *bit, char quot);
+int				check_is_backslash_appear(char *buf);
 
 /*
 **	End of parsing test session
