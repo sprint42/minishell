@@ -17,7 +17,9 @@ static int	check_validity(char *str)
 	}
 	if (!validity)
 	{
-		ft_putstr_fd("not a valid identifier\n", STDOUT_FILENO);
+		ft_putstr_fd("not a valid identifier : ", STDERR_FILENO);
+		ft_putstr_fd(str, STDERR_FILENO);
+		ft_putchar_fd('\n', STDERR_FILENO);
 		return (0);
 	}
 	return (1);
@@ -81,6 +83,7 @@ int	add_env(t_unit_head *cmd_lst, char *str)
 	i = 0;
 	while (str[i] != '=')
 		i++;
+	key = ft_substr(str, 0, i);
 	if (key == NULL)
 		return (1);
 	if (find_and_change_env(cmd_lst, key))
