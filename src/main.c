@@ -11,7 +11,26 @@ int	main(void)
 	{
 		buf = readline("minishell > ");
 		add_history(buf);
-		test(cmd_lst);
+		cmd_lst = test(cmd_lst);
+
+		t_unit_pipe	*tmp;
+
+		tmp = cmd_lst->pp_next;
+		while (tmp)
+		{
+			while (tmp->commands && *tmp->commands)
+			{
+				printf("commands	: %s\n", *tmp->commands);
+				(tmp->commands)++;
+			}
+			while (tmp->rd)
+			{
+				printf("redir		: %s\n", tmp->rd->filename);
+				tmp->rd = tmp->rd->next;
+			}
+			tmp = tmp->pp_next;
+			printf("\n");
+		}
 		// parsing
 		free(buf);
 	}
