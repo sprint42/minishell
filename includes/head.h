@@ -32,7 +32,6 @@ unsigned char	g_exit_status;
 **	분기가 일어나는 포인트
 **	문자열, 공백, 작은 따옴표, 큰 따옴표, 백슬래쉬, 달러, 파이프, 더블 파이프, 세미콜론, <, >, <<, >>
 */
-
 enum e_split_point
 {
 	STRS = 1 << 0,
@@ -49,6 +48,16 @@ enum e_split_point
 	DBIN = 1 << 11,
 	DBOU = 1 << 12,
 	COMM = 1 << 13
+};
+
+/*
+**	에러 코드
+*/
+enum e_error
+{
+	ERROR_QUOT = 1,
+	ERROR_BSLA,
+	ERROR_SEMC
 };
 
 /*
@@ -233,11 +242,13 @@ void			free_env_storage(char **storage);
 **	Error
 */
 int				is_error(char *buf);
+void			print_error(int errorcode);
 int				judge_is_quote_error(int bit);
 int				error_is_quot(int bit, char c);
 int				check_quote_not_closed(char *buf);
 void			control_quote(int *bit, char quot);
 int				check_is_backslash_appear(char *buf);
+int				check_is_semicolon_appear(char *buf);
 
 /*
 **	End of parsing test session
