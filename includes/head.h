@@ -233,7 +233,10 @@ void			free_env_storage(char **storage);
 **	Error
 */
 int				is_error(char *buf);
+int				judge_is_quote_error(int bit);
+int				error_is_quot(int bit, char c);
 int				check_quote_not_closed(char *buf);
+void			control_quote(int *bit, char quot);
 
 /*
 **	End of parsing test session
