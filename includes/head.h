@@ -230,6 +230,12 @@ void			free_package(t_point *pck);
 void			free_env_storage(char **storage);
 
 /*
+**	Error
+*/
+int				is_error(char *buf);
+int				check_quote_not_closed(char *buf);
+
+/*
 **	End of parsing test session
 */
 
