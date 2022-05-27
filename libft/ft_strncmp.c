@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 00:15:57 by mcha              #+#    #+#             */
-/*   Updated: 2021/11/18 00:15:57 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/27 16:21:47 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			i;
@@ -24,7 +23,9 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	while (i < n)
 	{
 		if (a1[i] == 0 || a2[i] == 0 || a1[i] != a2[i])
+		{
 			return (a1[i] - a2[i]);
+		}
 		i++;
 	}
 	return (0);

@@ -5,7 +5,7 @@ int	main(void)
 	char		*buf;
 	t_unit_head	*cmd_lst;
 
-	(void)cmd_lst;
+	cmd_lst = NULL;
 	g_exit_status = 0;
 	while(1)
 	{

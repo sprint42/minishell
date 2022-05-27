@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 14:39:35 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 14:19:37 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/27 19:21:55 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void	manufact(t_point *ptr)
 	// print_inner_node_lst(tmp);
 	while (tmp)
 	{
-		printf("[BEFORE] TYPE : %s	DATA : %s\n", tmp->type, tmp->str);
+		// printf("[BEFORE] TYPE : %s	DATA : %s\n", tmp->type, tmp->str);
 		/******************************************************************** 가공 단계 ***********************************/
 		manufact_type(&tmp, ptr);
 		/******************************************************************** 가공 종료 ***********************************/
 		printf("[AFTERR] TYPE : %s	DATA : %s\n", tmp->type, tmp->str);
 		tmp = tmp->next;
-		printf("\n");
 	}
+	printf("\n");
 }
