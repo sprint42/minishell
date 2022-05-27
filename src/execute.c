@@ -1,4 +1,3 @@
-#include "head.h"
 #include "execute.h"
 
 int	wait_childs(t_unit_head *cmd_lst, int **pipe_fd)
@@ -19,97 +18,28 @@ int	wait_childs(t_unit_head *cmd_lst, int **pipe_fd)
 	return (0);
 }
 
-int	**generate_pipe(int cmd_cnt)
-{
-	int	**pipe_fd;
-	int	i;
-	int	j;
-
-	pipe_fd = malloc(sizeof(int *) * (cmd_cnt - 1));
-	if (pipe_fd == NULL)
-		return (0);
-	i = 0;
-	while (i < cmd_cnt - 1)
-	{
-		pipe_fd[i] = malloc(sizeof(int) * 2);
-		if (pipe_fd[i] == NULL)
-		{
-			j = 0;
-			while (j < i)
-				free(pipe_fd[j++]);
-			free(pipe_fd);
-			return (0);
-		}
-		i++;
-	}
-	return (pipe_fd);
-}
-
-int	execute_last_cmd(t_unit_pipe *curr_cmd, t_unit_head *cmd_lst, int **pipe_fd, int i)
-{
-	extern char	**environ;
-
-	cmd_lst->child.pid[i] = fork();
-	if (cmd_lst->child.pid[i] < 0)
-		return (handle_main_process_error("fail in fork\n", cmd_lst));
-	if (cmd_lst->child.pid[i] == 0)
-	{
-		if (dup2(pipe_fd[i - 1][READ_END], STDIN_FILENO) < 0)
-			return (handle_child_process_error(1, errno, curr_cmd->commands[0]));
-		close(pipe_fd[i - 1][READ_END]);
-		redirect(curr_cmd->rd);
-		if (check_builtin(curr_cmd))
-			exit(execute_builtin(cmd_lst, cmd_lst->pp_next));
-		execute_execve(curr_cmd, pipe_fd, i);
-	}
-	return (0);
-}
-
 int	breed_childs(t_unit_head *cmd_lst)
 {
 	int				i;
-	int				**pipe_fd;
-	t_unit_pipe		*curr_cmd;
+	int				curr_in;
+	int				pipe_fd[2];
 	
 	i = 0;
-	curr_cmd = cmd_lst->pp_next;
-	pipe_fd = generate_pipe(cmd_lst->cmd_cnt);
-	if (pipe_fd == NULL)
-		return (handle_main_process_error("fail in allocating pipe\n", cmd_lst));
-	while (i < cmd_lst->cmd_cnt - 1)
+	curr_in = STDIN_FILENO;
+	while (i < cmd_lst->cmd_cnt)
 	{
-		if (pipe(pipe_fd[i]) < 0)
-			return (handle_main_process_error("fail in pipe\n", cmd_lst));
+		if (i != cmd_lst->cmd_cnt - 1 && pipe(pipe_fd) < 0)
+			return (handle_while_generating_error("fail in pipe\n", cmd_lst));
 		cmd_lst->child.pid[i] = fork();
 		if (cmd_lst->child.pid[i] < 0)
-			return (handle_main_process_error("fail in fork\n", cmd_lst));
-		if (cmd_lst->child.pid[i] == 0)	
-			return (execute_execve(curr_cmd, pipe_fd, i));
-		curr_cmd = curr_cmd->pp_next;
+			return (handle_while_generating_error("fail in fork\n", cmd_lst));
+		if (cmd_lst->child.pid[i] == 0)
+			execute_childprocess(cmd_lst, pipe_fd, curr_in, i);
+		close(pipe_fd[1]);
+		curr_in = pipe_fd[0];
 		i++;
 	}
-	execute_last_cmd(curr_cmd, cmd_lst, pipe_fd, i);
 	return (wait_childs(cmd_lst, pipe));
-}
-
-int	check_builtin(t_unit_pipe *cmd)
-{
-	char	*command;
-
-	command = cmd->commands[0];
-	if (ft_strlen(command) == 4 && ft_strncmp(command, "echo", 4) == 0)
-		return (1);
-	if (ft_strlen(command) == 2 && ft_strncmp(command, "cd", 2) == 0)
-		return (1);
-	if (ft_strlen(command) == 3 && ft_strncmp(command, "pwd", 3) == 0)
-		return (1);
-	if (ft_strlen(command) == 6 && ft_strncmp(command, "export", 6) == 0)
-		return (1);
-	if (ft_strlen(command) == 3 && ft_strncmp(command, "env", 3) == 0)
-		return (1);
-	if (ft_strlen(command) == 4 && ft_strncmp(command, "exit", 4) == 0)
-		return (1);
-	return (0);
 }
 
 int execute_cmds(t_unit_head *cmd_lst)

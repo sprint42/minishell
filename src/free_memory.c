@@ -1,4 +1,3 @@
-#include "head.h"
 #include "execute.h"
 
 void	free_unit_pipe(t_unit_head *cmd_lst)
@@ -54,15 +53,15 @@ void	free_unit_env(t_unit_head *cmd_lst)
 	cmd_lst->env_next = NULL;
 }
 
-void	free_pipe(int	**pipe_fd)
+void	free_path(int	**path)
 {
 	int	i;
 
-	if (pipe_fd)
+	if (path)
 	{
 		i = 0;
-		while (pipe_fd[i])
-			free(pipe_fd[i++]);
-		free(pipe_fd);
+		while (path[i])
+			free(path[i++]);
+		free(path);
 	}
 }

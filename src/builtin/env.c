@@ -1,4 +1,3 @@
-#include "head.h"
 #include "execute.h"
 
 int	execute_env(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)

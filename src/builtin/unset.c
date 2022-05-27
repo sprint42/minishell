@@ -1,4 +1,3 @@
-#include "head.h"
 #include "execute.h"
 
 static int check_validity(char *str)

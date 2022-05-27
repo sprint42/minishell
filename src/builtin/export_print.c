@@ -1,7 +1,6 @@
-#include "head.h"
 #include "execute.h"
 
-static	void	sort_env(char **envp)
+void	sort_env(char **envp)
 {
 	int		i;
 	int		j;

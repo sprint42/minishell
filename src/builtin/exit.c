@@ -1,4 +1,3 @@
-#include "head.h"
 #include "execute.h"
 
 long long	check_first_arg(char *str, int *arg_status)
