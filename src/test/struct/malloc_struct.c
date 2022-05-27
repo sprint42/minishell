@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:56:33 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 15:48:24 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/27 15:30:14 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,4 @@ t_unit_head	*malloc_head(t_point *pck)
 	ptr->pp_next = NULL;
 	ptr->env_next = pck->env->env_next;
 	ptr->child = *child;
-	return (ptr);
 }

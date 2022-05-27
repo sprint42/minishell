@@ -10,7 +10,12 @@ void    test(t_unit_head *head)
 	pck = init_struct();
 	init_special(pck);
 	head = malloc_head(pck);
-	target = "             one		two args | three| <<  four>	\"	\" \" \" five>>     	$P\'A\'TH\"$PATH \'abcd\'\"	$PATH\'hello\'world previous quote\'testsquote\' six| asdfasdfasdf\"$PATH$USER it>>is String\' hello trillion world  \'a\"b >>YEJIN";
+	while (head->env_next)
+	{
+		printf("		SYSTEM : %s, %s\n", head->env_next->key, head->env_next->value);
+		head->env_next = head->env_next->env_next;
+	}
+	target = "             one		two args | three| <<  four>	\"	\" \" \" five>>     	$P\'A\'TH\"$PATH \'abcd\'\"	$PATH\'hello\'world previous quote\'testsquote\' six| asdfasdfasdf\"$PATH$USER it>>is String\' hello trillion world  \'a\"b";
 	// target = "   	\'e\'ch\"o\" 	 a      cc >> hello| <<wtf|   b	USER\'$PATH\'wtf\"$HELLO\" 	";
 	// // target="hello \"world\"ab|c\'after that\'";
 	// // target = "echo \"$PATH\'abc\'hello\"";
@@ -18,6 +23,7 @@ void    test(t_unit_head *head)
 	ret = NULL;
 
 	target = ft_strtrim(target, (char const *)pck->junction->space_trim_set);
+	printf("after target : (s)%s(e)\n", target);
 	tmp_target = target;
 	while (*tmp_target)
 	{
@@ -27,25 +33,9 @@ void    test(t_unit_head *head)
 	/*
 	**	type 가공이 끝난 후 t_unit_head에 파이프 혹은 리다이렉션 단위로 끊어서 연결
 	*/
-	link_to_head(pck, head);
-	t_unit_pipe	*tmp;
-
-	tmp = head->pp_next;
-	while (tmp)
-	{
-		while (tmp->commands && *tmp->commands)
-		{
-			printf("commands	: %s\n", *tmp->commands);
-			(tmp->commands)++;
-		}
-		while (tmp->rd)
-		{
-			printf("redir		: %s\n", tmp->rd->filename);
-			tmp->rd = tmp->rd->next;
-		}
-		tmp = tmp->pp_next;
-		printf("\n");
-	}
+	/*
+		
+	*/
 	free_package(pck);
 	free(target);
 }
