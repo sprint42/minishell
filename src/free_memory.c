@@ -17,11 +17,7 @@ void	free_unit_pipe(t_unit_head *cmd_lst)
 
 void	free_cmd_lst(t_unit_head *cmd_lst)
 {
-	t_unit_pipe	*curr;
-	t_unit_pipe *temp;
-
-	if (cmd_lst->pp_next)
-		free_unit_pipe(cmd_lst->pp_next);
+	free_unit_pipe(cmd_lst);
 	if (cmd_lst->child.pid)
 	{
 		free(cmd_lst->child.pid);
@@ -53,7 +49,7 @@ void	free_unit_env(t_unit_head *cmd_lst)
 	cmd_lst->env_next = NULL;
 }
 
-void	free_path(int	**path)
+void	free_path(char	**path)
 {
 	int	i;
 

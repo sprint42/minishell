@@ -1,6 +1,6 @@
 #include "execute.h"
 
-static int check_validity(char *str)
+static int check_unset_validity(char *str)
 {
 	int validity;
 	int	i;
@@ -19,7 +19,7 @@ static int check_validity(char *str)
 	{
 		ft_putstr_fd("not a valid identifier : ", STDERR_FILENO);
 		ft_putstr_fd(str, STDERR_FILENO);
-		ft_putchar_fd('\n', STDERR_FILENO)
+		ft_putchar_fd('\n', STDERR_FILENO);
 		return (0);
 	}
 	return (1);
@@ -75,7 +75,7 @@ int	execute_unset(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	exit_code = 0;
 	while(curr_cmd->commands[i])
 	{
-		if (check_validity(curr_cmd->commands[i]) == 0)
+		if (check_unset_validity(curr_cmd->commands[i]) == 0)
 			exit_code = 1;
 		delete_env(cmd_lst, curr_cmd->commands[i]);
 		i++;

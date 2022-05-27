@@ -51,15 +51,15 @@ void	add_path(t_unit_pipe *curr_cmd, char **path)
 	handle_child_process_error(EXIT_CNF, EACCESS, curr_cmd->commands[0]);
 }
 
-void	execute_execve(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd, int **pipe_fd, int i)
+void	execute_execve(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 {
 	char	**envp;
 	char	**path;
 
 	envp = make_env_array(cmd_lst);
 	if (envp == NULL)
-		return (handle_child_process_error(1, errno, curr_cmd->commands[0]));
-	if (ft_strchr(curr_cmd, '/') == NULL)
+		handle_child_process_error(1, errno, curr_cmd->commands[0]);
+	if (ft_strchr(curr_cmd->commands[0], '/') == NULL)
 	{
 		path = extract_path(envp, curr_cmd);
 		if (path != NULL)
@@ -107,5 +107,5 @@ void	execute_childprocess(t_unit_head *cmd_lst, int pipe_fd[2], int curr_in, int
 		exit(1);
 	if (check_builtin(curr_cmd))
 		exit(execute_builtin(cmd_lst, cmd_lst->pp_next));
-	execute_execve(cmd_lst, curr_cmd, pipe_fd, i);
+	execute_execve(cmd_lst, curr_cmd);
 }
