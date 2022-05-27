@@ -22,7 +22,7 @@ int	execute_builtin(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
 
 /* echo.c */
 int	execute_echo(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
-int echo_check_newline(char *option_str)
+int echo_check_newline(char *option_str);
 
 /* cd.c */
 int	execute_cd(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
@@ -38,7 +38,7 @@ int	execute_export(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
 int		print_env(t_unit_head *cmd_lst);
 char	**make_env_array(t_unit_head *cmd_lst);
 void	free_env_array(char **envp);
-char	count_env(t_unit_head *cmd_lst)
+char	count_env(t_unit_head *cmd_lst);
 void	sort_env(char **envp);
 
 /* export_add.c */

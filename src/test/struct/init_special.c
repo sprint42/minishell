@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:45:28 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/25 13:46:23 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/27 15:15:40 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,5 @@ void	init_special(t_point *ptr)
 {
 	ptr->junction->space_trim_set = init_special_space();
 	ptr->junction->dolr_trim_set = init_special_dolr();
+	init_environ(ptr);
 }

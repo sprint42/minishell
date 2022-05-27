@@ -129,8 +129,8 @@ typedef struct t_unit_head
 
 typedef struct t_special
 {
-	char	*space_trim_set;
 	char	*dolr_trim_set;
+	char	*space_trim_set;
 }t_special;
 
 typedef struct t_parsed
@@ -147,23 +147,24 @@ typedef struct t_point
 	char		*prev;
 	char		*pile;
 	char		*move;
-	t_special	*junction;
-	t_parsed	*parsed;
 	t_unit_env	*env;
+	t_parsed	*parsed;
+	t_special	*junction;
 }t_point;
 
 
 /*
 **	사용자 함수
 */
-void		test(void);
+t_unit_env	*malloc_env(void);
 t_point		*init_struct(void);
+t_point		*malloc_point(void);
+t_parsed	*malloc_parsed(void);
+t_special	*malloc_junction(void);
+void		test(t_unit_head *head);
+t_unit_head	*malloc_head(t_point *pck);
 void		init_special(t_point *ptr);
 void		init_environ(t_point *pck);
-t_point		*malloc_point(t_point *ptr);
-t_unit_env	*malloc_env(t_unit_env *ptr);
-t_parsed	*malloc_parsed(t_parsed *ptr);
-t_special	*malloc_junction(t_special *ptr);
 
 /*
 **	judge special
@@ -174,11 +175,11 @@ void		judge_special(t_point *pck, char **s, char **ret);
 **	is special word?
 */
 int			is_null(char c);
-int			is_space(t_point *pck, char c);
 int			is_pipe(t_point *pck, char c);
 int			is_redr(t_point *pck, char c);
 int			is_dolr(t_point *pck, char c);
 int			is_quot(t_point *pck, char c);
+int			is_space(t_point *pck, char c);
 
 /*
 **	find

@@ -11,7 +11,7 @@ int	main(void)
 	{
 		buf = readline("minishell > ");
 		add_history(buf);
-		test();
+		test(cmd_lst);
 		// parsing
 		free(buf);
 	}

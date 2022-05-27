@@ -6,30 +6,36 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:56:33 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/25 15:16:16 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/27 15:30:14 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-t_point	*malloc_point(t_point *ptr)
+t_point	*malloc_point(void)
 {
+	t_point *ptr;
+	
 	ptr = (t_point *)malloc(sizeof(t_point));
 	if (!ptr)
 		exit(EXIT_FAILURE);
 	return (ptr);
 }
 
-t_special	*malloc_junction(t_special *ptr)
+t_special	*malloc_junction(void)
 {
+	t_special	*ptr;
+
 	ptr = (t_special *)malloc(sizeof(t_special));
 	if (!ptr)
 		exit(EXIT_FAILURE);
 	return (ptr);
 }
 
-t_parsed	*malloc_parsed(t_parsed *ptr)
+t_parsed	*malloc_parsed(void)
 {
+	t_parsed	*ptr;
+	
 	ptr = (t_parsed *)malloc(sizeof(t_parsed));
 	if (!ptr)
 		exit(EXIT_FAILURE);
@@ -40,8 +46,10 @@ t_parsed	*malloc_parsed(t_parsed *ptr)
 	return (ptr);
 }
 
-t_unit_env	*malloc_env(t_unit_env *ptr)
+t_unit_env	*malloc_env(void)
 {
+	t_unit_env	*ptr;
+	
 	ptr = (t_unit_env *)malloc(sizeof(t_unit_env));
 	if (!ptr)
 		exit(EXIT_FAILURE);
@@ -49,4 +57,23 @@ t_unit_env	*malloc_env(t_unit_env *ptr)
 	ptr->key = NULL;
 	ptr->value = NULL;
 	return (ptr);
+}
+
+t_unit_head	*malloc_head(t_point *pck)
+{
+	t_unit_head		*ptr;
+	t_child_info	*child;
+
+	ptr = (t_unit_head *)malloc(sizeof(t_unit_head));
+	if (!ptr)
+		exit(EXIT_FAILURE);
+	child = (t_child_info *)malloc(sizeof(t_child_info));
+	if (!child)
+		exit(EXIT_FAILURE);
+	child->pid = NULL;
+	child->status = NULL;
+	ptr->cmd_cnt = 0;
+	ptr->pp_next = NULL;
+	ptr->env_next = pck->env->env_next;
+	ptr->child = *child;
 }
