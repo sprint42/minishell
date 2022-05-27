@@ -161,7 +161,7 @@ t_point			*init_struct(void);
 t_point			*malloc_point(void);
 t_parsed		*malloc_parsed(void);
 t_special		*malloc_junction(void);
-void			test(t_unit_head *head);
+t_unit_head		*test(t_unit_head *head);
 t_unit_head		*malloc_head(t_point *pck);
 void			init_special(t_point *ptr);
 void			init_environ(t_point *pck);
