@@ -18,12 +18,12 @@ int echo_check_newline(char *option_str)
 	return (1);
 }
 
-int execute_echo(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
+int execute_echo(t_unit_pipe *curr_cmd)
 {
 	int	i;
 	int	n_flag;
 
-	n_flag = check_n_flag(curr_cmd->commands[1]);
+	n_flag = echo_check_newline(curr_cmd->commands[1]);
 	i = n_flag + 1;
 	while (curr_cmd->commands[i])
 	{
@@ -32,6 +32,6 @@ int execute_echo(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 		i++;
 	}
 	if (n_flag)
-		ft_putstr_fd('\n', STDOUT_FILENO);
+		ft_putchar_fd('\n', STDOUT_FILENO);
 	return (0);
 }

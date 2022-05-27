@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yejikim <yejikim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 13:44:51 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/23 14:22:00 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/27 22:02:01 by yejikim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "../libft/libft.h"
 
 void	ft_free_ptr(void **ptr)
 {
@@ -20,7 +19,7 @@ void	ft_free_ptr(void **ptr)
 	*ptr = NULL;
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*buf;
 	int		len_s1;
@@ -31,22 +30,22 @@ char	*ft_strjoin(char *s1, char *s2)
 	else if (!s1 || !s2)
 	{
 		if (!s1)
-			return (ft_strdup(s2));
+			return (ft_strdup_gnl(s2));
 		else
-			return (ft_strdup(s1));
+			return (ft_strdup_gnl(s1));
 	}
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
+	len_s1 = ft_strlen_gnl(s1);
+	len_s2 = ft_strlen_gnl(s2);
 	buf = (char *)malloc((len_s1 + len_s2 + 1) * sizeof(char));
 	if (!buf)
 		return (NULL);
-	ft_strlcpy(buf, s1, len_s1 + 1);
+	ft_strlcpy_gnl(buf, s1, len_s1 + 1);
 	ft_free_ptr((void **)(&s1));
-	ft_strlcpy(buf + len_s1, s2, len_s2 + 1);
+	ft_strlcpy_gnl(buf + len_s1, s2, len_s2 + 1);
 	return (buf);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_gnl(const char *s)
 {
 	size_t	cnt;
 
@@ -59,7 +58,7 @@ size_t	ft_strlen(const char *s)
 	return (cnt);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy_gnl(char *dst, const char *src, size_t dstsize)
 {
 	size_t	idx;
 
@@ -73,16 +72,16 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		}
 		dst[idx] = '\0';
 	}
-	return (ft_strlen(src));
+	return (ft_strlen_gnl(src));
 }
 
-char	*ft_strdup(char *s1)
+char	*ft_strdup_gnl(char *s1)
 {
 	char	*buf;
 	int		idx;
 
 	idx = 0;
-	buf = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
+	buf = (char *)malloc((ft_strlen_gnl(s1) + 1) * sizeof(char));
 	if (!buf)
 		return (NULL);
 	while (s1[idx])
