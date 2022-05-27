@@ -17,10 +17,23 @@ static int check_validity(char *str)
 	}
 	if (!validity)
 	{
-		ft_putstr_fd("not a valid identifier\n", STDOUT_FILENO);
+		ft_putstr_fd("not a valid identifier : ", STDERR_FILENO);
+		ft_putstr_fd(str, STDERR_FILENO);
+		ft_putchar_fd('\n', STDERR_FILENO)
 		return (0);
 	}
 	return (1);
+}
+
+void	free_env_element(t_unit_env *env)
+{
+	if (env == NULL)
+		return ;
+	if (env->key)
+		free(env->key);
+	if (env->value)
+		free(env->value);
+	free(env);
 }
 
 void	delete_env(t_unit_head *cmd_lst, char *key)
@@ -35,7 +48,7 @@ void	delete_env(t_unit_head *cmd_lst, char *key)
 	{
 		temp = curr;
 		cmd_lst->env_next = curr->env_next;
-		free(temp);
+		free_env_element(temp);
 		return ;
 	}
 	while (curr->env_next)
@@ -44,7 +57,7 @@ void	delete_env(t_unit_head *cmd_lst, char *key)
 		{
 			temp = curr->env_next;
 			curr->env_next = temp->env_next;
-			free(temp);
+			free_env_element(temp);
 			break ;
 		}
 		curr = curr->env_next;
@@ -57,10 +70,7 @@ int	execute_unset(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	int exit_code;
 
 	if (curr_cmd->commands[1] == NULL)
-	{
-		ft_putstr_fd("not enough arguments : unset\n", STDOUT_FILENO);
-		return (1);
-	}
+		return (handle_default_error("not enough arguments : unset"));
 	i = 1;
 	exit_code = 0;
 	while(curr_cmd->commands[i])
@@ -70,5 +80,5 @@ int	execute_unset(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 		delete_env(cmd_lst, curr_cmd->commands[i]);
 		i++;
 	}
-	return (0);
+	return (exit_code);
 }

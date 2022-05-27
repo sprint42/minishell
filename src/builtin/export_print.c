@@ -93,7 +93,7 @@ int	print_env(t_unit_head *cmd_lst)
 		return (0);
 	envp = make_env_array(cmd_lst);
 	if (envp == NULL)
-		return (1);
+		return (handle_default_error("fail in making envp : export"));
 	sort_env(envp);
 	i = 0;
 	while (envp[i])
