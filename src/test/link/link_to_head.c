@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:46:34 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/28 12:18:58 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/28 17:35:26 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ static t_unit_pipe	*create_unit_pipe(t_parsed *parsed)
 	unit->commands = NULL;
 	unit->rd = NULL;
 	unit->pp_next = NULL;
-	// printf("parsed str : %s\n", parsed->str);
 	cnt = cnt_cmd(parsed);
 	if (cnt)
 		create_commands(parsed, unit, cnt);

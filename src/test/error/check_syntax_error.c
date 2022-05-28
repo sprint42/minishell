@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_error.c                                         :+:      :+:    :+:   */
+/*   check_syntax_error.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 20:26:42 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/28 19:40:09 by mcha             ###   ########.fr       */
+/*   Created: 2022/05/28 17:37:27 by mcha              #+#    #+#             */
+/*   Updated: 2022/05/28 18:09:45 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int	is_error(char *buf)
+int	check_syntax_error(t_point *pck)
 {
-	// printf("buf: [START]%s[END]\n", buf);
-	if (check_quote_not_closed(buf))
+	if (check_is_redr_continuous(pck))
 		return (1);
-	if (check_is_backslash_appear(buf))
-		return (1);
-	if (check_is_semicolon_appear(buf))
+	else if (check_is_pipe_error(pck))
 		return (1);
 	return (0);
 }
