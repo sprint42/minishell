@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   link_to_head.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:46:34 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 20:03:10 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/28 11:20:16 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,8 @@ static void create_redirection(t_parsed *parsed, t_unit_pipe *unit)
 static t_unit_pipe	*create_unit_pipe(t_parsed *parsed)
 {
 	unsigned int	cnt;
-	unsigned int	idx;
 	t_unit_pipe		*unit;
 
-	idx = 0;
 	unit = (t_unit_pipe *)malloc(sizeof(t_unit_pipe));
 	if (!unit)
 		exit(EXIT_FAILURE);
