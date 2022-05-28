@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:03:53 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/26 13:53:48 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/28 20:50:54 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,14 @@ char	*dolr_handler(t_point *pck, char **s)
 	tmp = NULL;
 	pck->pile = *s;
 	while (**s && !find_dolr_trim(pck, **s))
+	{
+		if (**s == '?')
+		{
+			(*s)++;
+			break;
+		}
 		(*s)++;
+	}
 	tmp = ft_substr(pck->pile, 0, *s - pck->pile);
 	ret = ret_env_value(pck, tmp);
 	free(tmp);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   environ_node.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:50:03 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 17:24:01 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/28 20:58:55 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ char	*ret_env_value(t_point *pck, char *key)
 
 	ret = NULL;
 	tmp = pck->env->env_next;
+	if (!ft_strncmp(key, "?", ft_strlen(key)))
+	{
+		ret = proc_question_mark();
+		return (ret);
+	}
 	while (tmp)
 	{
 		if (!ft_strncmp(tmp->key, key, ft_strlen(tmp->key)))
