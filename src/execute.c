@@ -3,13 +3,12 @@
 int	wait_childs(t_unit_head *cmd_lst)
 {
 	int	i;
-	int ret;
 
 	i = 0;
 	while (i < cmd_lst->cmd_cnt)
 	{	
 		if (cmd_lst->child.pid[i] > 0)
-			ret = waitpid(cmd_lst->child.pid[i], &(cmd_lst->child.status[i]), 0);
+			waitpid(cmd_lst->child.pid[i], &(cmd_lst->child.status[i]), 0);
 		i++;
 	}
 	g_exit_status = (cmd_lst->child.status[--i] & 0x0f) >> 8;
