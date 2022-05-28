@@ -66,9 +66,6 @@ void	execute_execve(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 			add_path(curr_cmd, path);
 		free_path(path);
 	}
-	// ft_putstr_fd("curr_cmd->commands[0] : ", 2);
-	// ft_putstr_fd(curr_cmd->commands[0], 2);
-	// ft_putstr_fd("\n", 2);
 	execve(curr_cmd->commands[0], curr_cmd->commands, envp);
 	if (errno == EACCESS)
 		handle_child_process_error(EXIT_CNF, errno, curr_cmd->commands[0]);
@@ -96,7 +93,8 @@ void	execute_childprocess(t_unit_head *cmd_lst, int pipe_fd[2], int curr_in, int
 	t_unit_pipe	*curr_cmd;
 
 	curr_cmd = find_curr_cmd(cmd_lst, i);
-	close(pipe_fd[0]);
+	if (i != cmd_lst->cmd_cnt - 1)
+		close(pipe_fd[0]);
 	if (dup2(curr_in, STDIN_FILENO) < 0)
 		handle_child_process_error(1, errno, curr_cmd->commands[0]);
 	close(curr_in);
