@@ -38,9 +38,9 @@ int	execute_exit(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	exit_num = 0;
 	if (curr_cmd->commands[1] != NULL)
 		exit_num = check_first_arg(curr_cmd->commands[1], &arg_status);
-	if (!arg_status)
+	ft_putstr_fd("exit\n", STDERR_FILENO);
+	if (arg_status)
 	{
-		ft_putstr_fd("exit\n", STDERR_FILENO);
 		ft_putstr_fd("numeric argument required : exit\n", STDERR_FILENO);
 		free_cmd_lst(cmd_lst);
 		free_unit_env(cmd_lst);
@@ -48,7 +48,6 @@ int	execute_exit(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	}
 	if (!(curr_cmd->commands[1] == NULL || curr_cmd->commands[2] == NULL))
 	{
-		ft_putstr_fd("exit\n", STDERR_FILENO);
 		ft_putstr_fd("too many arguments : exit\n", STDERR_FILENO);
 		return (1);
 	}
