@@ -13,8 +13,11 @@ int	main(void)
 		add_history(buf);
 		if (!is_error(buf))
 		{
+			printf("1");
 			cmd_lst = test(cmd_lst);
+			printf("2\n");
 			execute_cmds(cmd_lst);
+			printf("3");
 		}
 		/* 테스트 출력 */
 		// t_unit_pipe	*tmp;
