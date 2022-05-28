@@ -80,6 +80,7 @@ char	**make_env_array(t_unit_head *cmd_lst)
 			break ;
 		curr = curr->env_next;
 	}
+	envp[i] = NULL;
 	return (envp);
 }
 

@@ -10,11 +10,11 @@ t_unit_head	*test(t_unit_head *head)
 	pck = init_struct();
 	init_special(pck);
 	head = malloc_head(pck);
-	target = "             one		two args | three| <<  four>	\"	\" \" \" five>>     	$P\'A\'TH\"$PATH \'abcd\'\"	$PATH\'hello\'world previous quote\'testsquote\' six| asdfasdfasdf\"$PATH$USER it>>is String\' hello trillion world  \'a\"b >>YEJIN";
+	// target = "             one		two args | three| <<  four>	\"	\" \" \" five>>     	$P\'A\'TH\"$PATH \'abcd\'\"	$PATH\'hello\'world previous quote\'testsquote\' six| asdfasdfasdf\"$PATH$USER it>>is String\' hello trillion world  \'a\"b >>YEJIN";
 	// target = "   	\'e\'ch\"o\" 	 a      cc >> hello| <<wtf|   b	USER\'$PATH\'wtf\"$HELLO\" 	";
 	// // target="hello \"world\"ab|c\'after that\'";
 	// // target = "echo \"$PATH\'abc\'hello\"";
-	// target = "echo \"<$USER<HELLO\"";
+	target = "ls";
 	ret = NULL;
 
 	target = ft_strtrim(target, (char const *)pck->junction->space_trim_set);

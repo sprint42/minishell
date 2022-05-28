@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:46:34 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/28 11:20:16 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/28 12:18:58 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ void	link_to_head(t_point *pck, t_unit_head *head)
 	{
 		link_new_pipe_node(head, create_unit_pipe(tmp));
 		move_to_forward(&tmp);
+		(head->cmd_cnt)++;
 	}
 }

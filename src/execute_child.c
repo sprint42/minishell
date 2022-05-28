@@ -10,6 +10,7 @@ char	**extract_path(char **envp, t_unit_pipe *curr_cmd)
 	i = 0;
 	while (envp[i])
 	{
+		printf("envp : %s\n", envp[i]);
 		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
 			break ;
 		i++;
