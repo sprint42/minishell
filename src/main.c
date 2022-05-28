@@ -23,27 +23,6 @@ int	main(void)
 			if (cmd_lst)
 				execute_cmds(cmd_lst);
 		}
-		/* 테스트 출력 */
-		// t_unit_pipe	*tmp;
-
-		// tmp = cmd_lst->pp_next;
-		// while (tmp)
-		// {
-		// 	while (tmp->commands && *tmp->commands)
-		// 	{
-		// 		printf("commands	: %s\n", *tmp->commands);
-		// 		(tmp->commands)++;
-		// 	}
-		// 	while (tmp->rd)
-		// 	{
-		// 		printf("redir		: %s\n", tmp->rd->filename);
-		// 		tmp->rd = tmp->rd->next;
-		// 	}
-		// 	tmp = tmp->pp_next;
-		// 	printf("\n");
-		// }
-		/* 출력 종료 */
-		// parsing
 		free(buf);
 		if (dup2(fd_stdin, STDIN_FILENO) < 0 || dup2(fd_stdout, STDOUT_FILENO) < 0)
 			return (handle_main_process_error("fail in dup2", cmd_lst));
