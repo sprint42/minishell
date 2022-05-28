@@ -57,7 +57,9 @@ enum e_error
 {
 	ERROR_QUOT = 1,
 	ERROR_BSLA,
-	ERROR_SEMC
+	ERROR_SEMC,
+	ERROR_REDR,
+	ERROR_PIPE
 };
 
 /*
@@ -245,10 +247,13 @@ int				is_error(char *buf);
 void			print_error(int errorcode);
 int				judge_is_quote_error(int bit);
 int				error_is_quot(int bit, char c);
+int				check_syntax_error(t_point *pck);
 int				check_quote_not_closed(char *buf);
+int				check_is_pipe_error(t_point *pck);
 void			control_quote(int *bit, char quot);
 int				check_is_backslash_appear(char *buf);
 int				check_is_semicolon_appear(char *buf);
+int				check_is_redr_continuous(t_point *pck);
 
 /*
 **	End of parsing test session
