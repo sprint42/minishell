@@ -163,7 +163,6 @@ typedef struct t_point
 	t_special	*junction;
 }t_point;
 
-
 /*
 **	사용자 함수
 */
@@ -203,6 +202,7 @@ int				find_redr(t_point *pck, char c, char redr);
 /*
 **	process
 */
+char			*proc_question_mark(void);
 void			proc_null(t_point *pck, char **ret);
 void			proc_pipe(t_point *pck, char **s, char **ret);
 void			proc_dolr(t_point *pck, char **s, char **ret);
@@ -232,13 +232,14 @@ int				check_type(char	*type);
 int				check_pipe(char *type);
 unsigned int	cnt_cmd(t_parsed *parsed);
 void			bind_rd_type(t_parsed *type, int *rd);
-void			link_to_head(t_point *pck, t_unit_head *head);
+void			link_to_head(t_point **pck, t_unit_head **head);
 
 /*
 **	Free
 */
-void			free_package(t_point *pck);
+void			free_package(t_point **pck);
 void			free_env_storage(char **storage);
+void			link_and_free(t_point **pck, t_unit_head **head, char **target);
 
 /*
 **	Error

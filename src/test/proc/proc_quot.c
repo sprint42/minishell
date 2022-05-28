@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   proc_quot.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:36:53 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 20:47:46 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/28 21:20:57 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ static char	*proc_squot(t_point *pck, char **s)
 	while (**s && **s != '\'')
 		(*s)++;
 	ret = ft_substr(pck->pile, 0, *s - pck->pile);
+	if (ft_strlen(ret) == 0)
+	{
+		free(ret);
+		return (ft_strdup(""));
+	}
 	return (ret);
 }
 
