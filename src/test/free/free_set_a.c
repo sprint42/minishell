@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_set_a.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:09:03 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 15:27:01 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/28 20:30:03 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,38 +19,24 @@ void	free_env_storage(char **storage)
 	free(storage);
 }
 
-static void	free_junction(t_point *pck)
+static void	free_junction(t_point **pck)
 {
-	free(pck->junction->space_trim_set);
-	free(pck->junction->dolr_trim_set);
-	free(pck->junction);
+	free((*pck)->junction->space_trim_set);
+	free((*pck)->junction->dolr_trim_set);
+	free((*pck)->junction);
 }
 
-static void	free_environ(t_point *pck)
+static void	free_environ(t_point **pck)
 {
-	// t_unit_env	*tmp;
-	// t_unit_env	*ptr;
-
-	// tmp = pck->env->env_next;
-	free(pck->env);
-	// ptr = tmp;
-	// while (ptr)
-	// {
-		// free(ptr->key);
-		// free(ptr->value);
-		// tmp = tmp->env_next;
-		// ptr->env_next = 0;
-		// free(ptr);
-		// ptr = tmp;
-	// }
+	free((*pck)->env);
 }
 
-static void	free_parsed(t_point *pck)
+static void	free_parsed(t_point **pck)
 {
 	t_parsed	*tmp;
 	t_parsed	*ptr;
 
-	ptr = pck->parsed;
+	ptr = (*pck)->parsed;
 	tmp = ptr->next;
 	free(ptr);
 	ptr = tmp;
@@ -61,17 +47,15 @@ static void	free_parsed(t_point *pck)
 		if (ptr->str)
 			free(ptr->str);
 		tmp = ptr->next;
-		// pck->parsed->next = 0;
-		// pck->parsed->prev = 0;
 		free(ptr);
 		ptr = tmp;
 	}
 }
 
-void	free_package(t_point *pck)
+void	free_package(t_point **pck)
 {
 	free_junction(pck);
 	free_environ(pck);
 	free_parsed(pck);
-	free(pck);
+	free(*pck);
 }

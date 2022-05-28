@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:46:34 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/28 17:35:26 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/28 20:27:51 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,15 @@ static void	move_to_forward(t_parsed **tmp)
 		(*tmp) = (*tmp)->next;
 }
 
-void	link_to_head(t_point *pck, t_unit_head *head)
+void	link_to_head(t_point **pck, t_unit_head **head)
 {
 	t_parsed	*tmp;
 
-	tmp = pck->parsed->next;
+	tmp = (*pck)->parsed->next;
 	while (tmp)
 	{
-		link_new_pipe_node(head, create_unit_pipe(tmp));
+		link_new_pipe_node((*head), create_unit_pipe(tmp));
 		move_to_forward(&tmp);
-		(head->cmd_cnt)++;
+		((*head)->cmd_cnt)++;
 	}
 }
