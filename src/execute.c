@@ -42,20 +42,9 @@ int	breed_childs(t_unit_head *cmd_lst)
 
 int execute_cmds(t_unit_head *cmd_lst)
 {
-	int	fd_stdin;
-	int	fd_stdout;
-
-	fd_stdin = 0;
-	fd_stdout = 1;
 	if (cmd_lst->cmd_cnt == 1 && check_builtin(cmd_lst->pp_next))
 	{
-		if (dup2(STDIN_FILENO, fd_stdin) < 0 || dup2(STDOUT_FILENO, fd_stdout) < 0)
-			return (handle_main_process_error("fail in dup2", cmd_lst));
 		g_exit_status = execute_builtin(cmd_lst, cmd_lst->pp_next);
-		if (dup2(fd_stdin, STDIN_FILENO) < 0 || dup2(fd_stdout, STDOUT_FILENO) < 0)
-			return (handle_main_process_error("fail in dup2", cmd_lst));
-		close(fd_stdin);
-		close(fd_stdout);
 		free_cmd_lst(cmd_lst);
 		return (0);
 	}
