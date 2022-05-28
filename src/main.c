@@ -20,7 +20,8 @@ int	main(void)
 		if (!is_error(buf) && (ft_strlen(buf) > 0))
 		{
 			cmd_lst = test(cmd_lst, buf);
-			execute_cmds(cmd_lst);
+			if (cmd_lst)
+				execute_cmds(cmd_lst);
 		}
 		/* 테스트 출력 */
 		// t_unit_pipe	*tmp;

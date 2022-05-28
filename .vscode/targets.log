@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Sat May 28 12:02:22 2022
+# Make data base, printed on Sat May 28 17:47:46 2022
 
 # Variables
 
@@ -28,7 +28,6 @@ GNL_OBJ = $(FILE_GNL:.c=.o)
 FILE_ROOT = $(notdir $(wildcard src/*.c))
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
- 
 # automatic
 @F = $(notdir $@)
 # makefile
@@ -72,7 +71,6 @@ FILE_LIBF = $(notdir $(wildcard $(SRCS_LIBF)/*.c))
 # makefile (from `Makefile', line 63)
 STRUCT_OBJ = $(FILE_STRUCT:.c=.o)
 # makefile (from `Makefile', line 33)
- 
 SRCS_LINK = $(SRCS_TEST)/link
 # makefile (from `Makefile', line 62)
 PROC_OBJ = $(FILE_PROC:.c=.o)
@@ -99,8 +97,8 @@ FILE_TEST = $(notdir $(wildcard $(SRCS_TEST)/*.c))
 # environment
 VSCODE_PIPE_LOGGING = true
 # makefile (from `Makefile', line 74)
-OBJS := obj/distinguish.o obj/test.o obj/error_is_quot.o obj/is_dolr.o obj/is_null.o obj/is_pipe.o obj/is_quot.o obj/is_redr.o obj/is_space.o obj/proc_dolr.o obj/proc_find_letter.o obj/proc_null.o obj/proc_pipe.o obj/proc_quot.o obj/proc_redr.o obj/proc_space.o obj/init_environ.o obj/init_special.o obj/init_struct.o obj/malloc_struct.o obj/ft_atoi.o obj/ft_bzero.o obj/ft_calloc.o obj/ft_isalnum.o obj/ft_isalpha.o obj/ft_isascii.o obj/ft_isdigit.o obj/ft_isprint.o obj/ft_itoa.o obj/ft_lstadd_back.o obj/ft_lstadd_front.o obj/ft_lstclear.o obj/ft_lstdelone.o obj/ft_lstiter.o obj/ft_lstlast.o obj/ft_lstmap.o obj/ft_lstnew.o obj/ft_lstsize.o obj/ft_memchr.o obj/ft_memcmp.o obj/ft_memcpy.o obj/ft_memmove.o obj/ft_memset.o obj/ft_putchar_fd.o obj/ft_putendl_fd.o obj/ft_putnbr_fd.o obj/ft_putstr_fd.o obj/ft_split.o obj/ft_strchr.o obj/ft_strdup.o obj/ft_striteri.o obj/ft_strjoin.o obj/ft_strjoin_leak.o obj/ft_strlcat.o obj/ft_strlcpy.o obj/ft_strlen.o obj/ft_strmapi.o obj/ft_strncmp.o obj/ft_strnstr.o obj/ft_strrchr.o obj/ft_strtrim.o obj/ft_substr.o obj/ft_tolower.o obj/ft_toupper.o obj/environ_node.o obj/manufact.o obj/manufact_type.o obj/parsed_node.o obj/pipe_node.o obj/rd_node.o obj/free_set_a.o obj/link_to_head.o obj/util_unit_pipe.o obj/check_is_backslash_appear.o obj/check_is_semicolon_appear.o obj/check_quote_not_closed.o obj/control_quote.o obj/is_error.o obj/judge_is_quote_error.o obj/print_error.o obj/cd.o obj/echo.o obj/env.o obj/exit.o obj/export.o obj/export_add.o obj/export_print.o obj/pwd.o obj/unset.o obj/execute.o obj/execute_builtin.o obj/execute_child.o obj/free_memory.o obj/handle_error.o obj/main.o obj/redirect.o obj/redirect_double.o obj/get_next_line.o obj/get_next_line_utils.o
  
+OBJS := obj/distinguish.o obj/test.o obj/error_is_quot.o obj/is_dolr.o obj/is_null.o obj/is_pipe.o obj/is_quot.o obj/is_redr.o obj/is_space.o obj/proc_dolr.o obj/proc_find_letter.o obj/proc_null.o obj/proc_pipe.o obj/proc_quot.o obj/proc_redr.o obj/proc_space.o obj/init_environ.o obj/init_special.o obj/init_struct.o obj/malloc_struct.o obj/ft_atoi.o obj/ft_bzero.o obj/ft_calloc.o obj/ft_isalnum.o obj/ft_isalpha.o obj/ft_isascii.o obj/ft_isdigit.o obj/ft_isprint.o obj/ft_itoa.o obj/ft_lstadd_back.o obj/ft_lstadd_front.o obj/ft_lstclear.o obj/ft_lstdelone.o obj/ft_lstiter.o obj/ft_lstlast.o obj/ft_lstmap.o obj/ft_lstnew.o obj/ft_lstsize.o obj/ft_memchr.o obj/ft_memcmp.o obj/ft_memcpy.o obj/ft_memmove.o obj/ft_memset.o obj/ft_putchar_fd.o obj/ft_putendl_fd.o obj/ft_putnbr_fd.o obj/ft_putstr_fd.o obj/ft_split.o obj/ft_strchr.o obj/ft_strdup.o obj/ft_striteri.o obj/ft_strjoin.o obj/ft_strjoin_leak.o obj/ft_strlcat.o obj/ft_strlcpy.o obj/ft_strlen.o obj/ft_strmapi.o obj/ft_strncmp.o obj/ft_strnstr.o obj/ft_strrchr.o obj/ft_strtrim.o obj/ft_substr.o obj/ft_tolower.o obj/ft_toupper.o obj/environ_node.o obj/manufact.o obj/manufact_type.o obj/parsed_node.o obj/pipe_node.o obj/rd_node.o obj/free_set_a.o obj/link_to_head.o obj/util_unit_pipe.o obj/check_is_backslash_appear.o obj/check_is_redr_continuous.o obj/check_is_semicolon_appear.o obj/check_quote_not_closed.o obj/check_syntax_error.o obj/control_quote.o obj/is_error.o obj/judge_is_quote_error.o obj/print_error.o obj/cd.o obj/echo.o obj/env.o obj/exit.o obj/export.o obj/export_add.o obj/export_print.o obj/pwd.o obj/unset.o obj/execute.o obj/execute_builtin.o obj/execute_child.o obj/free_memory.o obj/handle_error.o obj/main.o obj/redirect.o obj/redirect_double.o obj/get_next_line.o obj/get_next_line_utils.o
 # environment
 PWD = /Users/chaminjae/Desktop/42/cursus/minishell
 # makefile (from `Makefile', line 34)
@@ -115,23 +113,18 @@ ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 FILE_PROC = $(notdir $(wildcard $(SRCS_PROC)/*.c))
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
- 
 # environment
 HOME = /Users/chaminjae
 # makefile (from `Makefile', line 32)
- 
 SRCS_FREE = $(SRCS_TEST)/free
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
- 
 # environment
 VSCODE_CLI = 1
 # environment
- 
 VSCODE_CODE_CACHE_PATH = /Users/chaminjae/Library/Application Support/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
 # environment
 LOGNAME = chaminjae
- 
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # makefile (from `Makefile', line 27)
@@ -219,6 +212,7 @@ FILE_UTIL = $(notdir $(wildcard $(SRCS_UTIL)/*.c))
 # automatic
 +F = $(notdir $+)
 # environment
+ 
 ITERM_SESSION_ID = w0t0p0:3A624A39-2618-4F06-B622-37AA9539FC81
 # environment
 COLORFGBG = 15;0
@@ -271,7 +265,7 @@ VSCODE_PID = 20458
 # makefile (from `Makefile', line 70)
 ROOT_OBJ = $(FILE_ROOT:.c=.o)
 # variable set hash-table stats:
-# Load=125/1024=12%, Rehash=0, Collisions=37/220=17%
+# Load=125/1024=12%, Rehash=0, Collisions=37/227=16%
 
 # Pattern-specific Variable Values
 
@@ -280,10 +274,10 @@ ROOT_OBJ = $(FILE_ROOT:.c=.o)
 # Directories
 
 # src/test/struct (device 16777223, inode 11592673): 6 files, no impossibilities.
-# . (device 16777223, inode 11592486): 12 files, no impossibilities.
+# . (device 16777223, inode 11592486): 13 files, no impossibilities.
 # gnl (device 16777223, inode 11592560): 5 files, no impossibilities.
 # src/builtin (device 16777223, inode 11592617): 11 files, no impossibilities.
-# src/test/error (device 16777223, inode 11592637): 9 files, no impossibilities.
+# src/test/error (device 16777223, inode 11592637): 11 files, no impossibilities.
 # src/test/link (device 16777223, inode 11592655): 4 files, no impossibilities.
 # src/test (device 16777223, inode 11592635): 11 files, no impossibilities.
 # src (device 16777223, inode 11592616): 12 files, no impossibilities.
@@ -294,7 +288,7 @@ ROOT_OBJ = $(FILE_ROOT:.c=.o)
 # src/util: could not be stat'd.
 # src/test/node (device 16777223, inode 11592658): 8 files, no impossibilities.
 
-# 147 files, no impossibilities in 14 directories.
+# 150 files, no impossibilities in 14 directories.
 
 # Implicit Rules
 
@@ -308,19 +302,10 @@ obj/%.o: %.c
 
 # Files
 
-# Not a target:
-src/builtin/exit.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 obj/ft_strlcpy.o: libft/ft_strlcpy.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_strlcpy'
-#  Last modified 2022-05-28 12:00:53
+#  Last modified 2022-05-28 17:29:54
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -333,7 +318,7 @@ obj/ft_strlcpy.o: libft/ft_strlcpy.c
 obj/manufact.o: src/test/node/manufact.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `manufact'
-#  Last modified 2022-05-28 12:00:55
+#  Last modified 2022-05-28 17:29:55
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -346,7 +331,7 @@ obj/manufact.o: src/test/node/manufact.c
 obj/ft_lstmap.o: libft/ft_lstmap.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_lstmap'
-#  Last modified 2022-05-28 12:00:51
+#  Last modified 2022-05-28 17:29:51
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -359,33 +344,7 @@ obj/ft_lstmap.o: libft/ft_lstmap.c
 obj/ft_strncmp.o: libft/ft_strncmp.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_strncmp'
-#  Last modified 2022-05-28 12:00:54
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
-
-obj/judge_is_quote_error.o: src/test/error/judge_is_quote_error.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `judge_is_quote_error'
-#  Last modified 2022-05-28 12:00:56
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
-
-obj/unset.o: src/builtin/unset.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `unset'
-#  Last modified 2022-05-28 12:00:58
+#  Last modified 2022-05-28 17:29:54
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -396,13 +355,16 @@ obj/unset.o: src/builtin/unset.c
 	
 
 # Not a target:
-src/test/error/is_error.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+obj/judge_is_quote_error.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/unset.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 libft/ft_strlcpy.c:
@@ -414,10 +376,9 @@ libft/ft_strlcpy.c:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 obj/pipe_node.o: src/test/node/pipe_node.c
- 
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `pipe_node'
-#  Last modified 2022-05-28 12:00:55
+#  Last modified 2022-05-28 17:29:55
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -430,7 +391,7 @@ obj/pipe_node.o: src/test/node/pipe_node.c
 obj/error_is_quot.o: src/test/is/error_is_quot.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `error_is_quot'
-#  Last modified 2022-05-28 12:00:47
+#  Last modified 2022-05-28 17:29:46
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -461,7 +422,7 @@ libft/ft_lstmap.c:
 # Not a target:
 src/test/node/manufact.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
+#  Last modified 2022-05-28 17:29:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -470,7 +431,7 @@ src/test/node/manufact.c:
 obj/ft_lstadd_front.o: libft/ft_lstadd_front.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_lstadd_front'
-#  Last modified 2022-05-28 12:00:50
+#  Last modified 2022-05-28 17:29:51
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -501,7 +462,7 @@ src/test/is/is_pipe.c:
 obj/ft_isascii.o: libft/ft_isascii.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_isascii'
-#  Last modified 2022-05-28 12:00:50
+#  Last modified 2022-05-28 17:29:50
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -511,28 +472,10 @@ obj/ft_isascii.o: libft/ft_isascii.c
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
-# Not a target:
-src/test/error/check_is_semicolon_appear.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/handle_error.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 obj/ft_strdup.o: libft/ft_strdup.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_strdup'
-#  Last modified 2022-05-28 12:00:53
+#  Last modified 2022-05-28 17:29:53
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -545,13 +488,13 @@ obj/ft_strdup.o: libft/ft_strdup.c
 obj/ft_lstdelone.o: libft/ft_lstdelone.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_lstdelone'
-#  Last modified 2022-05-28 12:00:51
+ 
+#  Last modified 2022-05-28 17:29:51
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 79):
- 
 	@echo "[~] Linking $<"
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
@@ -577,7 +520,7 @@ libft/ft_isalnum.c:
 obj/ft_memmove.o: libft/ft_memmove.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_memmove'
-#  Last modified 2022-05-28 12:00:52
+#  Last modified 2022-05-28 17:29:52
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -587,20 +530,21 @@ obj/ft_memmove.o: libft/ft_memmove.c
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
+ 
 all: minishell
 #  Phony target (prerequisite of .PHONY).
 #  Command-line target.
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
 
 obj/parsed_node.o: src/test/node/parsed_node.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `parsed_node'
-#  Last modified 2022-05-28 12:00:55
+#  Last modified 2022-05-28 17:29:55
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -622,7 +566,7 @@ src/test/node/pipe_node.c:
 obj/manufact_type.o: src/test/node/manufact_type.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `manufact_type'
-#  Last modified 2022-05-28 12:00:55
+#  Last modified 2022-05-28 17:29:55
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -635,7 +579,7 @@ obj/manufact_type.o: src/test/node/manufact_type.c
 obj/ft_strchr.o: libft/ft_strchr.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_strchr'
-#  Last modified 2022-05-28 12:00:53
+#  Last modified 2022-05-28 17:29:53
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -655,18 +599,9 @@ libft/ft_lstadd_front.c:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-gnl/get_next_line.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
 libft/ft_strdup.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
+#  Last modified 2022-05-28 13:05:17
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -677,19 +612,10 @@ libft/ft_strdup.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-src/builtin/pwd.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 obj/ft_strjoin_leak.o: libft/ft_strjoin_leak.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_strjoin_leak'
-#  Last modified 2022-05-28 12:00:53
+#  Last modified 2022-05-28 17:29:53
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -699,28 +625,22 @@ obj/ft_strjoin_leak.o: libft/ft_strjoin_leak.c
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
-obj/check_is_semicolon_appear.o: src/test/error/check_is_semicolon_appear.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `check_is_semicolon_appear'
-#  Last modified 2022-05-28 12:00:56
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/check_is_semicolon_appear.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 obj/util_unit_pipe.o: src/test/link/util_unit_pipe.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `util_unit_pipe'
-#  Last modified 2022-05-28 12:00:56
+#  Last modified 2022-05-28 17:29:56
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 79):
+ 
 	@echo "[~] Linking $<"
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
@@ -728,7 +648,7 @@ obj/util_unit_pipe.o: src/test/link/util_unit_pipe.c
 obj/ft_toupper.o: libft/ft_toupper.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_toupper'
-#  Last modified 2022-05-28 12:00:54
+#  Last modified 2022-05-28 17:29:55
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -750,7 +670,7 @@ libft/ft_memmove.c:
 obj/environ_node.o: src/test/node/environ_node.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `environ_node'
-#  Last modified 2022-05-28 12:00:55
+#  Last modified 2022-05-28 17:29:55
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -760,18 +680,11 @@ obj/environ_node.o: src/test/node/environ_node.c
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
-obj/control_quote.o: src/test/error/control_quote.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `control_quote'
-#  Last modified 2022-05-28 12:00:56
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/control_quote.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 src/test/node/parsed_node.c:
@@ -794,20 +707,7 @@ src/test/node/manufact_type.c:
 obj/ft_strnstr.o: libft/ft_strnstr.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_strnstr'
-#  Last modified 2022-05-28 12:00:54
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
-
-obj/redirect.o: src/redirect.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `redirect'
-#  Last modified 2022-05-28 12:00:59
+#  Last modified 2022-05-28 17:29:54
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -818,6 +718,12 @@ obj/redirect.o: src/redirect.c
 	
 
 # Not a target:
+obj/redirect.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 libft/ft_strjoin_leak.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-05-28 11:35:16
@@ -826,11 +732,10 @@ libft/ft_strjoin_leak.c:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
- 
 obj/ft_putstr_fd.o: libft/ft_putstr_fd.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_putstr_fd'
-#  Last modified 2022-05-28 12:00:52
+#  Last modified 2022-05-28 17:29:53
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -849,30 +754,44 @@ libft/ft_toupper.c:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-obj/get_next_line.o: gnl/get_next_line.c
+obj/check_is_redr_continuous.o: src/test/error/check_is_redr_continuous.c
+ 
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `get_next_line'
-#  Last modified 2022-05-28 12:00:59
+#  Implicit/static pattern stem: `check_is_redr_continuous'
+#  Last modified 2022-05-28 17:45:56
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := obj/check_is_redr_continuous.o
+# automatic
+# % := 
+# automatic
+# * := check_is_redr_continuous
+# automatic
+# + := src/test/error/check_is_redr_continuous.c
+# automatic
+# | := 
+# automatic
+# < := src/test/error/check_is_redr_continuous.c
+# automatic
+# ^ := src/test/error/check_is_redr_continuous.c
+# automatic
+# ? := src/test/error/check_is_redr_continuous.c
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=8/32=25%, Rehash=0, Collisions=3/18=17%
 #  commands to execute (from `Makefile', line 79):
 	@echo "[~] Linking $<"
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
 # Not a target:
-libft/ft_strnstr.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+obj/get_next_line.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-src/execute_builtin.c:
+libft/ft_strnstr.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-05-28 11:35:16
 #  File has been updated.
@@ -908,35 +827,11 @@ src/test/link/util_unit_pipe.c:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-src/test/error/check_quote_not_closed.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/builtin/echo.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-obj/main.o: src/main.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `main'
-#  Last modified 2022-05-28 12:00:59
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+obj/main.o:
+#  Implicit rule search has not been done.
+ 
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .SUFFIXES:
@@ -947,7 +842,7 @@ obj/main.o: src/main.c
 obj/ft_putchar_fd.o: libft/ft_putchar_fd.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_putchar_fd'
-#  Last modified 2022-05-28 12:00:52
+#  Last modified 2022-05-28 17:29:52
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -960,7 +855,7 @@ obj/ft_putchar_fd.o: libft/ft_putchar_fd.c
 obj/ft_atoi.o: libft/ft_atoi.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_atoi'
-#  Last modified 2022-05-28 12:00:49
+#  Last modified 2022-05-28 17:29:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -973,7 +868,7 @@ obj/ft_atoi.o: libft/ft_atoi.c
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:59:19
+#  Last modified 2022-05-28 17:47:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1006,23 +901,16 @@ src/test/is/is_dolr.c:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-obj/check_quote_not_closed.o: src/test/error/check_quote_not_closed.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `check_quote_not_closed'
-#  Last modified 2022-05-28 12:00:56
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/check_quote_not_closed.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 obj/ft_strtrim.o: libft/ft_strtrim.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_strtrim'
-#  Last modified 2022-05-28 12:00:54
+#  Last modified 2022-05-28 17:29:54
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1035,7 +923,7 @@ obj/ft_strtrim.o: libft/ft_strtrim.c
 obj/is_null.o: src/test/is/is_null.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `is_null'
-#  Last modified 2022-05-28 12:00:47
+#  Last modified 2022-05-28 17:29:47
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1046,6 +934,7 @@ obj/is_null.o: src/test/is/is_null.c
 	
 
 # Not a target:
+ 
 src/test/error/check_is_backslash_appear.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-05-28 11:35:16
@@ -1066,7 +955,7 @@ src/test/is/is_space.c:
 obj/is_quot.o: src/test/is/is_quot.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `is_quot'
-#  Last modified 2022-05-28 12:00:48
+#  Last modified 2022-05-28 17:29:47
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1088,7 +977,7 @@ libft/ft_atoi.c:
 obj/proc_null.o: src/test/proc/proc_null.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `proc_null'
-#  Last modified 2022-05-28 12:00:48
+#  Last modified 2022-05-28 17:29:48
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1101,11 +990,10 @@ obj/proc_null.o: src/test/proc/proc_null.c
 obj/proc_find_letter.o: src/test/proc/proc_find_letter.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `proc_find_letter'
-#  Last modified 2022-05-28 12:00:48
+#  Last modified 2022-05-28 17:29:48
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
- 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 79):
 	@echo "[~] Linking $<"
@@ -1115,7 +1003,7 @@ obj/proc_find_letter.o: src/test/proc/proc_find_letter.c
 obj/ft_lstadd_back.o: libft/ft_lstadd_back.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_lstadd_back'
-#  Last modified 2022-05-28 12:00:50
+#  Last modified 2022-05-28 17:29:51
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1137,7 +1025,7 @@ libft/ft_strtrim.c:
 obj/proc_quot.o: src/test/proc/proc_quot.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `proc_quot'
-#  Last modified 2022-05-28 12:00:48
+#  Last modified 2022-05-28 17:29:48
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1156,18 +1044,11 @@ src/test/proc/proc_redr.c:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-obj/execute.o: src/execute.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `execute'
-#  Last modified 2022-05-28 12:00:58
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/execute.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 src/test/proc/proc_dolr.c:
@@ -1181,7 +1062,8 @@ src/test/proc/proc_dolr.c:
 obj/check_is_backslash_appear.o: src/test/error/check_is_backslash_appear.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `check_is_backslash_appear'
-#  Last modified 2022-05-28 12:00:56
+ 
+#  Last modified 2022-05-28 17:29:56
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1194,7 +1076,8 @@ obj/check_is_backslash_appear.o: src/test/error/check_is_backslash_appear.c
 obj/rd_node.o: src/test/node/rd_node.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `rd_node'
-#  Last modified 2022-05-28 12:00:55
+#  Last modified 2022-05-28 17:29:55
+ 
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1216,7 +1099,7 @@ src/test/proc/proc_space.c:
 obj/ft_putendl_fd.o: libft/ft_putendl_fd.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_putendl_fd'
-#  Last modified 2022-05-28 12:00:52
+#  Last modified 2022-05-28 17:29:52
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1238,7 +1121,7 @@ src/test/struct/init_special.c:
 obj/ft_strmapi.o: libft/ft_strmapi.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_strmapi'
-#  Last modified 2022-05-28 12:00:54
+#  Last modified 2022-05-28 17:29:54
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1251,7 +1134,7 @@ obj/ft_strmapi.o: libft/ft_strmapi.c
 obj/ft_lstiter.o: libft/ft_lstiter.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_lstiter'
-#  Last modified 2022-05-28 12:00:51
+#  Last modified 2022-05-28 17:29:51
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1262,9 +1145,24 @@ obj/ft_lstiter.o: libft/ft_lstiter.c
 	
 
 # Not a target:
+obj/check_syntax_error.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 libft/ft_lstadd_back.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-05-28 11:35:16
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/error/check_is_redr_continuous.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-28 17:46:37
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1277,6 +1175,7 @@ src/test/struct/init_environ.c:
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
+ 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
@@ -1291,7 +1190,7 @@ libft/ft_putendl_fd.c:
 obj/ft_isalnum.o: libft/ft_isalnum.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_isalnum'
-#  Last modified 2022-05-28 12:00:50
+#  Last modified 2022-05-28 17:29:50
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1328,14 +1227,13 @@ src/test/node/rd_node.c:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-minishell: obj/distinguish.o obj/test.o obj/error_is_quot.o obj/is_dolr.o obj/is_null.o obj/is_pipe.o obj/is_quot.o obj/is_redr.o obj/is_space.o obj/proc_dolr.o obj/proc_find_letter.o obj/proc_null.o obj/proc_pipe.o obj/proc_quot.o obj/proc_redr.o obj/proc_space.o obj/init_environ.o obj/init_special.o obj/init_struct.o obj/malloc_struct.o obj/ft_atoi.o obj/ft_bzero.o obj/ft_calloc.o obj/ft_isalnum.o obj/ft_isalpha.o obj/ft_isascii.o obj/ft_isdigit.o obj/ft_isprint.o obj/ft_itoa.o obj/ft_lstadd_back.o obj/ft_lstadd_front.o obj/ft_lstclear.o obj/ft_lstdelone.o obj/ft_lstiter.o obj/ft_lstlast.o obj/ft_lstmap.o obj/ft_lstnew.o obj/ft_lstsize.o obj/ft_memchr.o obj/ft_memcmp.o obj/ft_memcpy.o obj/ft_memmove.o obj/ft_memset.o obj/ft_putchar_fd.o obj/ft_putendl_fd.o obj/ft_putnbr_fd.o obj/ft_putstr_fd.o obj/ft_split.o obj/ft_strchr.o obj/ft_strdup.o obj/ft_striteri.o obj/ft_strjoin.o obj/ft_strjoin_leak.o obj/ft_strlcat.o obj/ft_strlcpy.o obj/ft_strlen.o obj/ft_strmapi.o obj/ft_strncmp.o obj/ft_strnstr.o obj/ft_strrc 
-hr.o obj/ft_strtrim.o obj/ft_substr.o obj/ft_tolower.o obj/ft_toupper.o obj/environ_node.o obj/manufact.o obj/manufact_type.o obj/parsed_node.o obj/pipe_node.o obj/rd_node.o obj/free_set_a.o obj/link_to_head.o obj/util_unit_pipe.o obj/check_is_backslash_appear.o obj/check_is_semicolon_appear.o obj/check_quote_not_closed.o obj/control_quote.o obj/is_error.o obj/judge_is_quote_error.o obj/print_error.o obj/cd.o obj/echo.o obj/env.o obj/exit.o obj/export.o obj/export_add.o obj/export_print.o obj/pwd.o obj/unset.o obj/execute.o obj/execute_builtin.o obj/execute_child.o obj/free_memory.o obj/handle_error.o obj/main.o obj/redirect.o obj/redirect_double.o obj/get_next_line.o obj/get_next_line_utils.o
+minishell: obj/distinguish.o obj/test.o obj/error_is_quot.o obj/is_dolr.o obj/is_null.o obj/is_pipe.o obj/is_quot.o obj/is_redr.o obj/is_space.o obj/proc_dolr.o obj/proc_find_letter.o obj/proc_null.o obj/proc_pipe.o obj/proc_quot.o obj/proc_redr.o obj/proc_space.o obj/init_environ.o obj/init_special.o obj/init_struct.o obj/malloc_struct.o obj/ft_atoi.o obj/ft_bzero.o obj/ft_calloc.o obj/ft_isalnum.o obj/ft_isalpha.o obj/ft_isascii.o obj/ft_isdigit.o obj/ft_isprint.o obj/ft_itoa.o obj/ft_lstadd_back.o obj/ft_lstadd_front.o obj/ft_lstclear.o obj/ft_lstdelone.o obj/ft_lstiter.o obj/ft_lstlast.o obj/ft_lstmap.o obj/ft_lstnew.o obj/ft_lstsize.o obj/ft_memchr.o obj/ft_memcmp.o obj/ft_memcpy.o obj/ft_memmove.o obj/ft_memset.o obj/ft_putchar_fd.o obj/ft_putendl_fd.o obj/ft_putnbr_fd.o obj/ft_putstr_fd.o obj/ft_split.o obj/ft_strchr.o obj/ft_strdup.o obj/ft_striteri.o obj/ft_strjoin.o obj/ft_strjoin_leak.o obj/ft_strlcat.o obj/ft_strlcpy.o obj/ft_strlen.o obj/ft_strmapi.o obj/ft_strncmp.o obj/ft_strnstr.o obj/ft_strrchr.o obj/ft_strtrim.o obj/ft_substr.o obj/ft_tolower.o obj/ft_toupper.o obj/environ_node.o obj/manufact.o obj/manufact_type.o obj/parsed_node.o obj/pipe_node.o obj/rd_node.o obj/free_set_a.o obj/link_to_head.o obj/util_unit_pipe.o obj/check_is_backslash_appear.o obj/check_is_redr_continuous.o obj/check_is_semicolon_appear.o obj/check_quote_not_closed.o obj/check_syntax_error.o obj/control_quote.o obj/is_error.o obj/judge_is_quote_error.o obj/print_error.o obj/cd.o obj/echo.o obj/env.o obj/exit.o obj/export.o obj/export_add.o obj/export_print.o obj/pwd.o obj/unset.o obj/execute.o obj/execute_builtin.o obj/execute_child.o obj/free_memory.o obj/handle_error.o obj/main.o obj/redirect.o obj/redirect_double.o obj/get_next_line.o obj/get_next_line_utils.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-28 12:00:59
+#  Last modified 2022-05-28 17:45:56
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
 #  commands to execute (from `Makefile', line 83):
 	@echo "[+] Create minishell"
 	@$(CC) $(CFLAGS) $(RLINC) $(RLLINK) -o $@ $(OBJS)
@@ -1344,7 +1242,7 @@ hr.o obj/ft_strtrim.o obj/ft_substr.o obj/ft_tolower.o obj/ft_toupper.o obj/envi
 obj/ft_lstsize.o: libft/ft_lstsize.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_lstsize'
-#  Last modified 2022-05-28 12:00:51
+#  Last modified 2022-05-28 17:29:52
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1354,10 +1252,24 @@ obj/ft_lstsize.o: libft/ft_lstsize.c
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
+ 
 obj/ft_memcpy.o: libft/ft_memcpy.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_memcpy'
-#  Last modified 2022-05-28 12:00:51
+#  Last modified 2022-05-28 17:29:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 79):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_itoa.o: libft/ft_itoa.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_itoa'
+#  Last modified 2022-05-28 17:29:50
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1368,44 +1280,15 @@ obj/ft_memcpy.o: libft/ft_memcpy.c
 	
 
 # Not a target:
-src/redirect.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-obj/ft_itoa.o: libft/ft_itoa.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `ft_itoa'
-#  Last modified 2022-05-28 12:00:50
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
-
-obj/free_memory.o: src/free_memory.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `free_memory'
-#  Last modified 2022-05-28 12:00:58
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+obj/free_memory.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 obj/ft_memcmp.o: libft/ft_memcmp.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_memcmp'
-#  Last modified 2022-05-28 12:00:51
+#  Last modified 2022-05-28 17:29:52
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1418,7 +1301,7 @@ obj/ft_memcmp.o: libft/ft_memcmp.c
 obj/ft_strlen.o: libft/ft_strlen.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_strlen'
-#  Last modified 2022-05-28 12:00:54
+#  Last modified 2022-05-28 17:29:54
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1428,23 +1311,16 @@ obj/ft_strlen.o: libft/ft_strlen.c
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
-obj/pwd.o: src/builtin/pwd.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `pwd'
-#  Last modified 2022-05-28 12:00:57
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/pwd.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 obj/ft_memchr.o: libft/ft_memchr.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_memchr'
-#  Last modified 2022-05-28 12:00:51
+#  Last modified 2022-05-28 17:29:52
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1457,7 +1333,7 @@ obj/ft_memchr.o: libft/ft_memchr.c
 obj/ft_isdigit.o: libft/ft_isdigit.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_isdigit'
-#  Last modified 2022-05-28 12:00:50
+#  Last modified 2022-05-28 17:29:50
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1466,20 +1342,11 @@ obj/ft_isdigit.o: libft/ft_isdigit.c
 	@echo "[~] Linking $<"
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
-
-# Not a target:
-src/redirect_double.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 obj/ft_strrchr.o: libft/ft_strrchr.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_strrchr'
-#  Last modified 2022-05-28 12:00:54
+#  Last modified 2022-05-28 17:29:54
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1490,6 +1357,7 @@ obj/ft_strrchr.o: libft/ft_strrchr.c
 	
 
 # Not a target:
+ 
 libft/ft_itoa.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-05-28 11:35:16
@@ -1520,7 +1388,7 @@ src/test/struct/malloc_struct.c:
 obj/ft_lstlast.o: libft/ft_lstlast.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_lstlast'
-#  Last modified 2022-05-28 12:00:51
+#  Last modified 2022-05-28 17:29:51
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1551,12 +1419,11 @@ libft/ft_strlen.c:
 obj/test.o: src/test/test.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `test'
-#  Last modified 2022-05-28 12:00:47
+#  Last modified 2022-05-28 17:44:32
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
- 
 #  commands to execute (from `Makefile', line 79):
 	@echo "[~] Linking $<"
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
@@ -1583,7 +1450,7 @@ libft/ft_isdigit.c:
 obj/ft_memset.o: libft/ft_memset.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_memset'
-#  Last modified 2022-05-28 12:00:52
+#  Last modified 2022-05-28 17:29:52
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1592,24 +1459,6 @@ obj/ft_memset.o: libft/ft_memset.c
 	@echo "[~] Linking $<"
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
-
-# Not a target:
-src/main.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:57:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/test/error/control_quote.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 libft/ft_lstlast.c:
@@ -1620,27 +1469,11 @@ libft/ft_lstlast.c:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-obj/execute_child.o: src/execute_child.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `execute_child'
-#  Last modified 2022-05-28 12:00:58
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
-
 # Not a target:
-src/builtin/export_print.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+obj/execute_child.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 libft/ft_memchr.c:
@@ -1654,7 +1487,7 @@ libft/ft_memchr.c:
 obj/init_special.o: src/test/struct/init_special.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `init_special'
-#  Last modified 2022-05-28 12:00:49
+#  Last modified 2022-05-28 17:29:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1674,31 +1507,15 @@ src/test/struct/init_struct.c:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-src/builtin/export_add.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-obj/cd.o: src/builtin/cd.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `cd'
-#  Last modified 2022-05-28 12:00:57
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+obj/cd.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 obj/ft_tolower.o: libft/ft_tolower.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_tolower'
-#  Last modified 2022-05-28 12:00:54
+#  Last modified 2022-05-28 17:29:54
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1708,23 +1525,16 @@ obj/ft_tolower.o: libft/ft_tolower.c
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
-obj/echo.o: src/builtin/echo.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `echo'
-#  Last modified 2022-05-28 12:00:57
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/echo.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 obj/is_pipe.o: src/test/is/is_pipe.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `is_pipe'
-#  Last modified 2022-05-28 12:00:47
+#  Last modified 2022-05-28 17:29:47
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1746,7 +1556,7 @@ libft/ft_strlcat.c:
 obj/ft_strjoin.o: libft/ft_strjoin.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_strjoin'
-#  Last modified 2022-05-28 12:00:53
+#  Last modified 2022-05-28 17:29:53
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1759,7 +1569,7 @@ obj/ft_strjoin.o: libft/ft_strjoin.c
 obj/ft_split.o: libft/ft_split.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_split'
-#  Last modified 2022-05-28 12:00:53
+#  Last modified 2022-05-28 17:29:53
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1772,7 +1582,7 @@ obj/ft_split.o: libft/ft_split.c
 obj/ft_lstclear.o: libft/ft_lstclear.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_lstclear'
-#  Last modified 2022-05-28 12:00:50
+#  Last modified 2022-05-28 17:29:51
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1781,15 +1591,6 @@ obj/ft_lstclear.o: libft/ft_lstclear.c
 	@echo "[~] Linking $<"
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
-
-# Not a target:
-src/builtin/env.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 src/test/is/error_is_quot.c:
@@ -1803,7 +1604,7 @@ src/test/is/error_is_quot.c:
 obj/proc_pipe.o: src/test/proc/proc_pipe.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `proc_pipe'
-#  Last modified 2022-05-28 12:00:48
+#  Last modified 2022-05-28 17:29:48
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1822,23 +1623,15 @@ libft/ft_tolower.c:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-obj/export.o: src/builtin/export.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `export'
-#  Last modified 2022-05-28 12:00:57
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/export.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
 #  Implicit rule search has not been done.
- 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -1853,6 +1646,7 @@ libft/ft_strrchr.c:
 
 # Not a target:
 libft/ft_strjoin.c:
+ 
 #  Implicit rule search has been done.
 #  Last modified 2022-05-28 11:35:16
 #  File has been updated.
@@ -1881,7 +1675,7 @@ libft/ft_lstclear.c:
 obj/ft_strlcat.o: libft/ft_strlcat.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_strlcat'
-#  Last modified 2022-05-28 12:00:53
+#  Last modified 2022-05-28 17:29:53
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1889,12 +1683,13 @@ obj/ft_strlcat.o: libft/ft_strlcat.c
 #  commands to execute (from `Makefile', line 79):
 	@echo "[~] Linking $<"
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+ 
 	
 
 obj/malloc_struct.o: src/test/struct/malloc_struct.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `malloc_struct'
-#  Last modified 2022-05-28 12:00:49
+#  Last modified 2022-05-28 17:29:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1907,7 +1702,7 @@ obj/malloc_struct.o: src/test/struct/malloc_struct.c
 obj/ft_bzero.o: libft/ft_bzero.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_bzero'
-#  Last modified 2022-05-28 12:00:49
+#  Last modified 2022-05-28 17:29:50
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1926,7 +1721,7 @@ re: fclean all
 obj/ft_isprint.o: libft/ft_isprint.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_isprint'
-#  Last modified 2022-05-28 12:00:50
+#  Last modified 2022-05-28 17:29:50
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1967,16 +1762,7 @@ clean:
 # Not a target:
 src/test/test.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:53:04
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/free_memory.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
+#  Last modified 2022-05-28 17:36:35
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1994,12 +1780,13 @@ libft/ft_bzero.c:
 obj/free_set_a.o: src/test/free/free_set_a.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `free_set_a'
-#  Last modified 2022-05-28 12:00:55
+#  Last modified 2022-05-28 17:29:56
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 79):
+ 
 	@echo "[~] Linking $<"
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
@@ -2007,7 +1794,7 @@ obj/free_set_a.o: src/test/free/free_set_a.c
 obj/init_struct.o: src/test/struct/init_struct.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `init_struct'
-#  Last modified 2022-05-28 12:00:49
+#  Last modified 2022-05-28 17:29:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2038,7 +1825,7 @@ src/test/distinguish.c:
 obj/ft_striteri.o: libft/ft_striteri.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_striteri'
-#  Last modified 2022-05-28 12:00:53
+#  Last modified 2022-05-28 17:29:53
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2048,28 +1835,10 @@ obj/ft_striteri.o: libft/ft_striteri.c
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
-# Not a target:
-src/builtin/unset.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/execute.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:55:53
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 obj/link_to_head.o: src/test/link/link_to_head.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `link_to_head'
-#  Last modified 2022-05-28 12:00:55
+#  Last modified 2022-05-28 17:44:32
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2091,7 +1860,7 @@ libft/ft_striteri.c:
 obj/is_redr.o: src/test/is/is_redr.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `is_redr'
-#  Last modified 2022-05-28 12:00:48
+#  Last modified 2022-05-28 17:29:47
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2104,7 +1873,7 @@ obj/is_redr.o: src/test/is/is_redr.c
 obj/is_dolr.o: src/test/is/is_dolr.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `is_dolr'
-#  Last modified 2022-05-28 12:00:47
+#  Last modified 2022-05-28 17:29:47
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2117,31 +1886,20 @@ obj/is_dolr.o: src/test/is/is_dolr.c
 obj/ft_lstnew.o: libft/ft_lstnew.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_lstnew'
-#  Last modified 2022-05-28 12:00:51
+#  Last modified 2022-05-28 17:29:51
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
- 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 79):
 	@echo "[~] Linking $<"
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
-# Not a target:
-src/execute_child.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:37:24
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
- 
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 obj/is_space.o: src/test/is/is_space.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `is_space'
-#  Last modified 2022-05-28 12:00:48
+#  Last modified 2022-05-28 17:29:48
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2154,7 +1912,7 @@ obj/is_space.o: src/test/is/is_space.c
 obj/proc_redr.o: src/test/proc/proc_redr.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `proc_redr'
-#  Last modified 2022-05-28 12:00:49
+#  Last modified 2022-05-28 17:29:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2167,7 +1925,7 @@ obj/proc_redr.o: src/test/proc/proc_redr.c
 obj/proc_dolr.o: src/test/proc/proc_dolr.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `proc_dolr'
-#  Last modified 2022-05-28 12:00:48
+#  Last modified 2022-05-28 17:29:48
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2180,7 +1938,7 @@ obj/proc_dolr.o: src/test/proc/proc_dolr.c
 obj/proc_space.o: src/test/proc/proc_space.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `proc_space'
-#  Last modified 2022-05-28 12:00:49
+#  Last modified 2022-05-28 17:29:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2200,26 +1958,10 @@ src/test/is/is_null.c:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-src/builtin/cd.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-obj/handle_error.o: src/handle_error.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `handle_error'
-#  Last modified 2022-05-28 12:00:58
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+obj/handle_error.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 src/test/is/is_quot.c:
@@ -2233,7 +1975,7 @@ src/test/is/is_quot.c:
 obj/ft_putnbr_fd.o: libft/ft_putnbr_fd.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_putnbr_fd'
-#  Last modified 2022-05-28 12:00:52
+#  Last modified 2022-05-28 17:29:52
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2243,49 +1985,28 @@ obj/ft_putnbr_fd.o: libft/ft_putnbr_fd.c
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
-obj/export_print.o: src/builtin/export_print.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `export_print'
-#  Last modified 2022-05-28 12:00:57
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/export_print.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-obj/get_next_line_utils.o: gnl/get_next_line_utils.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `get_next_line_utils'
-#  Last modified 2022-05-28 12:00:59
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/get_next_line_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-obj/export_add.o: src/builtin/export_add.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `export_add'
-#  Last modified 2022-05-28 12:00:57
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/export_add.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 obj/ft_calloc.o: libft/ft_calloc.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_calloc'
-#  Last modified 2022-05-28 12:00:49
+#  Last modified 2022-05-28 17:29:50
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2316,7 +2037,7 @@ libft/ft_putnbr_fd.c:
 obj/ft_substr.o: libft/ft_substr.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_substr'
-#  Last modified 2022-05-28 12:00:54
+#  Last modified 2022-05-28 17:29:54
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2335,49 +2056,28 @@ src/test/proc/proc_find_letter.c:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-obj/env.o: src/builtin/env.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `env'
-#  Last modified 2022-05-28 12:00:57
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/env.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 src/test/proc/proc_quot.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-05-28 11:35:16
 #  File has been updated.
+ 
 #  Successfully updated.
 # variable set hash-table stats:
+ 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-obj/exit.o: src/builtin/exit.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `exit'
-#  Last modified 2022-05-28 12:00:57
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
 
 # Not a target:
-gnl/get_next_line_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+obj/exit.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 libft/ft_calloc.c:
@@ -2396,12 +2096,11 @@ libft/ft_substr.c:
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
- 
 
 obj/ft_isalpha.o: libft/ft_isalpha.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_isalpha'
-#  Last modified 2022-05-28 12:00:50
+#  Last modified 2022-05-28 17:29:50
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2410,15 +2109,6 @@ obj/ft_isalpha.o: libft/ft_isalpha.c
 	@echo "[~] Linking $<"
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
-
-# Not a target:
-src/test/error/print_error.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 src/test/proc/proc_pipe.c:
@@ -2432,7 +2122,7 @@ src/test/proc/proc_pipe.c:
 obj/distinguish.o: src/test/distinguish.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `distinguish'
-#  Last modified 2022-05-28 12:00:47
+#  Last modified 2022-05-28 17:29:46
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2442,23 +2132,16 @@ obj/distinguish.o: src/test/distinguish.c
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
-obj/is_error.o: src/test/error/is_error.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `is_error'
-#  Last modified 2022-05-28 12:00:56
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/is_error.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 obj/init_environ.o: src/test/struct/init_environ.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `init_environ'
-#  Last modified 2022-05-28 12:00:49
+#  Last modified 2022-05-28 17:29:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2471,16 +2154,7 @@ obj/init_environ.o: src/test/struct/init_environ.c
 # Not a target:
 src/test/link/link_to_head.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:55:53
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/builtin/export.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
+#  Last modified 2022-05-28 17:35:26
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -2495,31 +2169,17 @@ src/test/free/free_set_a.c:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-obj/redirect_double.o: src/redirect_double.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `redirect_double'
-#  Last modified 2022-05-28 12:00:59
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/redirect_double.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-obj/execute_builtin.o: src/execute_builtin.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `execute_builtin'
-#  Last modified 2022-05-28 12:00:58
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+# Not a target:
+obj/execute_builtin.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 libft/ft_isalpha.c:
@@ -2540,26 +2200,10 @@ libft/ft_lstsize.c:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-src/test/error/judge_is_quote_error.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-obj/print_error.o: src/test/error/print_error.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `print_error'
-#  Last modified 2022-05-28 12:00:56
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 79):
-	@echo "[~] Linking $<"
-	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
-	
+obj/print_error.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 libft/ft_strchr.c:
@@ -2571,7 +2215,7 @@ libft/ft_strchr.c:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=207/1024=20%, Rehash=0, Collisions=444/2232=20%
+# Load=185/1024=18%, Rehash=0, Collisions=306/1682=18%
 # VPATH Search Paths
 
 vpath %.c src:src/test:src/test/is:src/test/proc:src/test/struct:libft:src/test/node:src/test/free:src/test/link:src/test/error:src/builtin:gnl
@@ -2585,6 +2229,6 @@ vpath %.c src:src/test:src/test/is:src/test/proc:src/test/struct:libft:src/test/
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat May 28 12:02:22 2022
+# Finished Make data base on Sat May 28 17:47:46 2022
 
  

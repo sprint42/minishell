@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 21:29:51 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 22:14:47 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/28 18:08:01 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,8 @@ void	print_error(int errorcode)
 		printf("[Error] backslash is appeared :<\n\n");
 	else if (errorcode == ERROR_SEMC)
 		printf("\n[Error] semicolon is appeared :<\n\n");
+	else if (errorcode == ERROR_REDR)
+		printf("\n[Error] parse error near redirection :<\n\n");
+	else if (errorcode == ERROR_PIPE)
+		printf("\n[Error] parse error near pipe :<\n\n");
 }
