@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_is_semicolon_appear.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 21:00:52 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 22:09:18 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/28 19:58:48 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ int	check_is_semicolon_appear(char *buf)
 		ptr++;
 	}
 	if (bit & SEMC)
+	{
 		print_error(ERROR_SEMC);
+		return (1);
+	}
 	return (0);
 }
