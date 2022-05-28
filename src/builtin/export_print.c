@@ -34,7 +34,7 @@ char	count_env(t_unit_head *cmd_lst)
 	while (curr)
 	{
 		i++;
-		if (curr->env_next)
+		if (curr->env_next == NULL)
 			break ;
 		curr = curr->env_next;
 	}
@@ -54,6 +54,21 @@ void	free_env_array(char **envp)
 	}
 }
 
+char	*make_env_line(t_unit_env *curr)
+{
+	char	*result;
+	char	*temp;
+
+	temp = ft_strjoin(curr->key, "=");
+	if (temp == NULL)
+		return (NULL);
+	result = ft_strjoin(temp, curr->value);
+	free(temp);
+	if (result == NULL)
+		return (NULL);
+	return(result);
+}
+
 char	**make_env_array(t_unit_head *cmd_lst)
 {
 	char		**envp;
@@ -67,18 +82,16 @@ char	**make_env_array(t_unit_head *cmd_lst)
 	curr = cmd_lst->env_next;
 	while (curr)
 	{
-		envp[i] = malloc(sizeof(char) *  (ft_strlen(curr->key) + ft_strlen(curr->value) + 2));
+		envp[i] = make_env_line(curr);
 		if (envp[i] == NULL)
 		{
 			free_env_array(envp);
 			return (NULL);
 		}
-		ft_strlcpy(envp[i], curr->key, ft_strlen(curr->key) + ft_strlen(curr->value) + 2);
-		ft_strlcat(envp[i], "=", ft_strlen(curr->key) + ft_strlen(curr->value) + 2);
-		ft_strlcat(envp[i], curr->value, ft_strlen(curr->key) + ft_strlen(curr->value) + 2);
-		if (curr->env_next)
+		if (curr->env_next == NULL)
 			break ;
 		curr = curr->env_next;
+		i++;
 	}
 	envp[i] = NULL;
 	return (envp);
@@ -93,7 +106,7 @@ int	print_env(t_unit_head *cmd_lst)
 		return (0);
 	envp = make_env_array(cmd_lst);
 	if (envp == NULL)
-		return (handle_default_error("fail in making envp : export"));
+		return (handle_default_error("fail in making env : export"));
 	sort_env(envp);
 	i = 0;
 	while (envp[i])

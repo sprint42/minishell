@@ -11,10 +11,10 @@ int	main(void)
 	g_exit_status = 0;
 	fd_stdin = 0;
 	fd_stdout = 1;
+	if (dup2(STDIN_FILENO, fd_stdin) < 0 || dup2(STDOUT_FILENO, fd_stdout) < 0)
+			return (handle_main_process_error("fail in dup2", cmd_lst));
 	while(1)
 	{
-		if (dup2(STDIN_FILENO, fd_stdin) < 0 || dup2(STDOUT_FILENO, fd_stdout) < 0)
-			return (handle_main_process_error("fail in dup2", cmd_lst));
 		buf = readline("minishell > ");
 		add_history(buf);
 		if (!is_error(buf))
@@ -46,8 +46,6 @@ int	main(void)
 		free(buf);
 		if (dup2(fd_stdin, STDIN_FILENO) < 0 || dup2(fd_stdout, STDOUT_FILENO) < 0)
 			return (handle_main_process_error("fail in dup2", cmd_lst));
-		close(fd_stdin);
-		close(fd_stdout);
 	}
 	return (0);
 }

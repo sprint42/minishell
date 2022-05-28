@@ -10,7 +10,6 @@ char	**extract_path(char **envp, t_unit_pipe *curr_cmd)
 	i = 0;
 	while (envp[i])
 	{
-		printf("envp : %s\n", envp[i]);
 		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
 			break ;
 		i++;
@@ -66,7 +65,10 @@ void	execute_execve(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 		if (path != NULL)
 			add_path(curr_cmd, path);
 		free_path(path);
-	} 
+	}
+	// ft_putstr_fd("curr_cmd->commands[0] : ", 2);
+	// ft_putstr_fd(curr_cmd->commands[0], 2);
+	// ft_putstr_fd("\n", 2);
 	execve(curr_cmd->commands[0], curr_cmd->commands, envp);
 	if (errno == EACCESS)
 		handle_child_process_error(EXIT_CNF, errno, curr_cmd->commands[0]);

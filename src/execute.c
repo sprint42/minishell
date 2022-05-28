@@ -33,8 +33,11 @@ int	breed_childs(t_unit_head *cmd_lst)
 			return (handle_while_generating_error("fail in fork", cmd_lst, i));
 		if (cmd_lst->child.pid[i] == 0)
 			execute_childprocess(cmd_lst, pipe_fd, curr_in, i);
-		close(pipe_fd[1]);
-		curr_in = pipe_fd[0];
+		if (i != cmd_lst->cmd_cnt - 1)
+		{
+			close(pipe_fd[1]);
+			curr_in = pipe_fd[0];
+		}
 		i++;
 	}
 	return (wait_childs(cmd_lst));
