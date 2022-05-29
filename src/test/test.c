@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 20:36:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/29 17:16:18 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 00:07:35 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	link_environ(t_unit_head **head, t_point *pck)
 {
 	if (pck->idx == 0)
 	{
-		printf("	LINKED\n");
 		(*head)->env_next = pck->env->env_next;
 	}
 }
