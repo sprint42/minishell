@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:09:03 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/28 20:30:03 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/29 17:13:40 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,30 @@ static void	free_junction(t_point **pck)
 
 static void	free_environ(t_point **pck)
 {
-	free((*pck)->env);
+	t_unit_env	*ptr;
+	t_unit_env	*tmp;
+
+	ptr = NULL;
+	tmp = NULL;
+	if ((*pck)->idx == 0)
+		free((*pck)->env);
+	else
+	{
+		ptr = (*pck)->env;
+		tmp = ptr->env_next;
+		free(ptr);
+		ptr = tmp;
+		while (ptr)
+		{
+			if (ptr->key)
+				free(ptr->key);
+			if (ptr->value)
+				free(ptr->value);
+			tmp = ptr->env_next;
+			free(ptr);
+			ptr = tmp;
+		}
+	}
 }
 
 static void	free_parsed(t_point **pck)

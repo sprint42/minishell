@@ -154,6 +154,7 @@ typedef struct t_parsed
 
 typedef struct t_point
 {
+	int			idx;
 	int			flag;
 	char		*prev;
 	char		*pile;
@@ -167,14 +168,16 @@ typedef struct t_point
 **	사용자 함수
 */
 t_unit_env		*malloc_env(void);
-t_point			*init_struct(void);
+t_point			*init_struct(int idx);
 t_point			*malloc_point(void);
 t_parsed		*malloc_parsed(void);
 t_special		*malloc_junction(void);
-t_unit_head		*malloc_head(t_point *pck);
+// t_unit_head		*malloc_head(t_point *pck);
+t_unit_head		*malloc_head(void);
 void			init_special(t_point *ptr);
 void			init_environ(t_point *pck);
-t_unit_head		*test(t_unit_head *head, char *target);
+// t_unit_head		*test(t_unit_head *head, char *target, int idx);
+t_unit_head		*test(t_unit_head **head, char *target, int idx);
 
 /*
 **	judge special
