@@ -8,14 +8,14 @@ int echo_check_newline(char *option_str)
 		return (1);
 	if (option_str[0] != '-')
 		return (1);
-	i = 0;
+	i = 1;
 	while (option_str[i])
 	{
 		if (option_str[i] != 'n')
-			return (0);
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int execute_echo(t_unit_pipe *curr_cmd)
@@ -24,11 +24,15 @@ int execute_echo(t_unit_pipe *curr_cmd)
 	int	n_flag;
 
 	n_flag = echo_check_newline(curr_cmd->commands[1]);
-	i = n_flag + 1;
+	if (n_flag)
+		i = 1;
+	else
+		i = 2;
 	while (curr_cmd->commands[i])
 	{
 		ft_putstr_fd(curr_cmd->commands[i], STDOUT_FILENO);
-		ft_putchar_fd(' ', STDOUT_FILENO);
+		if (curr_cmd->commands[i + 1])
+			ft_putchar_fd(' ', STDOUT_FILENO);
 		i++;
 	}
 	if (n_flag)
