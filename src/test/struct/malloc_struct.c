@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   malloc_struct.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:56:33 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 15:48:24 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/29 17:27:16 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ t_unit_env	*malloc_env(void)
 	return (ptr);
 }
 
-t_unit_head	*malloc_head(t_point *pck)
+// t_unit_head	*malloc_head(t_point *pck)
+t_unit_head	*malloc_head(void)
 {
 	t_unit_head		*ptr;
 	t_child_info	*child;
@@ -74,7 +75,9 @@ t_unit_head	*malloc_head(t_point *pck)
 	child->status = NULL;
 	ptr->cmd_cnt = 0;
 	ptr->pp_next = NULL;
-	ptr->env_next = pck->env->env_next;
+	// if (pck->idx == 0)
+	// 	ptr->env_next = pck->env->env_next;
+	ptr->env_next = NULL;
 	ptr->child = *child;
 	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:30:42 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/28 20:33:50 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/29 16:54:50 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 **	move	: 움직이는 포인터
 */
 
-static void	bnd_ptr_val(t_point *ptr)
+static void	bnd_ptr_val(t_point *ptr, int idx)
 {
+	ptr->idx = idx;
 	ptr->flag = 0;
 	ptr->prev = 0;
 	ptr->pile = 0;
@@ -37,12 +38,12 @@ static void	bnd_ptr_val(t_point *ptr)
 **	env			: 환경 변수가 저장 될 링크드 리스트
 */
 
-t_point	*init_struct(void)
+t_point	*init_struct(int idx)
 {
 	t_point	*ptr;
 
 	ptr = malloc_point();
-	bnd_ptr_val(ptr);
+	bnd_ptr_val(ptr, idx);
 	ptr->junction = malloc_junction();
 	ptr->parsed = malloc_parsed();
 	ptr->env = malloc_env();
