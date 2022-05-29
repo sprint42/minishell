@@ -11,7 +11,7 @@ int	wait_childs(t_unit_head *cmd_lst)
 			waitpid(cmd_lst->child.pid[i], &(cmd_lst->child.status[i]), 0);
 		i++;
 	}
-	g_exit_status = (cmd_lst->child.status[--i] & 0x0f) >> 8;
+	g_exit_status = (cmd_lst->child.status[--i] >> 8);
 	free_cmd_lst(cmd_lst);
 	return (0);
 }
