@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 21:29:51 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/28 18:08:01 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/29 16:32:08 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	print_error(int errorcode)
 		printf("\n[Error] parse error near redirection :<\n\n");
 	else if (errorcode == ERROR_PIPE)
 		printf("\n[Error] parse error near pipe :<\n\n");
+	g_exit_status = 1;
 }
