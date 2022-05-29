@@ -38,6 +38,7 @@ int	main(void)
 		free(buf);
 		if (dup2(fd_stdin, STDIN_FILENO) < 0 || dup2(fd_stdout, STDOUT_FILENO) < 0)
 			return (handle_main_process_error("fail in dup2", cmd_lst));
+		cmd_lst->cmd_cnt = 0;
 		// if (cmd_lst->env_next)
 			// printf("%s, %s\n", cmd_lst->env_next->key, cmd_lst->env_next->value);
 	}
