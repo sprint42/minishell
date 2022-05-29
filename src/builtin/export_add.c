@@ -42,7 +42,7 @@ t_unit_env	*create_env(char *str)
 		free(pnew);
 		return (NULL);
 	}
-	pnew->value = ft_substr(str, i + 2, ft_strlen(str));
+	pnew->value = ft_substr(str, i + 1, ft_strlen(str));
 	if (pnew->value == NULL)
 	{
 		free(pnew->key);
@@ -53,41 +53,48 @@ t_unit_env	*create_env(char *str)
 	return (pnew);
 }
 
-int	find_and_change_env(t_unit_head *cmd_lst, char *key)
+int	find_and_change_env(t_unit_head *cmd_lst, char *str, int i)
 {
 	t_unit_env	*curr;
+	char		*key;
 
+	key = ft_substr(str, 0, i);
+	if (key == NULL)
+		return (-1);
 	curr = cmd_lst->env_next;
 	while (curr)
 	{
 		if (strncmp(curr->key, key, ft_strlen(key) + 1) == 0)
 		{
-			free(curr->key);
-			curr->key = key;
+			free(curr->value);
+			curr->value = ft_substr(str, i + 1, ft_strlen(str));
+			if (curr->value == NULL)
+			{
+				free(key);
+				return (-1);
+			}
 			return (1);
 		}
-		if (curr->env_next == NULL)
-			break ;
 		curr = curr->env_next;
 	}
+	free(key);
 	return (0);
 }
 
 int	add_env(t_unit_head *cmd_lst, char *str)
 {
 	t_unit_env	*pnew;
+	int			ret;
 	int			i;
-	char		*key;
 
 	i = 0;
 	while (str[i] != '=')
 		i++;
-	key = ft_substr(str, 0, i);
-	if (key == NULL)
-		return (1);
-	if (find_and_change_env(cmd_lst, key))
+	ret = find_and_change_env(cmd_lst, str, i);
+	if (ret < 0)
+		return (handle_default_error("fail in change env : export"));
+	else if (ret == 1)
 		return (0);
-	free(key);
 	pnew = create_env(str);
 	if (pnew == NULL)
 		return (1);

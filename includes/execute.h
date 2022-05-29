@@ -46,7 +46,7 @@ void	sort_env(char **envp);
 /* export_add.c */
 int			check_export_validity(char *str);
 int			add_env(t_unit_head *cmd_lst, char *str);
-int			find_and_change_env(t_unit_head *cmd_lst, char *key);
+int			find_and_change_env(t_unit_head *cmd_lst, char *str, int i);
 t_unit_env	*create_env(char *str);
 
 
