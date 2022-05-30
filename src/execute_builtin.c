@@ -4,6 +4,8 @@ int	check_builtin(t_unit_pipe *cmd)
 {
 	char	*command;
 
+	if (cmd->commands == NULL)
+		return (0);
 	command = cmd->commands[0];
 	if (ft_strlen(command) == 4 && ft_strncmp(command, "echo", 4) == 0)
 		return (1);
