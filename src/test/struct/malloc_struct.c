@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:56:33 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/30 15:42:25 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 19:12:25 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ t_unit_env	*malloc_env(void)
 t_unit_head	*malloc_head(void)
 {
 	t_unit_head		*ptr;
-	t_child_info	*child;
 
 	ptr = (t_unit_head *)malloc(sizeof(t_unit_head));
 	if (!ptr)
@@ -82,14 +81,8 @@ t_unit_head	*malloc_head(void)
 		print_malloc_error(ERROR_MALL);
 		exit(EXIT_FAILURE);
 	}
-	child = (t_child_info *)malloc(sizeof(t_child_info));
-	if (!child)
-	{
-		print_malloc_error(ERROR_MALL);
-		exit(EXIT_FAILURE);
-	}
-	child->pid = NULL;
-	child->status = NULL;
-	init_head(ptr, *child);
+	ptr->child.pid = NULL;
+	ptr->child.status = NULL;
+	init_head(ptr);
 	return (ptr);
 }
