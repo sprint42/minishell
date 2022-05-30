@@ -22,7 +22,7 @@ int	main(void)
 	{
 		if (!cmd_lst)
 			cmd_lst = malloc_head();
-		buf = readline("minishell > ");
+		buf = readline("minishell$ ");
 		add_history(buf);
 		if (!is_error(buf) && (ft_strlen(buf) > 0))
 		{
