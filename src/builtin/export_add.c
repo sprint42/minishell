@@ -8,10 +8,16 @@ int	check_export_validity(char *str)
 	validity = 1;
 	if (!(ft_isalpha(str[0]) || str[0] == '_'))
 		validity = 0;
-	i = 0;
+	i = 1;
+	while (str[i] && str[i] != '=')
+	{
+		if (!(ft_isalnum(str[i]) || str[i] == '_'))
+			validity = 0;
+		i++;
+	}
 	while (str[i])
 	{
-		if (!(ft_isalnum(str[i]) || str[i] == '=' || str[i] == '_'))
+		if (!(ft_isalnum(str[i]) || str[i] == '_' || str[i] == '=' || str[i] == '/' || str[i] == '-'))
 			validity = 0;
 		i++;
 	}
