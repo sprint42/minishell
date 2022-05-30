@@ -4,6 +4,8 @@ int	check_builtin(t_unit_pipe *cmd)
 {
 	char	*command;
 
+	if (cmd->commands == NULL)
+		return (0);
 	command = cmd->commands[0];
 	if (command == NULL)
 		return (0);
