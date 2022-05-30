@@ -6,13 +6,14 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:46:34 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/30 14:11:06 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 14:20:35 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-static void	create_commands(t_parsed *parsed, t_unit_pipe *unit, unsigned int cnt)
+static void	create_commands(t_parsed *parsed, \
+t_unit_pipe *unit, unsigned int cnt)
 {
 	t_parsed		*tmp;
 	unsigned int	idx;
@@ -32,7 +33,7 @@ static void	create_commands(t_parsed *parsed, t_unit_pipe *unit, unsigned int cn
 	}
 }
 
-static void create_redirection(t_parsed *parsed, t_unit_pipe *unit)
+static void	create_redirection(t_parsed *parsed, t_unit_pipe *unit)
 {
 	int			rd_type;
 	t_parsed	*tmp;
