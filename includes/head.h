@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:32:42 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/30 18:59:18 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 19:55:34 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,5 +221,11 @@ int				check_is_redr_continuous(t_unit_head *head, t_point *pck);
 **	Bind
 */
 void			init_head(t_unit_head *ptr);
+
+/*
+**	Signal
+*/
+void			sig_handler(int signal);
+void			loader(void *handler);
 
 #endif
