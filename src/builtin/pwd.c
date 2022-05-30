@@ -8,6 +8,7 @@ int	execute_pwd(void)
 	if (pwd == NULL)
 		return (handle_default_error("fail in getcwd : pwd"));
 	ft_putstr_fd(pwd, STDOUT_FILENO);
+	ft_putchar_fd('\n', STDOUT_FILENO);
 	free(pwd);
 	return (0);
 }
