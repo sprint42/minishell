@@ -6,8 +6,8 @@ int	buf_nn(char *buf, t_unit_head *head)
 	{
 		free_unit_env(head);
 		free_cmd_lst(head);
+		exit(EXIT_SUCCESS);
 	}
-		exit(EXIT_FAILURE);
 	return (1);
 }
 
@@ -15,8 +15,8 @@ int	main(void)
 {
 	char		*buf;
 	t_unit_head	*cmd_lst;
-	int	fd_stdin;
-	int	fd_stdout;
+	int			fd_stdin;
+	int			fd_stdout;
 
 	signal(SIGINT, sig_int);
 	cmd_lst = NULL;
@@ -25,7 +25,7 @@ int	main(void)
 	fd_stdout = 1;
 	cmd_lst = malloc_head();
 	if (dup2(STDIN_FILENO, fd_stdin) < 0 || dup2(STDOUT_FILENO, fd_stdout) < 0)
-			return (handle_main_process_error("fail in dup2", cmd_lst));
+		return (handle_main_process_error("fail in dup2", cmd_lst));
 	while(1)
 	{
 		malloc_if_cmd_null(&cmd_lst);
