@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_is_redr_continuous.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:38:54 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/28 19:58:51 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 15:39:23 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int	check_is_redr_continuous(t_point *pck)
+int	check_is_redr_continuous(t_unit_head *head, t_point *pck)
 {
 	t_parsed	*ptr;
 	size_t		len;
@@ -29,7 +29,7 @@ int	check_is_redr_continuous(t_point *pck)
 				ft_strncmp(ptr->next->type, "PIPE", len) == 0 || \
 				ft_strlen(ptr->str) > 2)
 			{
-				print_error(ERROR_REDR);
+				print_error(head, ERROR_REDR);
 				return (1);
 			}
 		}

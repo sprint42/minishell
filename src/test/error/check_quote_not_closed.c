@@ -6,13 +6,13 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 20:35:59 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 21:31:57 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 15:36:08 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int	check_quote_not_closed(char *buf)
+int	check_quote_not_closed(t_unit_head *head, char *buf)
 {
 	char	*ptr;
 	int		bit;
@@ -27,7 +27,7 @@ int	check_quote_not_closed(char *buf)
 	}
 	if (judge_is_quote_error(bit))
 	{
-		print_error(ERROR_QUOT);
+		print_error(head, ERROR_QUOT);
 		return (1);
 	}
 	return (0);

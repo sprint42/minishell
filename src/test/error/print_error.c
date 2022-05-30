@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 21:29:51 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/29 16:32:08 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 16:26:58 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-void	print_error(int errorcode)
+void	print_error(t_unit_head *head, int errorcode)
 {
 	if (errorcode == ERROR_QUOT)
 		printf("\n[Error] quote is not closed :<\n\n");
@@ -25,4 +25,5 @@ void	print_error(int errorcode)
 	else if (errorcode == ERROR_PIPE)
 		printf("\n[Error] parse error near pipe :<\n\n");
 	g_exit_status = 1;
+	head->error_flag = 1;
 }

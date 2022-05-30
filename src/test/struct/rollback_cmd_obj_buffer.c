@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_error.c                                         :+:      :+:    :+:   */
+/*   rollback_cmd_obj_buffer.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 20:26:42 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/30 15:36:39 by mcha             ###   ########.fr       */
+/*   Created: 2022/05/30 16:32:02 by mcha              #+#    #+#             */
+/*   Updated: 2022/05/30 16:40:47 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int	is_error(t_unit_head *head, char *buf)
+void	rollback_cmd_obj_buffer(t_unit_head **cmd_lst, char *buf)
 {
-	if (check_quote_not_closed(head, buf))
-		return (1);
-	if (check_is_backslash_appear(head, buf))
-		return (1);
-	if (check_is_semicolon_appear(head, buf))
-		return (1);
-	return (0);
+	(*cmd_lst)->cmd_cnt = 0;
+	(*cmd_lst)->error_flag = 0;
+	free(buf);
 }
