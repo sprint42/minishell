@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:32:42 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/30 16:40:39 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 18:59:18 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include <readline/history.h>
 # include <signal.h>
 # include <errno.h>
-
 # include "../libft/libft.h"
 
 unsigned char	g_exit_status;
@@ -221,6 +220,6 @@ int				check_is_redr_continuous(t_unit_head *head, t_point *pck);
 /*
 **	Bind
 */
-void			init_head(t_unit_head *ptr, t_child_info child);
+void			init_head(t_unit_head *ptr);
 
 #endif
