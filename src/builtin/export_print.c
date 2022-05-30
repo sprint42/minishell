@@ -24,7 +24,7 @@ void	sort_env(char **envp)
 	}
 }
 
-char	count_env(t_unit_head *cmd_lst)
+char	count_export_env(t_unit_head *cmd_lst)
 {
 	int			i;
 	t_unit_env	*curr;
@@ -34,8 +34,6 @@ char	count_env(t_unit_head *cmd_lst)
 	while (curr)
 	{
 		i++;
-		if (curr->env_next == NULL)
-			break ;
 		curr = curr->env_next;
 	}
 	return (i);
@@ -54,42 +52,47 @@ void	free_env_array(char **envp)
 	}
 }
 
-char	*make_env_line(t_unit_env *curr)
+char	*make_export_env_line(t_unit_env *curr)
 {
 	char	*result;
 	char	*temp;
+	char	*temp2;
 
-	temp = ft_strjoin(curr->key, "=");
+	if (curr->value == NULL)
+		return (ft_strdup(curr->key));
+	temp = ft_strjoin(curr->key, "=\"");
 	if (temp == NULL)
 		return (NULL);
-	result = ft_strjoin(temp, curr->value);
+	temp2 = ft_strjoin(temp, curr->value);
 	free(temp);
+	if (temp2 == NULL)
+		return (NULL);
+	result = ft_strjoin(temp2, "\"");
+	free(temp2);
 	if (result == NULL)
 		return (NULL);
 	return(result);
 }
 
-char	**make_env_array(t_unit_head *cmd_lst)
+char	**make_export_env_array(t_unit_head *cmd_lst)
 {
 	char		**envp;
 	int			i;
 	t_unit_env	*curr;
 
-	envp = malloc(sizeof(char *) * (count_env(cmd_lst) + 1));
+	envp = malloc(sizeof(char *) * (count_export_env(cmd_lst) + 1));
 	if (envp == NULL)
 		return (NULL);
 	i = 0;
 	curr = cmd_lst->env_next;
 	while (curr)
 	{
-		envp[i] = make_env_line(curr);
+		envp[i] = make_export_env_line(curr);
 		if (envp[i] == NULL)
 		{
 			free_env_array(envp);
 			return (NULL);
 		}
-		if (curr->env_next == NULL)
-			break ;
 		curr = curr->env_next;
 		i++;
 	}
@@ -104,7 +107,7 @@ int	print_env(t_unit_head *cmd_lst)
 	
 	if (cmd_lst->env_next == NULL)
 		return (0);
-	envp = make_env_array(cmd_lst);
+	envp = make_export_env_array(cmd_lst);
 	if (envp == NULL)
 		return (handle_default_error("fail in making env : export"));
 	sort_env(envp);

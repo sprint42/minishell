@@ -29,8 +29,6 @@ void	add_path(t_unit_pipe *curr_cmd, char **path)
 	int		i;
 
 	i = 0;
-	ft_putstr_fd(curr_cmd->commands[0], 2);
-	ft_putchar_fd('\n', 2);
 	while (path[i])
 	{
 		temp_path = ft_strjoin(path[i], "/");

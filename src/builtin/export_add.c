@@ -34,7 +34,7 @@ t_unit_env	*create_env(char *str)
 	if (pnew == NULL)
 		return (NULL);
 	i = 0;
-	while (str[i] != '=')
+	while (str[i] && str[i] != '=')
 		i++;
 	pnew->key = ft_substr(str, 0, i);
 	if (pnew->key == NULL)
@@ -42,13 +42,18 @@ t_unit_env	*create_env(char *str)
 		free(pnew);
 		return (NULL);
 	}
-	pnew->value = ft_substr(str, i + 1, ft_strlen(str));
-	if (pnew->value == NULL)
+	if (str[i] == '=')
 	{
-		free(pnew->key);
-		free(pnew);
-		return (NULL);
+		pnew->value = ft_substr(str, i + 1, ft_strlen(str));
+		if (pnew->value == NULL)
+		{
+			free(pnew->key);
+			free(pnew);
+			return (NULL);
+		}
 	}
+	else
+		pnew->value = NULL;
 	pnew->env_next = NULL;
 	return (pnew);
 }
@@ -66,7 +71,10 @@ int	find_and_change_env(t_unit_head *cmd_lst, char *str, int i)
 	{
 		if (strncmp(curr->key, key, ft_strlen(key) + 1) == 0)
 		{
-			free(curr->value);
+			if (str[i] == '\0')
+				return (1);
+			if (curr->value)
+				free(curr->value);
 			curr->value = ft_substr(str, i + 1, ft_strlen(str));
 			if (curr->value == NULL)
 			{
@@ -88,7 +96,7 @@ int	add_env(t_unit_head *cmd_lst, char *str)
 	int			i;
 
 	i = 0;
-	while (str[i] != '=')
+	while (str[i] && str[i] != '=')
 		i++;
 	ret = find_and_change_env(cmd_lst, str, i);
 	if (ret < 0)
