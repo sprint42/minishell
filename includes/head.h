@@ -1,4 +1,4 @@
-/* ************************************************************************** */	
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   head.h                                             :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:32:42 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/21 15:59:30 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 14:30:28 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,6 @@
 
 unsigned char	g_exit_status;
 
-/*
-**	분기가 일어나는 포인트
-**	문자열, 공백, 작은 따옴표, 큰 따옴표, 백슬래쉬, 달러, 파이프, 더블 파이프, 세미콜론, <, >, <<, >>
-*/
 enum e_split_point
 {
 	STRS = 1 << 0,
@@ -50,9 +46,6 @@ enum e_split_point
 	COMM = 1 << 13
 };
 
-/*
-**	에러 코드
-*/
 enum e_error
 {
 	ERROR_QUOT = 1,
@@ -63,23 +56,12 @@ enum e_error
 	ERROR_MALL
 };
 
-/*
-**	리다이렉션 종류
-**	IN	: < 뒤에 있는 파일 명
-**	OUT	: > 뒤에 있는 파일 명
-*/
 enum e_redirection_type
 {
 	IN = 1,
 	OUT
 };
 
-/*
-**	리다이렉션 유닛
-**	int			rd_type		: 리다이렉션의 타입
-**	char		*filename	: 리다이렉션의 파일 명
-**	t_unit_rd	*next		: 다음 리다이렉션 요소의 주소
-*/
 typedef struct t_unit_rd
 {
 	int					rd_type;
@@ -87,12 +69,6 @@ typedef struct t_unit_rd
 	struct t_unit_rd	*next;
 }	t_unit_rd;
 
-/* 
-**	파이프 유닛
-**	char		**commands	: 명령어 테이블
-**	t_unit_rd	*rd			: redirect 연결 리스트 도입부(시작점) 주소
-**	t_unit_pipe	**pp_next	: 다음 파이프 유닛의 주소
-*/
 typedef struct t_unit_pipe
 {
 	char				**commands;
@@ -100,58 +76,40 @@ typedef struct t_unit_pipe
 	struct t_unit_pipe	*pp_next;
 }	t_unit_pipe;
 
-/*
-** child info를 저장할 수 있는 구조체
-** pid_t	*pid	: 각 child별 pid 저장
-** int		*status	: 각 child별 종료 status 저장
-*/
 typedef struct t_child_info
 {
 	pid_t	*pid;
 	int		*status;
-} t_child_info;
+}	t_child_info;
 
-/*
-** 환경변수를 저장할 수 있는 구조체
-*/
 typedef struct t_unit_env
 {
 	char				*key;
 	char				*value;
 	struct t_unit_env	*env_next;
-} t_unit_env;
+}	t_unit_env;
 
 typedef struct t_unit_head
 {
-    int                 cmd_cnt;
-    struct t_unit_pipe  *pp_next;
+	int					cmd_cnt;
+	struct t_unit_pipe	*pp_next;
 	struct t_unit_env	*env_next;
 	t_child_info		child;
-} t_unit_head;
-
-/*
-**	2022. 05. 21
-**	author : mcha
-**	Description : 파싱 테스트 부분
-*/
-
-/*
-**	구조체
-*/
+}	t_unit_head;
 
 typedef struct t_special
 {
 	char	*dolr_trim_set;
 	char	*space_trim_set;
-}t_special;
+}	t_special;
 
 typedef struct t_parsed
 {
-	char	*type;
-	char	*str;
+	char			*type;
+	char			*str;
 	struct t_parsed	*prev;
 	struct t_parsed	*next;
-}t_parsed;
+}	t_parsed;
 
 typedef struct t_point
 {
@@ -163,11 +121,8 @@ typedef struct t_point
 	t_unit_env	*env;
 	t_parsed	*parsed;
 	t_special	*junction;
-}t_point;
+}	t_point;
 
-/*
-**	사용자 함수
-*/
 t_unit_env		*malloc_env(void);
 t_point			*init_struct(int idx);
 t_point			*malloc_point(void);
@@ -184,7 +139,7 @@ t_unit_head		*test(t_unit_head **head, char *target, int idx);
 void			judge_special(t_point *pck, char **s, char **ret);
 
 /*
-**	is special word?
+**	is special word
 */
 int				is_null(char c);
 int				is_pipe(t_point *pck, char c);
@@ -211,7 +166,6 @@ void			proc_dolr(t_point *pck, char **s, char **ret);
 void			proc_space(t_point *pck, char **s, char **ret);
 void			proc_redr(t_point *pck, char **s, char **ret, char redr);
 void			proc_quot(t_point *pck, char **s, char **ret, char quot);
-
 
 /*
 **	Node
@@ -263,9 +217,5 @@ int				check_is_redr_continuous(t_point *pck);
 **	Bind
 */
 void			init_head(t_unit_head *ptr, t_child_info child);
-
-/*
-**	End of parsing test session
-*/
 
 #endif

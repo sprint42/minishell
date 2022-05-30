@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:56:33 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/30 14:11:55 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 14:26:59 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_point	*malloc_point(void)
 {
-	t_point *ptr;
-	
+	t_point	*ptr;
+
 	ptr = (t_point *)malloc(sizeof(t_point));
 	if (!ptr)
 	{
@@ -41,7 +41,7 @@ t_special	*malloc_junction(void)
 t_parsed	*malloc_parsed(void)
 {
 	t_parsed	*ptr;
-	
+
 	ptr = (t_parsed *)malloc(sizeof(t_parsed));
 	if (!ptr)
 	{
@@ -58,7 +58,7 @@ t_parsed	*malloc_parsed(void)
 t_unit_env	*malloc_env(void)
 {
 	t_unit_env	*ptr;
-	
+
 	ptr = (t_unit_env *)malloc(sizeof(t_unit_env));
 	if (!ptr)
 	{

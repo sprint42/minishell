@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 20:36:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/30 13:58:50 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 14:46:24 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ t_unit_head	*test(t_unit_head **head, char *target, int idx)
 			return (*head);
 		}
 		else
+		{
 			link_and_free(&pck, head, &target);
+			return (*head);
+		}
 	}
 	return (NULL);
 }
