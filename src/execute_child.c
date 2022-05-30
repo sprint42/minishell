@@ -56,6 +56,8 @@ void	execute_execve(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	char	**envp;
 	char	**path;
 
+	if (curr_cmd->commands[0] == NULL)
+		exit(0);
 	envp = make_env_array(cmd_lst);
 	if (envp == NULL)
 		handle_child_process_error(1, errno, curr_cmd->commands[0]);
