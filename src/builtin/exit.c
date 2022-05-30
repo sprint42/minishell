@@ -15,10 +15,10 @@ long long	check_first_arg(char *str, int *arg_status)
 		if (str[i] < '0' || str[i] > '9')
 			return (*arg_status = 1);
 	}
-	if (i - neg_flag > 14)
+	if (i - neg_flag > 19)
 		return (*arg_status = 1);
-	else if ((i == 15 && ft_strncmp(&(str[neg_flag]), "9223372036854775808", 14) > 0) || \
-				(i == 14 && ft_strncmp(&(str[neg_flag]), "9223372036854775807", 14) > 0))
+	else if ((i == 20 && ft_strncmp(&(str[neg_flag]), "9223372036854775808", 19) > 0) || \
+				(i == 19 && ft_strncmp(&(str[neg_flag]), "9223372036854775807", 19) > 0))
 		return (*arg_status = 1);
 	result = 0;
 	i = 0;

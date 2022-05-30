@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   environ_node.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:50:03 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/28 20:58:55 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 14:22:12 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ t_unit_env	*new_env_node(char *key, char *value)
 
 	node = (t_unit_env *)malloc(sizeof(t_unit_env));
 	if (!node)
+	{
+		print_malloc_error(ERROR_MALL);
 		exit(EXIT_FAILURE);
+	}
 	node->key = ft_strdup(key);
 	node->value = ft_strdup(value);
 	node->env_next = NULL;
@@ -42,7 +45,7 @@ char	*ret_env_value(t_point *pck, char *key)
 		if (!ft_strncmp(tmp->key, key, ft_strlen(tmp->key)))
 		{
 			ret = ft_calloc(ft_strlen(tmp->value) + 1, sizeof(char));
-			ft_strlcpy(ret, (const char *)tmp->value, ft_strlen(tmp->value) + 1);
+			ft_strlcpy(ret, tmp->value, ft_strlen(tmp->value) + 1);
 			return (ret);
 		}
 		tmp = tmp->env_next;

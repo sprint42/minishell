@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 15:00:06 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/25 20:56:06 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 14:23:41 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,9 @@ void	manufact_type(t_parsed **tmp, t_point *ptr)
 {
 	t_unit_env	*pck;
 
-		pck = ptr->env;
-		while (pck->env_next)
-		{
-			pck = pck->env_next;
-		}
+	pck = ptr->env;
+	while (pck->env_next)
+		pck = pck->env_next;
 	if (!ft_strncmp((*tmp)->type, "STR", 3))
 		str_handler(tmp, ptr);
 	else if (!ft_strncmp((*tmp)->type, "PIPE", 4))

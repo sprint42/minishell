@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   link_to_head.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:46:34 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/29 17:10:07 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 14:20:35 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-static void	create_commands(t_parsed *parsed, t_unit_pipe *unit, unsigned int cnt)
+static void	create_commands(t_parsed *parsed, \
+t_unit_pipe *unit, unsigned int cnt)
 {
 	t_parsed		*tmp;
 	unsigned int	idx;
@@ -32,7 +33,7 @@ static void	create_commands(t_parsed *parsed, t_unit_pipe *unit, unsigned int cn
 	}
 }
 
-static void create_redirection(t_parsed *parsed, t_unit_pipe *unit)
+static void	create_redirection(t_parsed *parsed, t_unit_pipe *unit)
 {
 	int			rd_type;
 	t_parsed	*tmp;
@@ -56,7 +57,10 @@ static t_unit_pipe	*create_unit_pipe(t_parsed *parsed)
 
 	unit = (t_unit_pipe *)malloc(sizeof(t_unit_pipe));
 	if (!unit)
+	{
+		print_malloc_error(ERROR_MALL);
 		exit(EXIT_FAILURE);
+	}
 	unit->commands = NULL;
 	unit->rd = NULL;
 	unit->pp_next = NULL;
