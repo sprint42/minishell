@@ -32,7 +32,7 @@ int	execute_builtin(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	if (ft_strlen(command) == 4 && ft_strncmp(command, "echo", 4) == 0)
 		return (execute_echo(curr_cmd));
 	if (ft_strlen(command) == 2 && ft_strncmp(command, "cd", 2) == 0)
-		return (execute_cd(curr_cmd));
+		return (execute_cd(cmd_lst, curr_cmd));
 	if (ft_strlen(command) == 3 && ft_strncmp(command, "pwd", 3) == 0)
 		return (execute_pwd());
 	if (ft_strlen(command) == 6 && ft_strncmp(command, "export", 6) == 0)
