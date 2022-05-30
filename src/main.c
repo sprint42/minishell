@@ -20,18 +20,23 @@ int	main(void)
 			return (handle_main_process_error("fail in dup2", cmd_lst));
 	while(1)
 	{
+		if (!cmd_lst)
+			cmd_lst = malloc_head();
 		buf = readline("minishell > ");
 		add_history(buf);
 		if (!is_error(buf) && (ft_strlen(buf) > 0))
 		{
 			cmd_lst = test(&cmd_lst, buf, idx);
-			execute_cmds(cmd_lst);
+			if (cmd_lst && g_exit_status == 0)
+			{
+				execute_cmds(cmd_lst);
+				cmd_lst->cmd_cnt = 0;
+			}
 			idx++;
 		}
 		free(buf);
 		if (dup2(fd_stdin, STDIN_FILENO) < 0 || dup2(fd_stdout, STDOUT_FILENO) < 0)
 			return (handle_main_process_error("fail in dup2", cmd_lst));
-		cmd_lst->cmd_cnt = 0;
 	}
 	return (0);
 }

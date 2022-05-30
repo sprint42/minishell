@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_is_pipe_error.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:48:54 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/28 18:09:21 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 14:14:31 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ int	check_is_pipe_error(t_point *pck)
 		}
 		ptr = ptr->next;
 	}
-	return (0);	
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:56:32 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 19:58:45 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 14:21:07 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void	bind_rd_type(t_parsed *type, int *rd)
 		*rd = SNOU;
 }
 
-int		check_type(char	*type)
+int	check_type(char	*type)
 {
 	return ((ft_strncmp(type, "PIPE", ft_strlen(type)) != 0) \
-			&& (ft_strncmp(type, "REDR", ft_strlen(type)) != 0)
-			&& (ft_strncmp(type, "FILE", ft_strlen(type)) != 0));
+		&& (ft_strncmp(type, "REDR", ft_strlen(type)) != 0)
+		&& (ft_strncmp(type, "FILE", ft_strlen(type)) != 0));
 }
 
-int		check_pipe(char *type)
+int	check_pipe(char *type)
 {
 	return (ft_strncmp(type, "PIPE", ft_strlen(type)) == 0);
 }
