@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   link_to_head.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:46:34 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/29 17:10:07 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 14:11:06 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ static t_unit_pipe	*create_unit_pipe(t_parsed *parsed)
 
 	unit = (t_unit_pipe *)malloc(sizeof(t_unit_pipe));
 	if (!unit)
+	{
+		print_malloc_error(ERROR_MALL);
 		exit(EXIT_FAILURE);
+	}
 	unit->commands = NULL;
 	unit->rd = NULL;
 	unit->pp_next = NULL;

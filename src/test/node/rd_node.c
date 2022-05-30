@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:24:23 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/27 19:03:35 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 14:11:35 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ t_unit_rd	*new_rd_node(int rd_type, char *filename)
 
 	node = (t_unit_rd *)malloc(sizeof(t_unit_rd));
 	if (!node)
+	{
+		print_malloc_error(ERROR_MALL);
 		exit(EXIT_FAILURE);
+	}
 	node->rd_type = rd_type;
 	node->filename = ft_strdup(filename);
 	node->next = NULL;

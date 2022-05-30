@@ -59,7 +59,8 @@ enum e_error
 	ERROR_BSLA,
 	ERROR_SEMC,
 	ERROR_REDR,
-	ERROR_PIPE
+	ERROR_PIPE,
+	ERROR_MALL
 };
 
 /*
@@ -172,11 +173,9 @@ t_point			*init_struct(int idx);
 t_point			*malloc_point(void);
 t_parsed		*malloc_parsed(void);
 t_special		*malloc_junction(void);
-// t_unit_head		*malloc_head(t_point *pck);
 t_unit_head		*malloc_head(void);
 void			init_special(t_point *ptr);
 void			init_environ(t_point *pck);
-// t_unit_head		*test(t_unit_head *head, char *target, int idx);
 t_unit_head		*test(t_unit_head **head, char *target, int idx);
 
 /*
@@ -254,10 +253,16 @@ int				error_is_quot(int bit, char c);
 int				check_syntax_error(t_point *pck);
 int				check_quote_not_closed(char *buf);
 int				check_is_pipe_error(t_point *pck);
+void			*print_malloc_error(int errorcode);
 void			control_quote(int *bit, char quot);
 int				check_is_backslash_appear(char *buf);
 int				check_is_semicolon_appear(char *buf);
 int				check_is_redr_continuous(t_point *pck);
+
+/*
+**	Bind
+*/
+void			init_head(t_unit_head *ptr, t_child_info child);
 
 /*
 **	End of parsing test session
