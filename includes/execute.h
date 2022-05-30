@@ -36,9 +36,11 @@ int	execute_pwd(void);
 /* export.c */
 int	execute_export(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
 
+/* unset.c */
+int	execute_unset(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
+
 /* export_print.c */
 int		print_env(t_unit_head *cmd_lst);
-char	**make_env_array(t_unit_head *cmd_lst);
 void	free_env_array(char **envp);
 char	count_env(t_unit_head *cmd_lst);
 void	sort_env(char **envp);
@@ -46,12 +48,14 @@ void	sort_env(char **envp);
 /* export_add.c */
 int			check_export_validity(char *str);
 int			add_env(t_unit_head *cmd_lst, char *str);
-int			find_and_change_env(t_unit_head *cmd_lst, char *key);
+int			find_and_change_env(t_unit_head *cmd_lst, char *str, int i);
 t_unit_env	*create_env(char *str);
 
 
 /* env.c */
-int	execute_env(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
+char	*make_env_line(t_unit_env *curr);
+char	**make_env_array(t_unit_head *cmd_lst);
+int		execute_env(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
 
 /* exit.c */
 int			execute_exit(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);

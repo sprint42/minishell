@@ -97,7 +97,8 @@ void	execute_childprocess(t_unit_head *cmd_lst, int pipe_fd[2], int curr_in, int
 		close(pipe_fd[0]);
 	if (dup2(curr_in, STDIN_FILENO) < 0)
 		handle_child_process_error(1, errno, curr_cmd->commands[0]);
-	close(curr_in);
+	if (i != 0)
+		close(curr_in);
 	if (i != cmd_lst->cmd_cnt - 1)
 	{
 		if (dup2(pipe_fd[1], STDOUT_FILENO) < 0)

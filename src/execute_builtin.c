@@ -13,6 +13,8 @@ int	check_builtin(t_unit_pipe *cmd)
 		return (1);
 	if (ft_strlen(command) == 6 && ft_strncmp(command, "export", 6) == 0)
 		return (1);
+	if (ft_strlen(command) == 5 && ft_strncmp(command, "unset", 5) == 0)
+		return (1);
 	if (ft_strlen(command) == 3 && ft_strncmp(command, "env", 3) == 0)
 		return (1);
 	if (ft_strlen(command) == 4 && ft_strncmp(command, "exit", 4) == 0)
@@ -35,6 +37,8 @@ int	execute_builtin(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 		return (execute_pwd());
 	if (ft_strlen(command) == 6 && ft_strncmp(command, "export", 6) == 0)
 		return (execute_export(cmd_lst, curr_cmd));
+	if (ft_strlen(command) == 5 && ft_strncmp(command, "unset", 5) == 0)
+		return (execute_unset(cmd_lst, curr_cmd));
 	if (ft_strlen(command) == 3 && ft_strncmp(command, "env", 3) == 0)
 		return (execute_env(cmd_lst, curr_cmd));
 	if (ft_strlen(command) == 4 && ft_strncmp(command, "exit", 4) == 0)

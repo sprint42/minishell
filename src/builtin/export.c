@@ -11,8 +11,6 @@ int	execute_export(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 	exit_code = 0;
 	while (curr_cmd->commands[i])
 	{
-		if (ft_strchr(curr_cmd->commands[i], '=') == NULL)
-			continue;
 		if (check_export_validity(curr_cmd->commands[i]) == 0)
 			exit_code = 1;
 		else if (add_env(cmd_lst, curr_cmd->commands[i]) != 0)
