@@ -18,7 +18,7 @@ int	main(void)
 			return (handle_main_process_error("fail in dup2", cmd_lst));
 	while(1)
 	{
-		buf = readline("minishell > ");
+		buf = readline("minishell$ ");
 		add_history(buf);
 		if (!is_error(buf) && (ft_strlen(buf) > 0))
 		{
