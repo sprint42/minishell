@@ -5,7 +5,6 @@
 # include <sys/wait.h>
 # include <fcntl.h>
 # include <string.h>
-# include "../gnl/get_next_line.h"
 
 # define READ_END 0
 # define WRITE_END 1
