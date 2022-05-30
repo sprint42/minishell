@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 20:36:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/30 14:46:24 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 15:38:42 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_unit_head	*test(t_unit_head **head, char *target, int idx)
 		while (*tmp_target)
 			judge_special(pck, &tmp_target, &ret);
 		manufact(pck);
-		if (!check_syntax_error(pck))
+		if (!check_syntax_error(*head, pck))
 		{
 			link_and_free(&pck, head, &target);
 			return (*head);

@@ -6,13 +6,13 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:48:54 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/30 14:14:31 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 15:40:28 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int	check_is_pipe_error(t_point *pck)
+int	check_is_pipe_error(t_unit_head *head, t_point *pck)
 {
 	t_parsed	*ptr;
 	size_t		len;
@@ -29,7 +29,7 @@ int	check_is_pipe_error(t_point *pck)
 				ft_strncmp(ptr->next->type, "PIPE", len) == 0 || \
 				ft_strlen(ptr->str) > 1)
 			{
-				print_error(ERROR_PIPE);
+				print_error(head, ERROR_PIPE);
 				return (1);
 			}
 		}

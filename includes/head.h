@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:32:42 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/30 14:30:28 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 16:40:39 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ typedef struct t_unit_env
 
 typedef struct t_unit_head
 {
+	int					idx;
+	int					error_flag;
 	int					cmd_cnt;
 	struct t_unit_pipe	*pp_next;
 	struct t_unit_env	*env_next;
@@ -124,14 +126,16 @@ typedef struct t_point
 }	t_point;
 
 t_unit_env		*malloc_env(void);
-t_point			*init_struct(int idx);
+t_unit_head		*malloc_head(void);
 t_point			*malloc_point(void);
 t_parsed		*malloc_parsed(void);
+t_point			*init_struct(int idx);
 t_special		*malloc_junction(void);
-t_unit_head		*malloc_head(void);
 void			init_special(t_point *ptr);
 void			init_environ(t_point *pck);
+void			malloc_if_cmd_null(t_unit_head **cmd_lst);
 t_unit_head		*test(t_unit_head **head, char *target, int idx);
+void			rollback_cmd_obj_buffer(t_unit_head **cmd_lst, char *buf);
 
 /*
 **	judge special
@@ -200,18 +204,19 @@ void			link_and_free(t_point **pck, t_unit_head **head, char **target);
 /*
 **	Error
 */
-int				is_error(char *buf);
-void			print_error(int errorcode);
 int				judge_is_quote_error(int bit);
 int				error_is_quot(int bit, char c);
-int				check_syntax_error(t_point *pck);
-int				check_quote_not_closed(char *buf);
-int				check_is_pipe_error(t_point *pck);
 void			*print_malloc_error(int errorcode);
 void			control_quote(int *bit, char quot);
-int				check_is_backslash_appear(char *buf);
-int				check_is_semicolon_appear(char *buf);
-int				check_is_redr_continuous(t_point *pck);
+int				is_error(t_unit_head *head, char *buf);
+void			check_cmd_malloc_fail(t_unit_head *head);
+void			print_error(t_unit_head *head, int errorcode);
+int				check_syntax_error(t_unit_head *head, t_point *pck);
+int				check_is_pipe_error(t_unit_head *head, t_point *pck);
+int				check_quote_not_closed(t_unit_head *head, char *buf);
+int				check_is_semicolon_appear(t_unit_head *head, char *buf);
+int				check_is_backslash_appear(t_unit_head *head, char *buf);
+int				check_is_redr_continuous(t_unit_head *head, t_point *pck);
 
 /*
 **	Bind

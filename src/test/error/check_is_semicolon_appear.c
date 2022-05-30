@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_is_semicolon_appear.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 21:00:52 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/28 21:04:29 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 15:37:25 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	control_semicolon(int *bit)
 		*bit |= SEMC;
 }
 
-int	check_is_semicolon_appear(char *buf)
+int	check_is_semicolon_appear(t_unit_head *head, char *buf)
 {
 	char	*ptr;
 	int		bit;
@@ -49,7 +49,7 @@ int	check_is_semicolon_appear(char *buf)
 	}
 	if (bit & SEMC)
 	{
-		print_error(ERROR_SEMC);
+		print_error(head, ERROR_SEMC);
 		return (1);
 	}
 	return (0);

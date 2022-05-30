@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_error.c                                         :+:      :+:    :+:   */
+/*   malloc_if_cmd_null.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 20:26:42 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/30 15:36:39 by mcha             ###   ########.fr       */
+/*   Created: 2022/05/30 16:29:38 by mcha              #+#    #+#             */
+/*   Updated: 2022/05/30 16:30:44 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-int	is_error(t_unit_head *head, char *buf)
+void	malloc_if_cmd_null(t_unit_head **cmd_lst)
 {
-	if (check_quote_not_closed(head, buf))
-		return (1);
-	if (check_is_backslash_appear(head, buf))
-		return (1);
-	if (check_is_semicolon_appear(head, buf))
-		return (1);
-	return (0);
+	if (!(*cmd_lst))
+		*cmd_lst = malloc_head();
 }
