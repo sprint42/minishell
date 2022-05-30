@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:36:53 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/28 21:20:57 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 11:08:21 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,9 @@ void	proc_quot(t_point *pck, char **s, char **ret, char quot)
 	else if (quot == '\'' && (pck->flag & SNQT))
 	{
 		*ret = ft_strjoin_leak(*ret, proc_squot(pck, s));
+	}
+	if (quot == '\"' && !(pck->flag & DBQT) && !(*ret))
+	{
+		*ret = ft_strdup("");
 	}
 }
