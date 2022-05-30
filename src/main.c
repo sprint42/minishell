@@ -1,8 +1,12 @@
 #include "execute.h"
 
-int	buf_nn(char *buf)
+int	buf_nn(char *buf, t_unit_head *head)
 {
 	if (!buf)
+	{
+		free_unit_env(head);
+		free_cmd_lst(head);
+	}
 		exit(EXIT_FAILURE);
 	return (1);
 }
@@ -26,7 +30,7 @@ int	main(void)
 	{
 		malloc_if_cmd_null(&cmd_lst);
 		buf = readline("minishell$ ");
-		if (buf_nn(buf) && !is_error(cmd_lst, buf) && (ft_strlen(buf) > 0))
+		if (buf_nn(buf, cmd_lst) && !is_error(cmd_lst, buf) && (ft_strlen(buf) > 0))
 		{
 			add_history(buf);
 			cmd_lst = test(&cmd_lst, buf, cmd_lst->idx);
