@@ -27,8 +27,8 @@ int	execute_echo(t_unit_pipe *curr_cmd);
 int echo_check_newline(char *option_str);
 
 /* cd.c */
-int	execute_cd(t_unit_pipe *curr_cmd);
-int	cd_home(void);
+int	execute_cd(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd);
+int	cd_home(t_unit_head *cmd_lst);
 
 /* pwd.c */
 int	execute_pwd(void);
