@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   malloc_struct.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:56:33 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/29 17:28:44 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 14:11:55 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ t_point	*malloc_point(void)
 	
 	ptr = (t_point *)malloc(sizeof(t_point));
 	if (!ptr)
+	{
+		print_malloc_error(ERROR_MALL);
 		exit(EXIT_FAILURE);
+	}
 	return (ptr);
 }
 
@@ -28,7 +31,10 @@ t_special	*malloc_junction(void)
 
 	ptr = (t_special *)malloc(sizeof(t_special));
 	if (!ptr)
+	{
+		print_malloc_error(ERROR_MALL);
 		exit(EXIT_FAILURE);
+	}
 	return (ptr);
 }
 
@@ -38,7 +44,10 @@ t_parsed	*malloc_parsed(void)
 	
 	ptr = (t_parsed *)malloc(sizeof(t_parsed));
 	if (!ptr)
+	{
+		print_malloc_error(ERROR_MALL);
 		exit(EXIT_FAILURE);
+	}
 	ptr->str = NULL;
 	ptr->type = NULL;
 	ptr->next = NULL;
@@ -52,14 +61,16 @@ t_unit_env	*malloc_env(void)
 	
 	ptr = (t_unit_env *)malloc(sizeof(t_unit_env));
 	if (!ptr)
+	{
+		print_malloc_error(ERROR_MALL);
 		exit(EXIT_FAILURE);
+	}
 	ptr->env_next = NULL;
 	ptr->key = NULL;
 	ptr->value = NULL;
 	return (ptr);
 }
 
-// t_unit_head	*malloc_head(t_point *pck)
 t_unit_head	*malloc_head(void)
 {
 	t_unit_head		*ptr;
@@ -67,17 +78,12 @@ t_unit_head	*malloc_head(void)
 
 	ptr = (t_unit_head *)malloc(sizeof(t_unit_head));
 	if (!ptr)
-		exit(EXIT_FAILURE);
+		return (print_malloc_error(ERROR_MALL));
 	child = (t_child_info *)malloc(sizeof(t_child_info));
 	if (!child)
-		exit(EXIT_FAILURE);
+		return (print_malloc_error(ERROR_MALL));
 	child->pid = NULL;
 	child->status = NULL;
-	ptr->cmd_cnt = 0;
-	ptr->pp_next = NULL;
-	// if (pck->idx == 0)
-	// 	ptr->env_next = pck->env->env_next;
-	ptr->env_next = NULL;
-	ptr->child = *child;
+	init_head(ptr, *child);
 	return (ptr);
 }

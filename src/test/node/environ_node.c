@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   environ_node.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:50:03 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/28 20:58:55 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/30 14:11:15 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ t_unit_env	*new_env_node(char *key, char *value)
 
 	node = (t_unit_env *)malloc(sizeof(t_unit_env));
 	if (!node)
+	{
+		print_malloc_error(ERROR_MALL);
 		exit(EXIT_FAILURE);
+	}
 	node->key = ft_strdup(key);
 	node->value = ft_strdup(value);
 	node->env_next = NULL;

@@ -1,6 +1,6 @@
 CC		= gcc
 RM		= rm -rf
-CFLAGS	= -I $(HEAD_ROOT) -Wall -Werror -Wextra -g3 -fsanitize=address
+CFLAGS	= -I $(HEAD_ROOT) -Wall -Werror -Wextra -g#3 -fsanitize=address
 RLLINK	= -l readline -L$(HOME)/.brew/opt/readline/lib
 RLINC	=  -I$(HOME)/.brew/opt/readline/include
 
