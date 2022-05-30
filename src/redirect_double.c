@@ -3,22 +3,20 @@
 int	get_infile(char	*limiter, int curr_out)
 {
 	size_t	len;
-	char	*temp;
-
+	char	*buf;
+	
 	len = ft_strlen(limiter);
 	while (1)
 	{
-		ft_putstr_fd("> ", STDIN_FILENO);
-		temp = get_next_line(0);
-		if (temp == NULL)
-			return (handle_default_error("fail in gnl"));
-		if (ft_strlen(temp) == len + 1 && strncmp(temp, limiter, len) == 0)
+		buf = readline("> ");
+		if (ft_strlen(buf) == len && strncmp(buf, limiter, len) == 0)
 		{
-			free(temp);
+			free(buf);
 			break ;
 		}
-		free(temp);
-		ft_putstr_fd(temp, curr_out);
+		free(buf);
+		ft_putstr_fd(buf, curr_out);
+		ft_putchar_fd('\n', curr_out);
 	}
 	return (0);
 }
@@ -37,15 +35,15 @@ int	redirect_dbin(t_unit_rd *rd)
 	if (pid == 0)
 	{
 		close(pipe_fd[0]);
-		if (get_infile(rd->filename, pipe_fd[1]) != 0)
-			return (1);
+		get_infile(rd->filename, pipe_fd[1]);
 		close(pipe_fd[1]);
+		exit(0);
 	}
 	close(pipe_fd[1]);
-	waitpid(pid, &status, 0);
 	if (dup2(pipe_fd[0], STDIN_FILENO) < 0)
 		return (handle_default_error(strerror(errno)));
 	close(pipe_fd[0]);
+	waitpid(pid, &status, 0);
 	return (0);
 }
 
