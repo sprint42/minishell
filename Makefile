@@ -22,9 +22,10 @@ SRCS_LINK	= $(SRCS_TEST)/link
 SRCS_ERROR	= $(SRCS_TEST)/error
 SRCS_LIBF	= libft
 SRCS_BUILT	= src/builtin
+SRCS_SIGNAL	= $(SRCS_TEST)/signal
 
 # Add subdirectory
-SRCS_ROOT += $(SRCS_UTIL) $(SRCS_TEST) $(SRCS_IS) $(SRCS_PROC) $(SRCS_STRUCT) $(SRCS_LIBF) $(SRCS_NODE) $(SRCS_FREE) $(SRCS_LINK) $(SRCS_ERROR) $(SRCS_BUILT)
+SRCS_ROOT += $(SRCS_UTIL) $(SRCS_TEST) $(SRCS_IS) $(SRCS_PROC) $(SRCS_STRUCT) $(SRCS_LIBF) $(SRCS_NODE) $(SRCS_FREE) $(SRCS_LINK) $(SRCS_ERROR) $(SRCS_BUILT) $(SRCS_SIGNAL)
 
 # Src files
 FILE_TEST 	= $(notdir $(wildcard $(SRCS_TEST)/*.c))
@@ -39,6 +40,7 @@ FILE_LINK 	= $(notdir $(wildcard $(SRCS_LINK)/*.c))
 FILE_ERROR	= $(notdir $(wildcard $(SRCS_ERROR)/*.c))
 FILE_BUILT	= $(notdir $(wildcard $(SRCS_BUILT)/*.c))
 FILE_ROOT	= $(notdir $(wildcard src/*.c))
+FILE_SIGNAL	= $(notdir $(wildcard $(SRCS_SIGNAL)/*.c))
 
 vpath %.c $(SRCS_ROOT)
 
@@ -54,8 +56,9 @@ LINK_OBJ	= $(FILE_LINK:.c=.o)
 ERROR_OBJ	= $(FILE_ERROR:.c=.o)
 BUILT_OBJ	= $(FILE_BUILT:.c=.o)
 ROOT_OBJ	= $(FILE_ROOT:.c=.o)
+SIGNAL_OBJ	= $(FILE_SIGNAL:.c=.o)
 
-OBJS := $(TEST_OBJ) $(IS_OBJ) $(PROC_OBJ) $(STRUCT_OBJ) $(LIBF_OBJ) $(NODE_OBJ) $(FREE_OBJ) $(LINK_OBJ) $(ERROR_OBJ) $(BUILT_OBJ) $(ROOT_OBJ)
+OBJS := $(TEST_OBJ) $(IS_OBJ) $(PROC_OBJ) $(STRUCT_OBJ) $(LIBF_OBJ) $(NODE_OBJ) $(FREE_OBJ) $(LINK_OBJ) $(ERROR_OBJ) $(BUILT_OBJ) $(ROOT_OBJ) $(SIGNAL_OBJ)
 OBJS := $(addprefix $(OBJS_ROOT)/, $(OBJS))
 
 all : $(NAME)

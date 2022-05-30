@@ -18,7 +18,8 @@ int	main(void)
 	int			fd_stdin;
 	int			fd_stdout;
 
-	signal(SIGINT, sig_int);
+	// signal(SIGINT, sig_int);
+	loader(sig_handler);
 	cmd_lst = NULL;
 	g_exit_status = 0;
 	fd_stdin = 0;
