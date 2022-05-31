@@ -14,6 +14,8 @@
 
 void	loader(void *handler)
 {
+	extern int	rl_catch_signals;
+	rl_catch_signals = 0;
 	signal(SIGINT, handler);
 	signal(SIGQUIT, handler);
 }
