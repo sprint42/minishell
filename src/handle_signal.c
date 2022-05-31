@@ -1,11 +1,7 @@
 #include "execute.h"
 
-void sig_int(int sig)
+void sig_child_handler(int signal)
 {
-	if (sig)
-		;
-	printf("\n");
-	rl_on_new_line();
-	rl_replace_line("", 1);
-	rl_redisplay();
+	if (signal == SIGINT)
+		ft_putchar_fd('\n', 2);
 }

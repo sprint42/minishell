@@ -18,8 +18,6 @@ int	main(void)
 	int			fd_stdin;
 	int			fd_stdout;
 
-	// signal(SIGINT, sig_int);
-	loader(sig_handler);
 	cmd_lst = NULL;
 	g_exit_status = 0;
 	fd_stdin = 0;
@@ -29,11 +27,12 @@ int	main(void)
 		return (handle_main_process_error("fail in dup2", cmd_lst));
 	while(1)
 	{
+		loader(sig_handler);
 		malloc_if_cmd_null(&cmd_lst);
 		buf = readline("minishell$ ");
+		add_history(buf);
 		if (buf_nn(buf, cmd_lst) && !is_error(cmd_lst, buf) && (ft_strlen(buf) > 0))
 		{
-			add_history(buf);
 			cmd_lst = test(&cmd_lst, buf, cmd_lst->idx);
 			if (cmd_lst && cmd_lst->error_flag == 1)
 				free_cmd_lst(cmd_lst);

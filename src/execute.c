@@ -24,6 +24,7 @@ int	breed_childs(t_unit_head *cmd_lst)
 	
 	i = 0;
 	curr_in = STDIN_FILENO;
+	signal(SIGINT, sig_child_handler);
 	while (i < cmd_lst->cmd_cnt)
 	{
 		if (i != cmd_lst->cmd_cnt - 1 && pipe(pipe_fd) < 0)
