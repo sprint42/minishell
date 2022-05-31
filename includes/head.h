@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   head.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:32:42 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/31 14:15:23 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/31 20:12:28 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,6 +210,7 @@ void			control_quote(int *bit, char quot);
 int				is_error(t_unit_head *head, char *buf);
 void			check_cmd_malloc_fail(t_unit_head *head);
 void			print_error(t_unit_head *head, int errorcode);
+int				check_is_only_wspace(t_unit_head *head, char *buf);
 int				check_syntax_error(t_unit_head *head, t_point *pck);
 int				check_is_pipe_error(t_unit_head *head, t_point *pck);
 int				check_quote_not_closed(t_unit_head *head, char *buf);
