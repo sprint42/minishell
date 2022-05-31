@@ -20,10 +20,8 @@ int	main(void)
 
 	cmd_lst = NULL;
 	g_exit_status = 0;
-	fd_stdin = 0;
-	fd_stdout = 1;
 	cmd_lst = malloc_head();
-	if (dup2(STDIN_FILENO, fd_stdin) < 0 || dup2(STDOUT_FILENO, fd_stdout) < 0)
+	if ((fd_stdin = dup(STDIN_FILENO)) < 0 || (fd_stdout = dup(STDOUT_FILENO)) < 0)
 		return (handle_main_process_error("fail in dup2", cmd_lst));
 	while(1)
 	{

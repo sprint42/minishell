@@ -5,10 +5,13 @@ int	get_infile(char	*limiter, int curr_out)
 	size_t	len;
 	char	*buf;
 	
+	signal(SIGINT, SIG_DFL);
 	len = ft_strlen(limiter);
 	while (1)
 	{
 		buf = readline("> ");
+		if (buf == NULL)
+			return (0);
 		if (ft_strlen(buf) == len && strncmp(buf, limiter, len) == 0)
 		{
 			free(buf);
@@ -44,6 +47,8 @@ int	redirect_dbin(t_unit_rd *rd)
 		return (handle_default_error(strerror(errno)));
 	close(pipe_fd[0]);
 	waitpid(pid, &status, 0);
+	if ((status & 0x00ff) != 0)
+		return (1);
 	return (0);
 }
 
