@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:53:33 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/30 21:02:25 by mcha             ###   ########.fr       */
+/*   Updated: 2022/05/31 13:44:30 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sig_handler(int signal)
 	}
 	else if (signal == SIGQUIT)
 	{
-		rl_on_new_line();
+		// rl_on_new_line();
 		rl_redisplay();
 	}
 }
