@@ -28,6 +28,8 @@ int	main(void)
 		loader(sig_handler);
 		malloc_if_cmd_null(&cmd_lst);
 		buf = readline("minishell$ ");
+		signal(SIGINT, sig_after_readline_handler);
+		signal(SIGQUIT, sig_after_readline_handler);
 		add_history(buf);
 		if (buf_nn(buf, cmd_lst) && !is_error(cmd_lst, buf) && (ft_strlen(buf) > 0))
 		{

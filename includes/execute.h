@@ -91,7 +91,7 @@ int handle_child_process_error(int exit_num, int errnum, char *str);
 int	handle_while_generating_error(char *message, t_unit_head *cmd_lst, int i);
 
 /* handle_signal.c */
+void	sig_after_readline_handler(int signal);
 void	sig_child_handler(int signal);
-void	sig_heredoc_handler(int signal);
 
 #endif
