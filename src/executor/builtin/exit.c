@@ -1,30 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/01 23:57:13 by yejin             #+#    #+#             */
+/*   Updated: 2022/06/01 23:57:14 by yejin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "execute.h"
 
 long long	check_first_arg(char *str, int *arg_status)
 {
 	long long	result;
 	int			i;
-	int			neg_flag;
+	int			neg;
 
-	neg_flag = 0;
+	neg = 0;
 	if (str[0] == '-')
-		neg_flag = 1;
-	i = neg_flag - 1;
+		neg = 1;
+	i = neg - 1;
 	while (str[++i])
 	{
 		if (str[i] < '0' || str[i] > '9')
 			return (*arg_status = 1);
 	}
-	if (i - neg_flag > 19)
+	if (i - neg > 19)
 		return (*arg_status = 1);
-	else if ((i == 20 && ft_strncmp(&(str[neg_flag]), "9223372036854775808", 19) > 0) || \
-				(i == 19 && ft_strncmp(&(str[neg_flag]), "9223372036854775807", 19) > 0))
+	else if ((i == 20 && ft_strncmp(&(str[neg]), LL_N_MAX, 19) > 0) || \
+			(i == 19 && ft_strncmp(&(str[neg]), LL_MAX, 19) > 0))
 		return (*arg_status = 1);
 	result = 0;
 	i = 0;
 	while (str[i])
 		result = result * 10 + (str[i++] - '0');
-	if (neg_flag)
+	if (neg)
 		return (result * -1);
 	return (result);
 }

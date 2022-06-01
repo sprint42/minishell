@@ -1,6 +1,18 @@
-# include "execute.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   echo.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/01 23:52:40 by yejin             #+#    #+#             */
+/*   Updated: 2022/06/01 23:52:40 by yejin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int echo_check_newline(char *option_str)
+#include "execute.h"
+
+int	echo_check_newline(char *option_str)
 {
 	int	i;
 
@@ -18,7 +30,7 @@ int echo_check_newline(char *option_str)
 	return (0);
 }
 
-int execute_echo(t_unit_pipe *curr_cmd)
+int	execute_echo(t_unit_pipe *curr_cmd)
 {
 	int	i;
 	int	n_flag;

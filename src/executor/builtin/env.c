@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   env.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/01 23:53:11 by yejin             #+#    #+#             */
+/*   Updated: 2022/06/02 00:36:31 by yejin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "execute.h"
 
 char	count_env(t_unit_head *cmd_lst)
@@ -30,7 +42,7 @@ char	*make_env_line(t_unit_env *curr)
 	free(temp);
 	if (result == NULL)
 		return (NULL);
-	return(result);
+	return (result);
 }
 
 char	**make_env_array(t_unit_head *cmd_lst)
@@ -51,7 +63,7 @@ char	**make_env_array(t_unit_head *cmd_lst)
 			envp[i] = make_env_line(curr);
 			if (envp[i] == NULL)
 			{
-				free_env_array(envp);
+				free_array_d2(envp);
 				return (NULL);
 			}
 			i++;
@@ -79,6 +91,6 @@ int	execute_env(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 		ft_putchar_fd('\n', STDOUT_FILENO);
 		i++;
 	}
-	free_env_array(envp);
+	free_array_d2(envp);
 	return (0);
 }

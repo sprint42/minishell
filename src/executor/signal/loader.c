@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   loader.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yejikim <yejikim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:54:01 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/31 16:39:06 by yejikim          ###   ########.fr       */
+/*   Updated: 2022/06/01 23:37:47 by yejin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.h"
+#include "execute.h"
 
-void	loader(void *handler)
+void	loader(void *int_handler, void *quit_handler)
 {
-	signal(SIGINT, handler);
-	signal(SIGQUIT, handler);
+	signal(SIGINT, int_handler);
+	signal(SIGQUIT, quit_handler);
 }

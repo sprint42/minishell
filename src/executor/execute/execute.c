@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   execute.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 00:41:41 by yejin             #+#    #+#             */
+/*   Updated: 2022/06/02 00:41:41 by yejin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "execute.h"
 
 int	wait_childs(t_unit_head *cmd_lst)
@@ -25,7 +37,7 @@ int	breed_childs(t_unit_head *cmd_lst)
 	int				i;
 	int				curr_in;
 	int				pipe_fd[2];
-	
+
 	i = 0;
 	curr_in = STDIN_FILENO;
 	while (i < cmd_lst->cmd_cnt)
@@ -36,7 +48,7 @@ int	breed_childs(t_unit_head *cmd_lst)
 		if (cmd_lst->child.pid[i] < 0)
 			return (handle_while_generating_error("fail in fork", cmd_lst, i));
 		if (cmd_lst->child.pid[i] == 0)
-			execute_childprocess(cmd_lst, pipe_fd, curr_in, i);
+			execute_child(cmd_lst, pipe_fd, curr_in, i);
 		if (i != cmd_lst->cmd_cnt - 1)
 		{
 			close(pipe_fd[1]);
@@ -47,7 +59,7 @@ int	breed_childs(t_unit_head *cmd_lst)
 	return (wait_childs(cmd_lst));
 }
 
-int execute_cmds(t_unit_head *cmd_lst)
+int	execute_cmds(t_unit_head *cmd_lst)
 {
 	if (cmd_lst->cmd_cnt == 1 && check_builtin(cmd_lst->pp_next))
 	{

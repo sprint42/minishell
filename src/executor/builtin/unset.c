@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   unset.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 00:39:16 by yejin             #+#    #+#             */
+/*   Updated: 2022/06/02 00:39:17 by yejin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "execute.h"
 
-static int check_unset_validity(char *str)
+static int	check_unset_validity(char *str)
 {
-	int validity;
+	int	validity;
 	int	i;
 
 	validity = 1;
@@ -67,13 +79,13 @@ void	delete_env(t_unit_head *cmd_lst, char *key)
 int	execute_unset(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 {
 	int	i;
-	int exit_code;
+	int	exit_code;
 
 	if (curr_cmd->commands[1] == NULL)
 		return (handle_default_error("not enough arguments : unset"));
 	i = 1;
 	exit_code = 0;
-	while(curr_cmd->commands[i])
+	while (curr_cmd->commands[i])
 	{
 		if (check_unset_validity(curr_cmd->commands[i]) == 0)
 			exit_code = 1;

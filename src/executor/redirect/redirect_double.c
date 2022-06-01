@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   redirect_double.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 00:42:43 by yejin             #+#    #+#             */
+/*   Updated: 2022/06/02 00:42:43 by yejin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "execute.h"
 
 int	get_infile(char	*limiter, int curr_out)
 {
 	size_t	len;
 	char	*buf;
-	
+
 	signal(SIGINT, SIG_DFL);
 	len = ft_strlen(limiter);
 	while (1)

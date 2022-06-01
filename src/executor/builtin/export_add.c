@@ -1,28 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   export_add.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 00:34:09 by yejin             #+#    #+#             */
+/*   Updated: 2022/06/02 00:34:10 by yejin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "execute.h"
 
-int	check_export_validity(char *str)
+void	alloc_key_and_value(t_unit_env **pnew, char *str, int eq_idx)
 {
-	int	validity;
-	int	i;
-
-	validity = 1;
-	if (!(ft_isalpha(str[0]) || str[0] == '_'))
-		validity = 0;
-	i = 1;
-	while (str[i] && str[i] != '=')
+	(*pnew)->key = ft_substr(str, 0, eq_idx);
+	if ((*pnew)->key == NULL)
 	{
-		if (!(ft_isalnum(str[i]) || str[i] == '_'))
-			validity = 0;
-		i++;
+		free(*pnew);
+		(*pnew) = NULL;
 	}
-	if (!validity)
+	if (str[eq_idx] == '=')
 	{
-		ft_putstr_fd("not a valid identifier : ", STDERR_FILENO);
-		ft_putstr_fd(str, STDERR_FILENO);
-		ft_putchar_fd('\n', STDERR_FILENO);
-		return (0);
+		(*pnew)->value = ft_substr(str, eq_idx + 1, ft_strlen(str));
+		if ((*pnew)->value == NULL)
+		{
+			free((*pnew)->key);
+			free((*pnew));
+			(*pnew) = NULL;
+		}
 	}
-	return (1);
 }
 
 t_unit_env	*create_env(char *str)
@@ -36,53 +43,40 @@ t_unit_env	*create_env(char *str)
 	i = 0;
 	while (str[i] && str[i] != '=')
 		i++;
-	pnew->key = ft_substr(str, 0, i);
-	if (pnew->key == NULL)
-	{
-		free(pnew);
-		return (NULL);
-	}
-	if (str[i] == '=')
-	{
-		pnew->value = ft_substr(str, i + 1, ft_strlen(str));
-		if (pnew->value == NULL)
-		{
-			free(pnew->key);
-			free(pnew);
-			return (NULL);
-		}
-	}
-	else
-		pnew->value = NULL;
+	pnew->value = NULL;
 	pnew->env_next = NULL;
+	alloc_key_and_value(&pnew, str, i);
 	return (pnew);
 }
 
-int	find_and_change_env(t_unit_head *cmd_lst, char *str, int i)
+static int	change_env(t_unit_env *curr, char *str, char *key, int eq_idx)
+{
+	if (str[eq_idx] == '\0')
+		return (1);
+	if (curr->value)
+		free(curr->value);
+	curr->value = ft_substr(str, eq_idx + 1, ft_strlen(str));
+	if (curr->value == NULL)
+	{
+		free(key);
+		return (-1);
+	}
+	return (1);
+}
+
+int	find_and_change_env(t_unit_head *cmd_lst, char *str, int eq_idx)
 {
 	t_unit_env	*curr;
 	char		*key;
 
-	key = ft_substr(str, 0, i);
+	key = ft_substr(str, 0, eq_idx);
 	if (key == NULL)
 		return (-1);
 	curr = cmd_lst->env_next;
 	while (curr)
 	{
 		if (strncmp(curr->key, key, ft_strlen(key) + 1) == 0)
-		{
-			if (str[i] == '\0')
-				return (1);
-			if (curr->value)
-				free(curr->value);
-			curr->value = ft_substr(str, i + 1, ft_strlen(str));
-			if (curr->value == NULL)
-			{
-				free(key);
-				return (-1);
-			}
-			return (1);
-		}
+			return (change_env(curr, str, key, eq_idx));
 		curr = curr->env_next;
 	}
 	free(key);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   export_print.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 00:36:51 by yejin             #+#    #+#             */
+/*   Updated: 2022/06/02 00:36:52 by yejin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "execute.h"
 
 void	sort_env(char **envp)
@@ -39,19 +51,6 @@ char	count_export_env(t_unit_head *cmd_lst)
 	return (i);
 }
 
-void	free_env_array(char **envp)
-{
-	int	i;
-
-	if (envp)
-	{
-		i = 0;
-		while (envp[i])
-			free(envp[i++]);
-		free(envp);
-	}
-}
-
 char	*make_export_env_line(t_unit_env *curr)
 {
 	char	*result;
@@ -71,7 +70,7 @@ char	*make_export_env_line(t_unit_env *curr)
 	free(temp2);
 	if (result == NULL)
 		return (NULL);
-	return(result);
+	return (result);
 }
 
 char	**make_export_env_array(t_unit_head *cmd_lst)
@@ -90,7 +89,7 @@ char	**make_export_env_array(t_unit_head *cmd_lst)
 		envp[i] = make_export_env_line(curr);
 		if (envp[i] == NULL)
 		{
-			free_env_array(envp);
+			free_array_d2(envp);
 			return (NULL);
 		}
 		curr = curr->env_next;
@@ -104,7 +103,7 @@ int	print_env(t_unit_head *cmd_lst)
 {
 	int		i;
 	char	**envp;
-	
+
 	if (cmd_lst->env_next == NULL)
 		return (0);
 	envp = make_export_env_array(cmd_lst);
@@ -119,6 +118,6 @@ int	print_env(t_unit_head *cmd_lst)
 		ft_putchar_fd('\n', STDOUT_FILENO);
 		i++;
 	}
-	free_env_array(envp);
+	free_array_d2(envp);
 	return (0);
 }

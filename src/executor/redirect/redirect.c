@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   redirect.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 00:42:54 by yejin             #+#    #+#             */
+/*   Updated: 2022/06/02 00:42:55 by yejin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "execute.h"
 
 int	redirect_snin(t_unit_rd *rd)
 {
 	int	fd;
-	
+
 	fd = open(rd->filename, O_RDONLY);
 	if (fd < 0)
 		return (handle_default_error(strerror(errno)));
