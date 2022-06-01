@@ -15,12 +15,6 @@ int	check_export_validity(char *str)
 			validity = 0;
 		i++;
 	}
-	while (str[i])
-	{
-		if (!(ft_isalnum(str[i]) || str[i] == '_' || str[i] == '=' || str[i] == '/' || str[i] == '-'))
-			validity = 0;
-		i++;
-	}
 	if (!validity)
 	{
 		ft_putstr_fd("not a valid identifier : ", STDERR_FILENO);
