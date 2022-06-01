@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_memory.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 00:43:51 by yejin             #+#    #+#             */
+/*   Updated: 2022/06/02 00:43:52 by yejin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "execute.h"
 
 void	free_redirection(t_unit_pipe *curr_cmd)
@@ -19,8 +31,8 @@ void	free_redirection(t_unit_pipe *curr_cmd)
 
 void	free_unit_pipe(t_unit_head *cmd_lst)
 {
-	t_unit_pipe *curr;
-	t_unit_pipe *temp;
+	t_unit_pipe	*curr;
+	t_unit_pipe	*temp;
 
 	curr = cmd_lst->pp_next;
 	while (curr)

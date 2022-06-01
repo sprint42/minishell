@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   execute_child.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 00:41:57 by yejin             #+#    #+#             */
+/*   Updated: 2022/06/02 00:41:57 by yejin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "execute.h"
 
 char	**extract_path(char **envp, t_unit_pipe *curr_cmd)
@@ -90,7 +102,7 @@ t_unit_pipe	*find_curr_cmd(t_unit_head *cmd_lst, int i)
 	return (curr_cmd);
 }
 
-void	execute_childprocess(t_unit_head *cmd_lst, int pipe_fd[2], int curr_in, int i)
+void	execute_child(t_unit_head *cmd_lst, int pipe_fd[2], int curr_in, int i)
 {
 	t_unit_pipe	*curr_cmd;
 

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handler.c                                          :+:      :+:    :+:   */
+/*   handle_signal.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yejikim <yejikim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 19:53:33 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/31 17:24:59 by yejikim          ###   ########.fr       */
+/*   Created: 2022/06/02 00:43:13 by yejin             #+#    #+#             */
+/*   Updated: 2022/06/02 00:43:13 by yejin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.h"
+#include "execute.h"
 
 void	sig_handler(int signal)
 {
@@ -27,4 +27,18 @@ void	sig_handler(int signal)
 		rl_on_new_line();
 		rl_redisplay();
 	}
+}
+
+void	sig_after_readline_handler(int signal)
+{
+	if (signal == SIGINT)
+		ft_putchar_fd('\n', 2);
+	if (signal == SIGQUIT)
+		ft_putchar_fd('\n', 2);
+}
+
+void	sig_child_handler(int signal)
+{
+	if (signal == SIGINT)
+		exit(2);
 }
