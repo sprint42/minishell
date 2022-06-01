@@ -1,5 +1,22 @@
 #include "execute.h"
 
+void	free_redirection(t_unit_pipe *curr_cmd)
+{
+	t_unit_rd	*curr;
+	t_unit_rd	*temp;
+
+	curr = curr_cmd->rd;
+	while (curr)
+	{
+		temp = curr;
+		curr = curr->next;
+		if (temp->filename)
+			free(temp->filename);
+		free(temp);
+	}
+	curr_cmd->rd = NULL;
+}
+
 void	free_unit_pipe(t_unit_head *cmd_lst)
 {
 	t_unit_pipe *curr;
@@ -10,6 +27,10 @@ void	free_unit_pipe(t_unit_head *cmd_lst)
 	{
 		temp = curr;
 		curr = curr->pp_next;
+		if (temp->commands)
+			free_array_d2(temp->commands);
+		if (temp->rd)
+			free_redirection(temp);
 		free(temp);
 	}
 	cmd_lst->pp_next = NULL;
@@ -49,15 +70,15 @@ void	free_unit_env(t_unit_head *cmd_lst)
 	cmd_lst->env_next = NULL;
 }
 
-void	free_path(char	**path)
+void	free_array_d2(char	**array_d2)
 {
 	int	i;
 
-	if (path)
+	if (array_d2)
 	{
 		i = 0;
-		while (path[i])
-			free(path[i++]);
-		free(path);
+		while (array_d2[i])
+			free(array_d2[i++]);
+		free(array_d2);
 	}
 }

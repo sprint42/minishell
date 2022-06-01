@@ -82,7 +82,7 @@ int	get_infile(char	*limiter, int curr_out);
 void	free_cmd_lst(t_unit_head *cmd_lst);
 void	free_unit_pipe(t_unit_head *cmd_lst);
 void	free_unit_env(t_unit_head *cmd_lst);
-void	free_path(char	**path);
+void	free_array_d2(char	**array_d2);
 
 /* handle_error.c */
 int	handle_default_error(char *message);
