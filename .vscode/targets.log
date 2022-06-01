@@ -6,8 +6,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
 
-# Make data base, printed on Mon May 30 10:46:30 2022
+# Make data base, printed on Wed Jun  1 21:10:37 2022
 
 # Variables
 
@@ -19,11 +20,10 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 VSCODE_LOG_NATIVE = false
+ 
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# makefile (from `Makefile', line 59)
-GNL_OBJ = $(FILE_GNL:.c=.o)
-# makefile (from `Makefile', line 42)
+# makefile (from `Makefile', line 44)
 FILE_ROOT = $(notdir $(wildcard src/*.c))
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
@@ -31,89 +31,89 @@ FILE_ROOT = $(notdir $(wildcard src/*.c))
 @F = $(notdir $@)
 # makefile
 CURDIR := /Users/chaminjae/Desktop/42/cursus/minishell
-# makefile (from `Makefile', line 4)
-RLLINK = -l readline -L$(HOME)/.brew/opt/readline/lib
+# makefile (from `Makefile', line 6)
+RLLINK = -l readline -L/usr/local/opt/readline/lib
 # makefile
 SHELL = /bin/sh
 # makefile (from `Makefile', line 2)
 RM = rm -rf
+# makefile (from `Makefile', line 27)
+SRCS_SIGNAL = $(SRCS_TEST)/signal
 # environment
 VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{},"_languagePackSupport":true}
-# makefile (from `Makefile', line 9)
+# makefile (from `Makefile', line 11)
 HEAD_ROOT = includes
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 3)
-CFLAGS = -I $(HEAD_ROOT) -Wall -Werror -Wextra -g3 -fsanitize=address
-# makefile (from `Makefile', line 35)
+CFLAGS = -I $(HEAD_ROOT) -Wall -Werror -Wextra -g
+# makefile (from `Makefile', line 37)
 FILE_STRUCT = $(notdir $(wildcard $(SRCS_STRUCT)/*.c))
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
+# makefile (from `Makefile', line 61)
+SIGNAL_OBJ = $(FILE_SIGNAL:.c=.o)
 # environment
 VSCODE_VERBOSE_LOGGING = true
-# makefile (from `Makefile', line 28)
-SRCS_ROOT = src $(SRCS_UTIL) $(SRCS_TEST) $(SRCS_IS) $(SRCS_PROC) $(SRCS_STRUCT) $(SRCS_LIBF) $(SRCS_NODE) $(SRCS_FREE) $(SRCS_LINK) $(SRCS_ERROR) $(SRCS_BUILT) $(SRCS_GNL)
-# makefile (from `Makefile', line 56)
+# makefile (from `Makefile', line 30)
+SRCS_ROOT = src $(SRCS_UTIL) $(SRCS_TEST) $(SRCS_IS) $(SRCS_PROC) $(SRCS_STRUCT) $(SRCS_LIBF) $(SRCS_NODE) $(SRCS_FREE) $(SRCS_LINK) $(SRCS_ERROR) $(SRCS_BUILT) $(SRCS_SIGNAL)
+# makefile (from `Makefile', line 58)
 ERROR_OBJ = $(FILE_ERROR:.c=.o)
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 P9K_SSH = 0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/1p/6kppthcs2r7dhwh8ngnvkz6r0000gn/T/vscode-ipc-c3368feb-1805-4038-8194-cf13fb2156cd.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/1p/6kppthcs2r7dhwh8ngnvkz6r0000gn/T/vscode-ipc-4f582799-16e7-4e75-a84d-adc8a93c3041.sock
 # environment
 VSCODE_CWD = /Users/chaminjae/Desktop/42/cursus/minishell
 # environment
 PATH = /Users/chaminjae/Library/Python/3.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin
-# makefile (from `Makefile', line 38)
-FILE_LIBF = $(notdir $(wildcard $(SRCS_LIBF)/*.c))
-# makefile (from `Makefile', line 51)
-STRUCT_OBJ = $(FILE_STRUCT:.c=.o)
-# makefile (from `Makefile', line 21)
-SRCS_LINK = $(SRCS_TEST)/link
-# makefile (from `Makefile', line 50)
-PROC_OBJ = $(FILE_PROC:.c=.o)
 # makefile (from `Makefile', line 40)
+FILE_LIBF = $(notdir $(wildcard $(SRCS_LIBF)/*.c))
+# makefile (from `Makefile', line 53)
+STRUCT_OBJ = $(FILE_STRUCT:.c=.o)
+# makefile (from `Makefile', line 23)
+SRCS_LINK = $(SRCS_TEST)/link
+# makefile (from `Makefile', line 52)
+PROC_OBJ = $(FILE_PROC:.c=.o)
+# makefile (from `Makefile', line 42)
 FILE_ERROR = $(notdir $(wildcard $(SRCS_ERROR)/*.c))
-# makefile (from `Makefile', line 43)
-FILE_GNL = $(notdir $(wildcard $(SRCS_GNL)/*.c))
 # environment
 VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
-# makefile (from `Makefile', line 37)
+# makefile (from `Makefile', line 39)
 FILE_FREE = $(notdir $(wildcard $(SRCS_FREE)/*.c))
-# makefile (from `Makefile', line 53)
+# makefile (from `Makefile', line 55)
 FREE_OBJ = $(FILE_FREE:.c=.o)
 # environment
 SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.TYe06El4V0/Listeners
 # automatic
 %F = $(notdir $%)
-# makefile (from `Makefile', line 31)
+# makefile (from `Makefile', line 33)
 FILE_TEST = $(notdir $(wildcard $(SRCS_TEST)/*.c))
 # environment
 VSCODE_PIPE_LOGGING = true
-# makefile (from `Makefile', line 62)
-OBJS := obj/distinguish.o obj/test.o obj/error_is_quot.o obj/is_dolr.o obj/is_null.o obj/is_pipe.o obj/is_quot.o obj/is_redr.o obj/is_space.o obj/proc_dolr.o obj/proc_find_letter.o obj/proc_null.o obj/proc_pipe.o obj/proc_question_mark.o obj/proc_quot.o obj/proc_redr.o obj/proc_space.o obj/init_environ.o obj/init_special.o obj/init_struct.o obj/malloc_struct.o obj/ft_atoi.o obj/ft_bzero.o obj/ft_calloc.o obj/ft_isalnum.o obj/ft_isalpha.o obj/ft_isascii.o obj/ft_isdigit.o obj/ft_isprint.o obj/ft_itoa.o obj/ft_lstadd_back.o obj/ft_lstadd_front.o obj/ft_lstclear.o obj/ft_lstdelone.o obj/ft_lstiter.o obj/ft_lstlast.o obj/ft_lstmap.o obj/ft_lstnew.o obj/ft_lstsize.o obj/ft_memchr.o obj/ft_memcmp.o obj/ft_memcpy.o obj/ft_memmove.o obj/ft_memset.o obj/ft_putchar_fd.o obj/ft_putendl_fd.o obj/ft_putnbr_fd.o obj/ft_putstr_fd.o obj/ft_split.o obj/ft_strchr.o obj/ft_strdup.o obj/ft_striteri.o obj/ft_strjoin.o obj/ft_strjoin_leak.o obj/ft_strlcat.o obj/ft_strlcpy.o obj/ft_strlen.o obj/ft_strmapi.o obj/ft_strncmp.o obj/ft_strnstr.o obj/ft_strrchr.o obj/ft_strtrim.o obj/ft_substr.o obj/ft_tolower.o obj/ft_toupper.o obj/environ_node.o obj/manufact.o obj/manufact_type.o obj/parsed_node.o obj/pipe_node.o obj/rd_node.o obj/free_set_a.o obj/free_set_main.o obj/link_to_head.o obj/util_unit_pipe.o obj/check_is_backslash_appear.o obj/check_is_pipe_error.o obj/check_is_redr_continuous.o obj/check_is_semicolon_appear.o obj/check_quote_not_closed.o obj/check_syntax_error.o obj/control_quote.o obj/is_error.o obj/judge_is_quote_error.o obj/print_error.o obj/cd.o obj/echo.o obj/env.o obj/exit.o obj/export.o obj/export_add.o obj/export_print.o obj/pwd.o obj/unset.o obj/execute.o obj/execute_builtin.o obj/execute_child.o obj/free_memory.o obj/handle_error.o obj/main.o obj/redirect.o obj/redirect_double.o obj/get_next_line.o obj/get_next_line_utils.o
+# makefile (from `Makefile', line 64)
+OBJS := obj/distinguish.o obj/test.o obj/error_is_quot.o obj/is_dolr.o obj/is_null.o obj/is_pipe.o obj/is_quot.o obj/is_redr.o obj/is_space.o obj/proc_dolr.o obj/proc_find_letter.o obj/proc_null.o obj/proc_pipe.o obj/proc_question_mark.o obj/proc_quot.o obj/proc_redr.o obj/proc_space.o obj/init_environ.o obj/init_head.o obj/init_special.o obj/init_struct.o obj/malloc_if_cmd_null.o obj/malloc_struct.o obj/rollback_cmd_obj_buffer.o obj/ft_atoi.o obj/ft_bzero.o obj/ft_calloc.o obj/ft_isalnum.o obj/ft_isalpha.o obj/ft_isascii.o obj/ft_isdigit.o obj/ft_isprint.o obj/ft_itoa.o obj/ft_lstadd_back.o obj/ft_lstadd_front.o obj/ft_lstclear.o obj/ft_lstdelone.o obj/ft_lstiter.o obj/ft_lstlast.o obj/ft_lstmap.o obj/ft_lstnew.o obj/ft_lstsize.o obj/ft_memchr.o obj/ft_memcmp.o obj/ft_memcpy.o obj/ft_memmove.o obj/ft_memset.o obj/ft_putchar_fd.o obj/ft_putendl_fd.o obj/ft_putnbr_fd.o obj/ft_putstr_fd.o obj/ft_split.o obj/ft_strchr.o obj/ft_strdup.o obj/ft_striteri.o obj/ft_strjoin.o obj/ft_strjoin_leak.o obj/ft_strlcat.o obj/ft_strlcpy.o obj/ft_strlen.o obj/ft_strmapi.o obj/ft_strncmp.o obj/ft_strnstr.o obj/ft_strrchr.o obj/ft_strtrim.o obj/ft_substr.o obj/ft_tolower.o obj/ft_toupper.o obj/environ_node.o obj/manufact.o obj/manufact_type.o obj/parsed_node.o obj/pipe_node.o obj/rd_node.o obj/free_set_a.o obj/free_set_main.o obj/link_to_head.o obj/util_unit_pipe.o obj/check_cmd_malloc_fail.o obj/check_is_backslash_appear.o obj/check_is_only_wspace.o obj/check_is_pipe_error.o obj/check_is_redr_continuous.o obj/check_is_semicolon_appear.o obj/check_quote_not_closed.o obj/check_syntax_error.o obj/control_quote.o obj/is_error.o obj/judge_is_quote_error.o obj/print_error.o obj/print_malloc_error.o obj/cd.o obj/echo.o obj/env.o obj/exit.o obj/export.o obj/export_add.o obj/export_print.o obj/pwd.o obj/unset.o obj/execute.o obj/execute_builtin.o obj/execute_child.o obj/free_memory.o obj/handle_error.o obj/handle_signal.o obj/main.o obj/redirect.o obj/redirect_double.o obj/handler.o obj/loader.o
 # environment
 PWD = /Users/chaminjae/Desktop/42/cursus/minishell
-# makefile (from `Makefile', line 22)
-SRCS_ERROR = $(SRCS_TEST)/error
 # makefile (from `Makefile', line 24)
-SRCS_GNL = gnl
-# makefile (from `Makefile', line 39)
+SRCS_ERROR = $(SRCS_TEST)/error
+# makefile (from `Makefile', line 41)
 FILE_LINK = $(notdir $(wildcard $(SRCS_LINK)/*.c))
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
-# makefile (from `Makefile', line 34)
+# makefile (from `Makefile', line 36)
 FILE_PROC = $(notdir $(wildcard $(SRCS_PROC)/*.c))
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /Users/chaminjae
-# makefile (from `Makefile', line 20)
+# makefile (from `Makefile', line 22)
 SRCS_FREE = $(SRCS_TEST)/free
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
@@ -125,9 +125,9 @@ VSCODE_CODE_CACHE_PATH = /Users/chaminjae/Library/Application Support/Code/Cache
 LOGNAME = chaminjae
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# makefile (from `Makefile', line 15)
+# makefile (from `Makefile', line 17)
 SRCS_TEST = src/test
-# makefile (from `Makefile', line 33)
+# makefile (from `Makefile', line 35)
 FILE_IS = $(notdir $(wildcard $(SRCS_IS)/*.c))
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
@@ -143,15 +143,15 @@ MAKE = $(MAKE_COMMAND)
 LC_TERMINAL = iTerm2
 # environment
 SHLVL = 3
-# makefile (from `Makefile', line 17)
+# makefile (from `Makefile', line 19)
 SRCS_PROC = $(SRCS_TEST)/proc
-# makefile (from `Makefile', line 41)
+# makefile (from `Makefile', line 43)
 FILE_BUILT = $(notdir $(wildcard $(SRCS_BUILT)/*.c))
-# makefile (from `Makefile', line 36)
+# makefile (from `Makefile', line 38)
 FILE_NODE = $(notdir $(wildcard $(SRCS_NODE)/*.c))
 # makefile (from `Makefile', line 1)
 CC = gcc
-# makefile (from `Makefile', line 55)
+# makefile (from `Makefile', line 57)
 LINK_OBJ = $(FILE_LINK:.c=.o)
 # default
 MAKE_VERSION := 3.81
@@ -162,30 +162,30 @@ USER = mcha
 # default
 MAKECMDGOALS := all
 # environment
-TERM_SESSION_ID = w0t0p0:3A624A39-2618-4F06-B622-37AA9539FC81
-# makefile (from `Makefile', line 7)
+TERM_SESSION_ID = w0t0p0:C08535C3-98A6-4BB0-B10A-2732B2AD6599
+# makefile (from `Makefile', line 9)
 NAME = minishell
-# makefile (from `Makefile', line 16)
+# makefile (from `Makefile', line 18)
 SRCS_IS = $(SRCS_TEST)/is
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
-# makefile (from `Makefile', line 5)
-RLINC = -I$(HOME)/.brew/opt/readline/include
+# makefile (from `Makefile', line 7)
+RLINC = -I/usr/local/opt/readline/include
 # environment
 TERM_PROGRAM = iTerm.app
 # default
 .VARIABLES := 
 # environment
 TMPDIR = /var/folders/1p/6kppthcs2r7dhwh8ngnvkz6r0000gn/T/
-# makefile (from `Makefile', line 25)
+# makefile (from `Makefile', line 26)
 SRCS_BUILT = src/builtin
 # automatic
 *F = $(notdir $*)
 # environment
 VSCODE_IPC_HOOK = /Users/chaminjae/Library/Application Support/Code/1.67.2-main.sock
-# makefile (from `Makefile', line 57)
+# makefile (from `Makefile', line 59)
 BUILT_OBJ = $(FILE_BUILT:.c=.o)
 # makefile
 MAKEFLAGS = Rrqp
@@ -198,29 +198,29 @@ TERM_PROGRAM_VERSION = 3.4.15
 # environment
 MAIL = mcha@student.42seoul.kr
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.11448947.11448953.AE3A2298-1BAE-441C-8C09-B641258F58C3
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.11448947.11448953.3D36A7AA-A2B6-4AF7-8813-99CE5504DC6B
 # environment
- 
 LC_TERMINAL_VERSION = 3.4.15
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
-# makefile (from `Makefile', line 52)
+# makefile (from `Makefile', line 54)
 NODE_OBJ = $(FILE_NODE:.c=.o)
-# makefile (from `Makefile', line 32)
+# makefile (from `Makefile', line 34)
 FILE_UTIL = $(notdir $(wildcard $(SRCS_UTIL)/*.c))
 # automatic
 +F = $(notdir $+)
 # environment
-ITERM_SESSION_ID = w0t0p0:3A624A39-2618-4F06-B622-37AA9539FC81
+ITERM_SESSION_ID = w0t0p0:C08535C3-98A6-4BB0-B10A-2732B2AD6599
 # environment
 COLORFGBG = 15;0
-# makefile (from `Makefile', line 54)
+# makefile (from `Makefile', line 56)
 LIBF_OBJ = $(FILE_LIBF:.c=.o)
+ 
 # environment
 __CF_USER_TEXT_ENCODING = 0x1F5:0x3:0x33
 # environment
 COMMAND_MODE = unix2003
-# makefile (from `Makefile', line 18)
+# makefile (from `Makefile', line 20)
 SRCS_STRUCT = $(SRCS_TEST)/struct
 # default
 MAKEFILES := 
@@ -228,11 +228,11 @@ MAKEFILES :=
 <F = $(notdir $<)
 # environment
 ITERM_PROFILE = Default
-# makefile (from `Makefile', line 48)
+# makefile (from `Makefile', line 50)
 TEST_OBJ = $(FILE_TEST:.c=.o)
 # environment
 LC_ALL = C
-# makefile (from `Makefile', line 14)
+# makefile (from `Makefile', line 16)
 SRCS_UTIL = src/util
 # environment
 P9K_TTY = old
@@ -240,30 +240,32 @@ P9K_TTY = old
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
-# makefile (from `Makefile', line 10)
+# makefile (from `Makefile', line 12)
 OBJS_ROOT = obj
-# makefile (from `Makefile', line 19)
+# makefile (from `Makefile', line 21)
 SRCS_NODE = $(SRCS_TEST)/node
 # default
 .INCLUDE_DIRS = /usr/local/include
 # environment
 MAKELEVEL := 0
-# makefile (from `Makefile', line 49)
+# makefile (from `Makefile', line 51)
 IS_OBJ = $(FILE_IS:.c=.o)
-# makefile (from `Makefile', line 23)
+# makefile (from `Makefile', line 25)
 SRCS_LIBF = libft
 # environment
 LANG = C
+# makefile (from `Makefile', line 45)
+FILE_SIGNAL = $(notdir $(wildcard $(SRCS_SIGNAL)/*.c))
 # environment
 TERM = xterm-256color
 # environment
 _P9K_TTY = /dev/ttys000
 # environment
-VSCODE_PID = 20458
-# makefile (from `Makefile', line 58)
+VSCODE_PID = 79031
+# makefile (from `Makefile', line 60)
 ROOT_OBJ = $(FILE_ROOT:.c=.o)
 # variable set hash-table stats:
-# Load=125/1024=12%, Rehash=0, Collisions=37/227=16%
+# Load=125/1024=12%, Rehash=0, Collisions=35/222=16%
 
 # Pattern-specific Variable Values
 
@@ -271,27 +273,27 @@ ROOT_OBJ = $(FILE_ROOT:.c=.o)
 
 # Directories
 
-# src/test/struct (device 16777223, inode 11592673): 6 files, no impossibilities.
-# . (device 16777223, inode 11592486): 11 files, no impossibilities.
-# gnl (device 16777223, inode 11592560): 5 files, no impossibilities.
-# src/builtin (device 16777223, inode 11592617): 11 files, no impossibilities.
-# src/test/error (device 16777223, inode 11592637): 12 files, no impossibilities.
-# src/test/link (device 16777223, inode 11592655): 4 files, no impossibilities.
-# src/test (device 16777223, inode 11592635): 11 files, no impossibilities.
-# src (device 16777223, inode 11592616): 12 files, no impossibilities.
-# src/test/free (device 16777223, inode 11592645): 4 files, no impossibilities.
-# libft (device 16777223, inode 11592567): 48 files, no impossibilities.
-# src/test/is (device 16777223, inode 11592647): 9 files, no impossibilities.
-# src/test/proc (device 16777223, inode 11592665): 10 files, no impossibilities.
+# src/test/struct (device 16777223, inode 11718864): 9 files, no impossibilities.
+# . (device 16777223, inode 11718667): 11 files, no impossibilities.
+# src/test/signal (device 16777223, inode 11718861): 4 files, no impossibilities.
+# src/builtin (device 16777223, inode 11718796): 11 files, no impossibilities.
+# src/test/error (device 16777223, inode 11718817): 15 files, no impossibilities.
+# src/test/link (device 16777223, inode 11718842): 4 files, no impossibilities.
+# src/test (device 16777223, inode 11718815): 12 files, no impossibilities.
+# src (device 16777223, inode 11718795): 13 files, no impossibilities.
+# src/test/free (device 16777223, inode 11718831): 4 files, no impossibilities.
+# libft (device 16777223, inode 11718745): 48 files, no impossibilities.
+# src/test/is (device 16777223, inode 11718834): 9 files, no impossibilities.
+# src/test/proc (device 16777223, inode 11718852): 10 files, no impossibilities.
 # src/util: could not be stat'd.
-# src/test/node (device 16777223, inode 11592658): 8 files, no impossibilities.
+# src/test/node (device 16777223, inode 11718845): 8 files, no impossibilities.
 
-# 151 files, no impossibilities in 14 directories.
+# 158 files, no impossibilities in 14 directories.
 
 # Implicit Rules
 
 obj/%.o: %.c
-#  commands to execute (from `Makefile', line 67):
+#  commands to execute (from `Makefile', line 69):
 	@echo "[~] Linking $<"
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
@@ -301,82 +303,296 @@ obj/%.o: %.c
 # Files
 
 # Not a target:
-obj/ft_strlcpy.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/builtin/exit.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_strlcpy.o: libft/ft_strlcpy.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_strlcpy'
+#  Last modified 2022-06-01 21:10:03
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/manufact.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/error/print_malloc_error.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/manufact.o: src/test/node/manufact.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `manufact'
+#  Last modified 2022-06-01 21:10:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_lstmap.o: libft/ft_lstmap.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_lstmap'
+#  Last modified 2022-06-01 21:10:00
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_strncmp.o: libft/ft_strncmp.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_strncmp'
+#  Last modified 2022-06-01 21:10:03
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/judge_is_quote_error.o: src/test/error/judge_is_quote_error.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `judge_is_quote_error'
+#  Last modified 2022-06-01 21:10:07
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/unset.o: src/builtin/unset.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `unset'
+#  Last modified 2022-06-01 21:10:09
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/ft_lstmap.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/error/is_error.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/ft_strncmp.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_strlcpy.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+ 
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/pipe_node.o: src/test/node/pipe_node.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pipe_node'
+#  Last modified 2022-06-01 21:10:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/error_is_quot.o: src/test/is/error_is_quot.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `error_is_quot'
+#  Last modified 2022-06-01 21:09:48
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/judge_is_quote_error.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_memcpy.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/unset.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_lstmap.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/print_malloc_error.o: src/test/error/print_malloc_error.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `print_malloc_error'
+#  Last modified 2022-06-01 21:10:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/pipe_node.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/node/manufact.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_lstadd_front.o: libft/ft_lstadd_front.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_lstadd_front'
+#  Last modified 2022-06-01 21:09:59
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/error_is_quot.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_strncmp.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/ft_lstadd_front.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/is/is_pipe.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_isascii.o: libft/ft_isascii.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_isascii'
+#  Last modified 2022-06-01 21:09:59
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/ft_isascii.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/error/check_is_semicolon_appear.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/ft_strdup.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/handle_error.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_strdup.o: libft/ft_strdup.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_strdup'
+#  Last modified 2022-06-01 21:10:02
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+ 
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_lstdelone.o: libft/ft_lstdelone.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_lstdelone'
+#  Last modified 2022-06-01 21:10:00
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/ft_lstdelone.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_isalnum.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-obj/ft_memmove.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/ft_memmove.o: libft/ft_memmove.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_memmove'
+#  Last modified 2022-06-01 21:10:01
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 all: minishell
 #  Phony target (prerequisite of .PHONY).
@@ -384,133 +600,840 @@ all: minishell
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/parsed_node.o: src/test/node/parsed_node.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `parsed_node'
+#  Last modified 2022-06-01 21:10:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/parsed_node.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/node/pipe_node.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/manufact_type.o: src/test/node/manufact_type.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `manufact_type'
+#  Last modified 2022-06-01 21:10:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_strchr.o: libft/ft_strchr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_strchr'
+#  Last modified 2022-06-01 21:10:02
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/manufact_type.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_lstadd_front.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/ft_strchr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_strdup.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
+obj/check_is_only_wspace.o: src/test/error/check_is_only_wspace.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `check_is_only_wspace'
+#  Last modified 2022-06-01 21:10:06
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+ 
 .PHONY: all clean fclean re
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-obj/ft_strjoin_leak.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/builtin/pwd.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_strjoin_leak.o: libft/ft_strjoin_leak.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_strjoin_leak'
+#  Last modified 2022-06-01 21:10:03
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/check_is_semicolon_appear.o: src/test/error/check_is_semicolon_appear.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `check_is_semicolon_appear'
+#  Last modified 2022-06-01 21:10:07
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/util_unit_pipe.o: src/test/link/util_unit_pipe.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `util_unit_pipe'
+#  Last modified 2022-06-01 21:10:06
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_toupper.o: libft/ft_toupper.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_toupper'
+#  Last modified 2022-06-01 21:10:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/check_is_semicolon_appear.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_memmove.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/environ_node.o: src/test/node/environ_node.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `environ_node'
+#  Last modified 2022-06-01 21:10:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/control_quote.o: src/test/error/control_quote.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `control_quote'
+#  Last modified 2022-06-01 21:10:07
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/util_unit_pipe.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/node/parsed_node.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/ft_toupper.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/node/manufact_type.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/handle_signal.o: src/handle_signal.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `handle_signal'
+#  Last modified 2022-06-01 21:10:10
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_strnstr.o: libft/ft_strnstr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_strnstr'
+#  Last modified 2022-06-01 21:10:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+ 
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/redirect.o: src/redirect.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `redirect'
+#  Last modified 2022-06-01 21:10:10
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/environ_node.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_strjoin_leak.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_putstr_fd.o: libft/ft_putstr_fd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_putstr_fd'
+#  Last modified 2022-06-01 21:10:02
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/control_quote.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_toupper.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/ft_strnstr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/handle_signal.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/redirect.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/signal/loader.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/check_is_redr_continuous.o: src/test/error/check_is_redr_continuous.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `check_is_redr_continuous'
+#  Last modified 2022-06-01 21:10:06
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/ft_putstr_fd.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/node/environ_node.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/check_is_redr_continuous.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_strnstr.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/get_next_line.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/execute_builtin.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/free_set_main.o: src/test/free/free_set_main.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `free_set_main'
+#  Last modified 2022-06-01 21:10:06
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/free_set_main.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_putstr_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/main.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/link/util_unit_pipe.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
+# Not a target:
+src/test/error/check_quote_not_closed.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/struct/init_head.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/builtin/echo.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/main.o: src/main.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `main'
+#  Last modified 2022-06-01 21:10:10
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+ 
 # Not a target:
 .SUFFIXES:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-obj/ft_putchar_fd.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/ft_putchar_fd.o: libft/ft_putchar_fd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_putchar_fd'
+#  Last modified 2022-06-01 21:10:02
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
-# Not a target:
-obj/ft_atoi.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/ft_atoi.o: libft/ft_atoi.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_atoi'
+#  Last modified 2022-06-01 21:09:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-28 19:37:35
+#  Last modified 2022-06-01 21:10:32
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/is/is_redr.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_lstdelone.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/is/is_dolr.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/check_quote_not_closed.o: src/test/error/check_quote_not_closed.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `check_quote_not_closed'
+#  Last modified 2022-06-01 21:10:07
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_strtrim.o: libft/ft_strtrim.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_strtrim'
+#  Last modified 2022-06-01 21:10:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/is_null.o: src/test/is/is_null.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `is_null'
+#  Last modified 2022-06-01 21:09:48
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/error/check_is_backslash_appear.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/is/is_space.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/is_quot.o: src/test/is/is_quot.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `is_quot'
+#  Last modified 2022-06-01 21:09:49
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+libft/ft_atoi.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+ 
+src/test/error/check_syntax_error.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/proc_null.o: src/test/proc/proc_null.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `proc_null'
+#  Last modified 2022-06-01 21:09:49
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/proc_find_letter.o: src/test/proc/proc_find_letter.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `proc_find_letter'
+#  Last modified 2022-06-01 21:09:49
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_lstadd_back.o: libft/ft_lstadd_back.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_lstadd_back'
+#  Last modified 2022-06-01 21:09:59
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+libft/ft_strtrim.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/proc_quot.o: src/test/proc/proc_quot.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `proc_quot'
+#  Last modified 2022-06-01 21:09:50
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/proc/proc_redr.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/execute.o: src/execute.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `execute'
+#  Last modified 2022-06-01 21:10:09
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/proc/proc_dolr.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/check_is_backslash_appear.o: src/test/error/check_is_backslash_appear.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `check_is_backslash_appear'
+#  Last modified 2022-06-01 21:10:06
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/rd_node.o: src/test/node/rd_node.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `rd_node'
+#  Last modified 2022-06-01 21:10:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/proc/proc_space.c:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_putendl_fd.o: libft/ft_putendl_fd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_putendl_fd'
+#  Last modified 2022-06-01 21:10:02
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/struct/init_special.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_strmapi.o: libft/ft_strmapi.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_strmapi'
+#  Last modified 2022-06-01 21:10:03
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_lstiter.o: libft/ft_lstiter.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_lstiter'
+#  Last modified 2022-06-01 21:10:00
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/check_syntax_error.o: src/test/error/check_syntax_error.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `check_syntax_error'
+#  Last modified 2022-06-01 21:10:07
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+libft/ft_lstadd_back.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/error/check_is_redr_continuous.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/signal/handler.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/init_head.o: src/test/struct/init_head.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `init_head'
+#  Last modified 2022-06-01 21:09:51
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/struct/init_environ.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/struct/malloc_if_cmd_null.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_putendl_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_isalnum.o: libft/ft_isalnum.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_isalnum'
+#  Last modified 2022-06-01 21:09:58
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+libft/ft_strmapi.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -518,273 +1441,567 @@ Makefile:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/check_quote_not_closed.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_strtrim.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/is_null.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/is_quot.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/proc_null.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/proc_find_letter.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_lstadd_back.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/proc_quot.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/execute.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/check_is_backslash_appear.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/rd_node.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_putendl_fd.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_strmapi.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_lstiter.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/check_syntax_error.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_isalnum.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-minishell: obj/distinguish.o obj/test.o obj/error_is_quot.o obj/is_dolr.o obj/is_null.o obj/is_pipe.o obj/is_quot.o obj/is_redr.o obj/is_space.o obj/proc_dolr.o obj/proc_find_letter.o obj/proc_null.o obj/proc_pipe.o obj/proc_question_mark.o obj/proc_quot.o obj/proc_redr.o obj/proc_space.o obj/init_environ.o obj/init_special.o obj/init_struct.o obj/malloc_struct.o obj/ft_atoi.o obj/ft_bzero.o obj/ft_calloc.o obj/ft_isalnum.o obj/ft_isalpha.o obj/ft_isascii.o obj/ft_isdigit.o obj/ft_isprint.o obj/ft_itoa.o obj/ft_lstadd_back.o obj/ft_lstadd_front.o obj/ft_lstclear.o obj/ft_lstdelone.o obj/ft_lstiter.o obj/ft_lstlast.o obj/ft_lstmap.o obj/ft_lstnew.o obj/ft_lstsize.o obj/ft_memchr.o obj/ft_memcmp.o obj/ft_memcpy.o obj/ft_memmove.o obj/ft_memset.o obj/ft_putchar_fd.o obj/ft_putendl_fd.o obj/ft_putnbr_fd.o obj/ft_putstr_fd.o obj/ft_split.o obj/ft_strchr.o obj/ft_strdup.o obj/ft_striteri.o obj/ft_strjoin.o obj/ft_strjoin_leak.o obj/ft_strlcat.o obj/ft_strlcpy.o obj/ft_strlen.o obj/ft_strmapi.o obj/ft_strncmp.o obj/ft_strnstr.o obj/ft_strrchr.o obj/ft_strtrim.o obj/ft_substr.o obj/ft_tolower.o obj/ft_toupper.o obj/environ_node.o obj/manufact.o obj/manufact_type.o obj/parsed_node.o obj/pipe_node.o obj/rd_node.o obj/free_set_a.o obj/free_set_main.o obj/link_to_head.o obj/util_unit_pipe.o obj/check_is_backslash_appear.o obj/check_is_pipe_error.o obj/check_is_redr_continuous.o obj/check_is_semicolon_appear.o obj/check_quote_not_closed.o obj/check_syntax_error.o obj/control_quote.o obj/is_error.o obj/judge_is_quote_error.o obj/print_error.o obj/cd.o obj/echo.o obj/env.o obj/exit.o obj/export.o obj/export_add.o obj/export_print.o obj/pwd.o obj/unset.o obj/execute.o obj/execute_builtin.o obj/execute_child.o obj/free_memory.o obj/handle_error.o obj/main.o obj/redirect.o obj/redirect_double.o obj/get_next_line.o obj/get_next_line_utils.o
-#  Implicit rule search has not been done.
-#  File does not exist.
+libft/ft_lstiter.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
-#  commands to execute (from `Makefile', line 71):
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/node/rd_node.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+minishell: obj/distinguish.o obj/test.o obj/error_is_quot.o obj/is_dolr.o obj/is_null.o obj/is_pipe.o obj/is_quot.o obj/is_redr.o obj/is_space.o obj/proc_dolr.o obj/proc_find_letter.o obj/proc_null.o obj/proc_pipe.o obj/proc_question_mark.o obj/proc_quot.o obj/proc_redr.o obj/proc_space.o obj/init_environ.o obj/init_head.o obj/init_special.o obj/init_struct.o obj/malloc_if_cmd_null.o obj/malloc_struct.o obj/rollback_cmd_obj_buffer.o obj/ft_atoi.o obj/ft_bzero.o obj/ft_calloc.o obj/ft_isalnum.o obj/ft_isalpha.o obj/ft_isascii.o obj/ft_isdigit.o obj/ft_isprint.o obj/ft_itoa.o obj/ft_lstadd_back.o obj/ft_lstadd_front.o obj/ft_lstclear.o obj/ft_lstdelone.o obj/ft_lstiter.o obj/ft_lstlast.o obj/ft_lstmap.o obj/ft_lstnew.o obj/ft_lstsize.o obj/ft_memchr.o obj/ft_memcmp.o obj/ft_memcpy.o obj/ft_memmove.o obj/ft_memset.o obj/ft_putchar_fd.o obj/ft_putendl_fd.o obj/ft_putnbr_fd.o obj/ft_putstr_fd.o obj/ft_split.o obj/ft_strchr.o obj/ft_strdup.o obj/ft_striteri.o obj/ft_strjoin.o obj/ft_strjoin_leak.o obj/ft_strlcat.o obj/ft_strlcpy.o obj/ft_strlen.o obj/ft_strmapi.o obj/ft_strncmp.o obj/ft_strnstr.o obj/ft_strrchr.o obj/ft_strtrim.o obj/ft_substr.o obj/ft_tolower.o obj/ft_toupper.o obj/environ_node.o obj/manufact.o obj/manufact_type.o obj/parsed_node.o obj/pipe_node.o obj/rd_node.o obj/free_set_a.o obj/free_set_main.o obj/link_to_head.o obj/util_unit_pipe.o obj/check_cmd_malloc_fail.o obj/check_is_backslash_appear.o obj/check_is_only_wspace.o obj/check_is_pipe_error.o obj/check_is_redr_continuous.o obj/check_is_semicolon_appear.o obj/check_quote_not_closed.o obj/check_syntax_error.o obj/control_quote.o obj/is_error.o obj/judge_is_quote_error.o obj/print_error.o obj/print_malloc_error.o obj/cd.o obj/echo.o obj/env.o obj/exit.o obj/export.o obj/export_add.o obj/export_print.o obj/pwd.o obj/unset.o obj/execute.o obj/execute_builtin.o obj/execute_child.o obj/free_memory.o obj/handle_error.o obj/handle_signal.o obj/main.o obj/redirect.o obj/redirect_double.o obj/handler.o obj/loader.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-01 21:10:19
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 73):
 	@echo "[+] Create minishell"
 	@$(CC) $(CFLAGS) $(RLINC) $(RLLINK) -o $@ $(OBJS)
 	
 
-# Not a target:
-obj/ft_lstsize.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/ft_lstsize.o: libft/ft_lstsize.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_lstsize'
+#  Last modified 2022-06-01 21:10:01
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_memcpy.o: libft/ft_memcpy.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_memcpy'
+#  Last modified 2022-06-01 21:10:01
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/ft_memcpy.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/redirect.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_itoa.o: libft/ft_itoa.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_itoa'
+#  Last modified 2022-06-01 21:09:59
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/free_memory.o: src/free_memory.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `free_memory'
+#  Last modified 2022-06-01 21:10:09
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_memcmp.o: libft/ft_memcmp.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_memcmp'
+#  Last modified 2022-06-01 21:10:01
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_strlen.o: libft/ft_strlen.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_strlen'
+#  Last modified 2022-06-01 21:10:03
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/proc_question_mark.o: src/test/proc/proc_question_mark.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `proc_question_mark'
+#  Last modified 2022-06-01 21:09:50
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/pwd.o: src/builtin/pwd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pwd'
+#  Last modified 2022-06-01 21:10:09
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+ 
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_memchr.o: libft/ft_memchr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_memchr'
+#  Last modified 2022-06-01 21:10:01
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_isdigit.o: libft/ft_isdigit.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_isdigit'
+#  Last modified 2022-06-01 21:09:59
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/ft_itoa.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/redirect_double.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_strrchr.o: libft/ft_strrchr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_strrchr'
+#  Last modified 2022-06-01 21:10:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/free_memory.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_memcmp.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_strlen.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/proc_question_mark.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/pwd.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_memchr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_isdigit.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_strrchr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_itoa.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 79):
+#  commands to execute (from `Makefile', line 81):
 	@$(RM) $(NAME)
 	@echo "[-] Delete run files"
 	
 
 # Not a target:
-obj/ft_lstlast.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/struct/malloc_struct.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_lstlast.o: libft/ft_lstlast.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_lstlast'
+#  Last modified 2022-06-01 21:10:00
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/test.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_memcmp.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/ft_memset.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/execute_child.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/init_special.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/cd.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_tolower.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/echo.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/is_pipe.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_strjoin.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_split.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_lstclear.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/proc_pipe.o:
+libft/ft_strlen.c:
+#  Implicit rule search has been done.
  
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/test.o: src/test/test.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `test'
+#  Last modified 2022-06-01 21:09:48
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/export.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_isascii.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+ 
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_isdigit.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_memset.o: libft/ft_memset.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_memset'
+#  Last modified 2022-06-01 21:10:02
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/main.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/error/control_quote.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/struct/rollback_cmd_obj_buffer.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_lstlast.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/execute_child.o: src/execute_child.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `execute_child'
+#  Last modified 2022-06-01 21:10:09
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/builtin/export_print.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_memchr.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/init_special.o: src/test/struct/init_special.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `init_special'
+#  Last modified 2022-06-01 21:09:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/struct/init_struct.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/builtin/export_add.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/cd.o: src/builtin/cd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `cd'
+#  Last modified 2022-06-01 21:10:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_tolower.o: libft/ft_tolower.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_tolower'
+#  Last modified 2022-06-01 21:10:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/echo.o: src/builtin/echo.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `echo'
+#  Last modified 2022-06-01 21:10:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/is_pipe.o: src/test/is/is_pipe.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `is_pipe'
+#  Last modified 2022-06-01 21:09:48
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+libft/ft_strlcat.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_strjoin.o: libft/ft_strjoin.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_strjoin'
+#  Last modified 2022-06-01 21:10:03
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/malloc_if_cmd_null.o: src/test/struct/malloc_if_cmd_null.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `malloc_if_cmd_null'
+#  Last modified 2022-06-01 21:09:53
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+ 
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+ 
+obj/ft_split.o: libft/ft_split.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_split'
+#  Last modified 2022-06-01 21:10:02
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_lstclear.o: libft/ft_lstclear.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_lstclear'
+#  Last modified 2022-06-01 21:10:00
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/builtin/env.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/is/error_is_quot.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/proc_pipe.o: src/test/proc/proc_pipe.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `proc_pipe'
+#  Last modified 2022-06-01 21:09:50
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+libft/ft_tolower.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/export.o: src/builtin/export.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `export'
+#  Last modified 2022-06-01 21:10:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
 .DEFAULT:
@@ -793,22 +2010,88 @@ obj/export.o:
 #  File has not been updated.
 
 # Not a target:
-obj/ft_strlcat.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_strrchr.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/malloc_struct.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_strjoin.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/ft_bzero.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_split.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_lstclear.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_strlcat.o: libft/ft_strlcat.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_strlcat'
+#  Last modified 2022-06-01 21:10:03
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+libft/ft_lstnew.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/malloc_struct.o: src/test/struct/malloc_struct.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `malloc_struct'
+#  Last modified 2022-06-01 21:09:54
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_bzero.o: libft/ft_bzero.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_bzero'
+#  Last modified 2022-06-01 21:09:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 re: fclean all
 #  Phony target (prerequisite of .PHONY).
@@ -816,227 +2099,750 @@ re: fclean all
 #  File does not exist.
 #  File has not been updated.
 
-# Not a target:
-obj/ft_isprint.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-clean:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 75):
-	@$(RM) $(OBJS)
-	@echo "[-] Delete object files"
+obj/ft_isprint.o: libft/ft_isprint.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_isprint'
+#  Last modified 2022-06-01 21:09:59
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
 # Not a target:
-obj/free_set_a.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/init_struct.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-src/test/distinguish.c:
+libft/ft_putchar_fd.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-28 11:35:16
+#  Last modified 2022-06-01 21:09:08
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/ft_striteri.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/link_to_head.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/is_redr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/is_dolr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_lstnew.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/is_space.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/proc_redr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/proc_dolr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/proc_space.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/handle_error.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_putnbr_fd.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/export_print.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/get_next_line_utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/export_add.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_calloc.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_substr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/env.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/exit.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/ft_isalpha.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-obj/distinguish.o: src/test/distinguish.c
+src/test/free/free_set_main.c:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `distinguish'
-#  File does not exist.
+#  Last modified 2022-06-01 21:09:08
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/distinguish.o
-# automatic
-# % := 
-# automatic
-# * := distinguish
-# automatic
-# + := src/test/distinguish.c
-# automatic
-# | := 
-# automatic
-# < := src/test/distinguish.c
-# automatic
-# ^ := src/test/distinguish.c
-# automatic
-# ? := src/test/distinguish.c
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=3/18=17%
-#  commands to execute (from `Makefile', line 67):
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_memset.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/rollback_cmd_obj_buffer.o: src/test/struct/rollback_cmd_obj_buffer.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `rollback_cmd_obj_buffer'
+#  Last modified 2022-06-01 21:09:55
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 77):
+	@$(RM) $(OBJS)
+	@echo "[-] Delete object files"
+	
+
+# Not a target:
+src/test/test.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/free_memory.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_bzero.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+ 
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/free_set_a.o: src/test/free/free_set_a.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `free_set_a'
+#  Last modified 2022-06-01 21:10:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/init_struct.o: src/test/struct/init_struct.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `init_struct'
+#  Last modified 2022-06-01 21:09:53
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
 	@echo "[~] Linking $<"
 	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
 	
 
 # Not a target:
-obj/is_error.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_isprint.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/init_environ.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/distinguish.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_striteri.o: libft/ft_striteri.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_striteri'
+#  Last modified 2022-06-01 21:10:03
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/check_is_pipe_error.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/builtin/unset.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/redirect_double.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/execute.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/link_to_head.o: src/test/link/link_to_head.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `link_to_head'
+#  Last modified 2022-06-01 21:10:06
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/execute_builtin.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+libft/ft_striteri.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/is_redr.o: src/test/is/is_redr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `is_redr'
+#  Last modified 2022-06-01 21:09:49
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/is_dolr.o: src/test/is/is_dolr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `is_dolr'
+ 
+#  Last modified 2022-06-01 21:09:48
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_lstnew.o: libft/ft_lstnew.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_lstnew'
+#  Last modified 2022-06-01 21:10:00
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+ 
+# Not a target:
+src/execute_child.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/is_space.o: src/test/is/is_space.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `is_space'
+#  Last modified 2022-06-01 21:09:49
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/loader.o: src/test/signal/loader.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `loader'
+#  Last modified 2022-06-01 21:10:19
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/proc_redr.o: src/test/proc/proc_redr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `proc_redr'
+#  Last modified 2022-06-01 21:09:50
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/proc_dolr.o: src/test/proc/proc_dolr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `proc_dolr'
+#  Last modified 2022-06-01 21:09:49
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
 
 # Not a target:
-obj/print_error.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/test/error/check_cmd_malloc_fail.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/proc_space.o: src/test/proc/proc_space.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `proc_space'
+#  Last modified 2022-06-01 21:09:50
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/is/is_null.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/builtin/cd.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/handle_error.o: src/handle_error.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `handle_error'
+#  Last modified 2022-06-01 21:10:10
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/is/is_quot.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_putnbr_fd.o: libft/ft_putnbr_fd.c
+ 
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_putnbr_fd'
+#  Last modified 2022-06-01 21:10:02
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/export_print.o: src/builtin/export_print.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `export_print'
+#  Last modified 2022-06-01 21:10:09
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/export_add.o: src/builtin/export_add.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `export_add'
+#  Last modified 2022-06-01 21:10:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/check_cmd_malloc_fail.o: src/test/error/check_cmd_malloc_fail.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `check_cmd_malloc_fail'
+#  Last modified 2022-06-01 21:10:06
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/ft_calloc.o: libft/ft_calloc.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_calloc'
+#  Last modified 2022-06-01 21:09:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/proc/proc_null.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_putnbr_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_substr.o: libft/ft_substr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_substr'
+#  Last modified 2022-06-01 21:10:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/proc/proc_find_letter.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/env.o: src/builtin/env.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `env'
+#  Last modified 2022-06-01 21:10:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/proc/proc_quot.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/error/check_is_pipe_error.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+ 
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/exit.o: src/builtin/exit.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `exit'
+#  Last modified 2022-06-01 21:10:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+libft/ft_calloc.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_substr.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_isalpha.o: libft/ft_isalpha.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ft_isalpha'
+#  Last modified 2022-06-01 21:09:59
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/error/print_error.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/proc/proc_pipe.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/distinguish.o: src/test/distinguish.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `distinguish'
+#  Last modified 2022-06-01 21:09:48
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/is_error.o: src/test/error/is_error.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `is_error'
+#  Last modified 2022-06-01 21:10:07
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/init_environ.o: src/test/struct/init_environ.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `init_environ'
+#  Last modified 2022-06-01 21:09:51
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/link/link_to_head.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+ 
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/builtin/export.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/error/check_is_only_wspace.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/free/free_set_a.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/check_is_pipe_error.o: src/test/error/check_is_pipe_error.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `check_is_pipe_error'
+#  Last modified 2022-06-01 21:10:06
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/redirect_double.o: src/redirect_double.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `redirect_double'
+#  Last modified 2022-06-01 21:10:10
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/execute_builtin.o: src/execute_builtin.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `execute_builtin'
+#  Last modified 2022-06-01 21:10:09
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+libft/ft_isalpha.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_lstsize.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test/error/judge_is_quote_error.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/handler.o: src/test/signal/handler.c
+ 
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `handler'
+#  Last modified 2022-06-01 21:10:19
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+obj/print_error.o: src/test/error/print_error.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `print_error'
+#  Last modified 2022-06-01 21:10:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 69):
+	@echo "[~] Linking $<"
+	@$(CC) $(CFLAGS) $(RLINC) -c -o $@ $<
+	
+
+# Not a target:
+src/test/proc/proc_question_mark.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+libft/ft_strchr.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 21:09:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=114/1024=11%, Rehash=0, Collisions=33/250=13%
+# Load=231/1024=23%, Rehash=0, Collisions=567/2528=22%
 # VPATH Search Paths
 
-vpath %.c src:src/test:src/test/is:src/test/proc:src/test/struct:libft:src/test/node:src/test/free:src/test/link:src/test/error:src/builtin:gnl
+vpath %.c src:src/test:src/test/is:src/test/proc:src/test/struct:libft:src/test/node:src/test/free:src/test/link:src/test/error:src/builtin:src/test/signal
 
 # 1 `vpath' search paths.
 
@@ -1047,6 +2853,6 @@ vpath %.c src:src/test:src/test/is:src/test/proc:src/test/struct:libft:src/test/
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon May 30 10:46:30 2022
+# Finished Make data base on Wed Jun  1 21:10:37 2022
 
  

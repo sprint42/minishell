@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manufact.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 14:39:35 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/31 14:02:39 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/01 21:16:07 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	manufact(t_point *ptr)
 	while (tmp)
 	{
 		manufact_type(&tmp, ptr);
+		// printf("[AFTERR] %s : %s\n", tmp->type, tmp->str);
 		tmp = tmp->next;
 	}
 }
