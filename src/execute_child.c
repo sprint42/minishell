@@ -66,7 +66,7 @@ void	execute_execve(t_unit_head *cmd_lst, t_unit_pipe *curr_cmd)
 		path = extract_path(envp, curr_cmd);
 		if (path != NULL)
 			add_path(curr_cmd, path);
-		free_path(path);
+		free_array_d2(path);
 	}
 	execve(curr_cmd->commands[0], curr_cmd->commands, envp);
 	if (errno == EACCESS)
