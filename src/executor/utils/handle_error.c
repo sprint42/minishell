@@ -18,7 +18,10 @@ int	handle_main_process_error(char *message, t_unit_head *cmd_lst)
 
 int handle_child_process_error(int exit_num, int errnum, char *str)
 {
-	ft_putstr_fd(strerror(errnum), STDERR_FILENO);
+	if (errnum == EACCESS)
+		ft_putstr_fd("command not found", STDERR_FILENO);
+	else
+		ft_putstr_fd(strerror(errnum), STDERR_FILENO);
 	ft_putstr_fd(": ", STDERR_FILENO);
 	ft_putstr_fd(str, STDERR_FILENO);
 	ft_putchar_fd('\n', STDERR_FILENO);
