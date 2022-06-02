@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 23:46:57 by yejin             #+#    #+#             */
-/*   Updated: 2022/06/02 13:30:36 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/02 22:29:37 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_cmdline(char *buf, t_unit_head *cmd_lst)
 {
 	if (buf_nn(buf, cmd_lst) && !is_error(cmd_lst, buf) && (ft_strlen(buf) > 0))
 	{
-		cmd_lst = test(&cmd_lst, buf, cmd_lst->idx);
+		cmd_lst = parse(&cmd_lst, buf, cmd_lst->idx);
 		if (cmd_lst && cmd_lst->error_flag == 1)
 			free_cmd_lst(cmd_lst);
 		else

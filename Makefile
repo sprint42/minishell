@@ -1,8 +1,11 @@
 CC		= gcc
 RM		= rm -rf
-CFLAGS	= -I $(HEAD_ROOT) -Wall -Werror -Wextra
-RLLINK 	= -l readline -L$(HOME)/.brew/opt/readline/lib
-RLINC  	= -I$(HOME)/.brew/opt/readline/include
+CFLAGS	= -I $(HEAD_ROOT) -Wall -Werror -Wextra -g
+# RLLINK 	= -l readline -L$(HOME)/.brew/opt/readline/lib
+# RLINC  	= -I$(HOME)/.brew/opt/readline/include
+RLLINK  = -l readline -L/usr/local/opt/readline/lib
+RLINC   = -I/usr/local/opt/readline/include
+
 
 NAME	= minishell
 
@@ -11,16 +14,15 @@ OBJS_ROOT	= obj
 SRCS_ROOT	= src
 
 # Src subdirectory
-SRCS_UTIL 	= src/util
-SRCS_TEST 	= src/test
+SRCS_PARSE 	= src/parse
 SRCS_EXECT	= src/executor
-SRCS_IS		= $(SRCS_TEST)/is
-SRCS_PROC	= $(SRCS_TEST)/proc
-SRCS_STRUCT	= $(SRCS_TEST)/struct
-SRCS_NODE	= $(SRCS_TEST)/node
-SRCS_FREE	= $(SRCS_TEST)/free
-SRCS_LINK	= $(SRCS_TEST)/link
-SRCS_ERROR	= $(SRCS_TEST)/error
+SRCS_IS		= $(SRCS_PARSE)/is
+SRCS_PROC	= $(SRCS_PARSE)/proc
+SRCS_STRUCT	= $(SRCS_PARSE)/struct
+SRCS_NODE	= $(SRCS_PARSE)/node
+SRCS_FREE	= $(SRCS_PARSE)/free
+SRCS_LINK	= $(SRCS_PARSE)/link
+SRCS_ERROR	= $(SRCS_PARSE)/error
 SRCS_LIBF	= libft
 SRCS_BUILT	= $(SRCS_EXECT)/builtin
 SRCS_EXEC	= $(SRCS_EXECT)/execute
@@ -29,11 +31,10 @@ SRCS_SIGNAL	= $(SRCS_EXECT)/signal
 SRCS_UTILS	= $(SRCS_EXECT)/utils
 
 # Add subdirectory
-SRCS_ROOT += $(SRCS_UTIL) $(SRCS_TEST) $(SRCS_IS) $(SRCS_PROC) $(SRCS_STRUCT) $(SRCS_LIBF) $(SRCS_NODE) $(SRCS_FREE) $(SRCS_LINK) $(SRCS_ERROR) $(SRCS_EXECT) $(SRCS_BUILT) $(SRCS_EXEC) $(SRCS_REDIR) $(SRCS_SIGNAL) $(SRCS_UTILS)
+SRCS_ROOT += $(SRCS_PARSE) $(SRCS_IS) $(SRCS_PROC) $(SRCS_STRUCT) $(SRCS_LIBF) $(SRCS_NODE) $(SRCS_FREE) $(SRCS_LINK) $(SRCS_ERROR) $(SRCS_EXECT) $(SRCS_BUILT) $(SRCS_EXEC) $(SRCS_REDIR) $(SRCS_SIGNAL) $(SRCS_UTILS)
 
 # Src files
-FILE_TEST 	= $(notdir $(wildcard $(SRCS_TEST)/*.c))
-FILE_UTIL 	= $(notdir $(wildcard $(SRCS_UTIL)/*.c))
+FILE_PARSE 	= $(notdir $(wildcard $(SRCS_PARSE)/*.c))
 FILE_IS		= $(notdir $(wildcard $(SRCS_IS)/*.c))
 FILE_PROC	= $(notdir $(wildcard $(SRCS_PROC)/*.c))
 FILE_STRUCT	= $(notdir $(wildcard $(SRCS_STRUCT)/*.c))
@@ -52,7 +53,7 @@ FILE_UTILS	= $(notdir $(wildcard $(SRCS_UTILS)/*.c))
 vpath %.c $(SRCS_ROOT)
 
 # Common file objects
-TEST_OBJ	= $(FILE_TEST:.c=.o)
+PARSE_OBJ	= $(FILE_PARSE:.c=.o)
 IS_OBJ		= $(FILE_IS:.c=.o)
 PROC_OBJ	= $(FILE_PROC:.c=.o)
 STRUCT_OBJ	= $(FILE_STRUCT:.c=.o)
@@ -68,7 +69,7 @@ REDIR_OBJ	= $(FILE_REDIR:.c=.o)
 SIGNAL_OBJ	= $(FILE_SIGNAL:.c=.o)
 UTILS_OBJ	= $(FILE_UTILS:.c=.o)
 
-OBJS := $(TEST_OBJ) $(IS_OBJ) $(PROC_OBJ) $(STRUCT_OBJ) $(LIBF_OBJ) $(NODE_OBJ) $(FREE_OBJ) $(LINK_OBJ) $(ERROR_OBJ) $(EXECT_OBJ) $(BUILT_OBJ) $(EXEC_OBJ) $(REDIR_OBJ) $(SIGNAL_OBJ) $(UTILS_OBJ)
+OBJS := $(PARSE_OBJ) $(IS_OBJ) $(PROC_OBJ) $(STRUCT_OBJ) $(LIBF_OBJ) $(NODE_OBJ) $(FREE_OBJ) $(LINK_OBJ) $(ERROR_OBJ) $(EXECT_OBJ) $(BUILT_OBJ) $(EXEC_OBJ) $(REDIR_OBJ) $(SIGNAL_OBJ) $(UTILS_OBJ)
 OBJS := $(addprefix $(OBJS_ROOT)/, $(OBJS))
 
 all : $(NAME)

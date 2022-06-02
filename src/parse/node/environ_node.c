@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   environ_node.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:50:03 by mcha              #+#    #+#             */
-/*   Updated: 2022/05/30 14:22:12 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/02 22:23:45 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ t_unit_env	*new_env_node(char *key, char *value)
 	return (node);
 }
 
-char	*ret_env_value(t_point *pck, char *key)
+char	*ret_env_value(t_unit_head *head, char *key)
 {
 	t_unit_env	*tmp;
 	char		*ret;
 
 	ret = NULL;
-	tmp = pck->env->env_next;
+	tmp = head->env_next;
 	if (!ft_strncmp(key, "?", ft_strlen(key)))
 	{
 		ret = proc_question_mark();

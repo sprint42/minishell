@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   head.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 13:32:42 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/02 13:31:49 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/02 22:37:23 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,13 +133,14 @@ t_special		*malloc_junction(void);
 void			init_special(t_point *ptr);
 void			init_environ(t_point *pck);
 void			malloc_if_cmd_null(t_unit_head **cmd_lst);
-t_unit_head		*test(t_unit_head **head, char *target, int idx);
+t_unit_head		*parse(t_unit_head **head, char *target, int idx);
 void			rollback_cmd_obj_buffer(t_unit_head **cmd_lst, char *buf);
 
 /*
 **	judge special
 */
-void			judge_special(t_point *pck, char **s, char **ret);
+void			judge_special(t_unit_head *head, t_point *pck, \
+							char **s, char **ret);
 
 /*
 **	is special word
@@ -165,10 +166,11 @@ int				find_redr(t_point *pck, char c, char redr);
 char			*proc_question_mark(void);
 void			proc_null(t_point *pck, char **ret);
 void			proc_pipe(t_point *pck, char **s, char **ret);
-void			proc_dolr(t_point *pck, char **s, char **ret);
 void			proc_space(t_point *pck, char **s, char **ret);
 void			proc_redr(t_point *pck, char **s, char **ret, char redr);
 void			proc_quot(t_point *pck, char **s, char **ret, char quot);
+void			proc_dolr(t_unit_head *head, t_point *pck, \
+					char **s, char **ret);
 
 /*
 **	Node
@@ -176,10 +178,10 @@ void			proc_quot(t_point *pck, char **s, char **ret, char quot);
 void			manufact(t_point *ptr);
 t_parsed		*new_node(char *type, char *str);
 t_unit_env		*new_env_node(char *key, char *value);
-char			*ret_env_value(t_point *pck, char *key);
 t_unit_rd		*new_rd_node(int rd_type, char *filename);
 void			link_new_node(t_parsed *og, t_parsed *new);
 void			manufact_type(t_parsed **tmp, t_point *ptr);
+char			*ret_env_value(t_unit_head *head, char *key);
 void			link_new_env_node(t_unit_env *og, t_unit_env *new);
 void			link_new_rd_node(t_unit_pipe *unit, t_unit_rd *new);
 void			link_new_pipe_node(t_unit_head *head, t_unit_pipe *new);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 20:36:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/02 13:27:44 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/02 22:29:20 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	link_environ(t_unit_head **head, t_point *pck)
 	}
 }
 
-t_unit_head	*test(t_unit_head **head, char *target, int idx)
+t_unit_head	*parse(t_unit_head **head, char *target, int idx)
 {
 	char	*ret;
 	char	*tmp_target;
@@ -35,7 +35,7 @@ t_unit_head	*test(t_unit_head **head, char *target, int idx)
 	{
 		tmp_target = target;
 		while (*tmp_target)
-			judge_special(pck, &tmp_target, &ret);
+			judge_special(*head, pck, &tmp_target, &ret);
 		manufact(pck);
 		check_syntax_error(*head, pck);
 		link_and_free(&pck, head, &target);
