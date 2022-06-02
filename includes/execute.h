@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   execute.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/02 13:52:11 by mcha              #+#    #+#             */
+/*   Updated: 2022/06/02 13:52:12 by mcha             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef EXECUTE_H
 # define EXECUTE_H
 
@@ -91,7 +103,8 @@ void		free_array_d2(char	**array_d2);
 int			handle_default_error(char *message);
 int			handle_main_process_error(char *message, t_unit_head *cmd_lst);
 int			handle_child_process_error(int exit_num, int errnum, char *str);
-int			handle_while_generating_error(char *message, t_unit_head *cmd_lst, int i);
+int			handle_while_generating_error(char *message, \
+										t_unit_head *cmd_lst, int i);
 
 /* loader.c */
 void		loader(void *int_handler, void *quit_handler);
@@ -103,6 +116,6 @@ void		sig_child_handler(int signal);
 
 /* save_stream.c */
 void		save_stream(int	*fd_stdin, int *fd_stdout, t_unit_head *cmd_lst);
-void			rollback_stream(int fd_stdin, int fd_stdout, t_unit_head *cmd_lst);
+void		rollback_stream(int fd_stdin, int fd_stdout, t_unit_head *cmd_lst);
 
 #endif

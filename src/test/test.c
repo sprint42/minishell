@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcha <mcha@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 20:36:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/01 21:12:20 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/02 13:27:44 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ t_unit_head	*test(t_unit_head **head, char *target, int idx)
 	link_environ(head, pck);
 	ret = NULL;
 	target = ft_strtrim(target, (char const *)pck->junction->space_trim_set);
-	// if (target)
 	if (target && ft_strlen(target) > 0)
 	{
 		tmp_target = target;

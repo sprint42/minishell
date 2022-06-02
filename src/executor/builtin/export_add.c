@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export_add.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yejin <yejin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 00:34:09 by yejin             #+#    #+#             */
-/*   Updated: 2022/06/02 00:34:10 by yejin            ###   ########.fr       */
+/*   Updated: 2022/06/02 13:51:00 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static int	change_env(t_unit_env *curr, char *str, char *key, int eq_idx)
 		free(key);
 		return (-1);
 	}
+	free(key);
 	return (1);
 }
 

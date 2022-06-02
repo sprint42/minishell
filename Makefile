@@ -1,10 +1,8 @@
 CC		= gcc
 RM		= rm -rf
-CFLAGS	= -I $(HEAD_ROOT) -Wall -Werror -Wextra -g#3 -fsanitize=address
-#RLLINK = -l readline -L$(HOME)/.brew/opt/readline/lib
-RLLINK  = -lreadline -L/opt/homebrew/opt/readline/lib
-#RLINC  =  -I$(HOME)/.brew/opt/readline/include
-RLINC   = -I/opt/homebrew/opt/readline/include
+CFLAGS	= -I $(HEAD_ROOT) -Wall -Werror -Wextra
+RLLINK 	= -l readline -L$(HOME)/.brew/opt/readline/lib
+RLINC  	= -I$(HOME)/.brew/opt/readline/include
 
 NAME	= minishell
 
@@ -91,6 +89,8 @@ fclean : clean
 		@$(RM) $(NAME)
 		@echo "[-] Delete run files"
 
-re : fclean all
+re : 
+		make fclean
+		make all
 
 .PHONY : all clean fclean re
